@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import {useState } from 'react';
 import './App.css';
+import Navigation from './components/navigation/navigation';
+import './assets/icons/icons';
+import Main from './components/main/main';
+import Sidebar from './components/sidebar/sidebar';
+import {motion as m} from 'framer-motion';
 
 function App() {
+
+  const [showAside, setShowAside] = useState(false);
+
+  function setAside() {
+    setShowAside(!showAside);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <div className="relative">
+      <Sidebar showAside={showAside}/>
+      <div
+          className={`w-[80%] transition-all ease duration-700 ${
+            showAside ? 'ml-[20%]' : 'ml-[10%]'
+          }`}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Navigation setAside={setAside} showAside={showAside} />
+          <Main />
+        </div>
+      </div>
+    </>
   );
 }
 
