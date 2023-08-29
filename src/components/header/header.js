@@ -1,6 +1,13 @@
-function Header () {
+import Menu from '../menu/Menu';
+import Navigation from '../navigation/navigation';
+
+function Header (props) {
+
+
     return (
-        <header></header>
+        <header>
+            <Navigation setAside={props.setAside} showAside={props.showAside}/>
+        </header>
     )
 };
 
