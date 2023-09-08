@@ -1,6 +1,6 @@
 function WhatWeSaleItem(props) {
     return (
-        <div className="flex items-center bg-slate-300 p-4">
+        <div className="flex items-center bg-slate-50 p-4">
             <div className="w-[50%]">
                 <img src={props.image} alt={props.alt}/>
             </div>

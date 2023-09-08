@@ -9,7 +9,7 @@ function WhatWeSale() {
     )
 
     return (
-        <div className="grid grid-cols-3 justify-items-center gap-2 p-10 laptop:grid-cols-2 phone:grid-cols-1 phone:gap-6 phone:place-items-stretch">
+        <div className="grid grid-cols-3 justify-items-center gap-2 p-10 laptop:grid-cols-2 phone:grid-cols-1 phone:gap-6 phone:place-items-stretch phone:p-6">
             {
                 whatWeSale.map((item) => {
                     return (
