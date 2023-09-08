@@ -1,12 +1,31 @@
-import Header from "../header/header";
+import Desktop from "./Desktop";
+import HowItsDone from "./HowItsDone";
+import Laptop from "./Laptop";
+import LatestProducts from "./LatestProducts";
+import Phone from "./Phone";
+import Slider from "./Slider";
+import Television from "./Television";
+import WhatWeSale from "./WhatWeSale";
+import { useState } from "react";
 
-function HomePage() {
+function HomePage(props) {
+
+    const [products, setProducts] = useState(
+        props.products
+
+    )
+
+
     return(
-        <div>
-             
-             <div className="h-[500px] bg-slate-300"></div>
-             <div className="h-[500px] bg-slate-300"></div>
-             <div className="h-[500px] bg-slate-300"></div>
+        <div className="bg-slate-200">
+             <Slider />
+             <HowItsDone />
+             <WhatWeSale />
+             <LatestProducts products={products}/>
+             <Desktop products={products}/>
+             <Laptop products={products}/>
+             <Phone products={products}/>
+             <Television products={products}/>
         </div>
     )
 }
