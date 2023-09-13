@@ -40,6 +40,7 @@ function Slider() {
                         return (
                             <SwiperSlide key={sliderItem.id}>
                                 <SliderProduct
+                                    key={sliderItem.id}
                                     title={sliderItem.title}
                                     about={sliderItem.about}
                                     image={sliderItem.assets.gallery[0]}
