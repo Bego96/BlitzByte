@@ -42,7 +42,7 @@ function Sidebar(props) {
 
     return (
 
-        <aside className={`p-10 bg-slate-200 h-[100vh] w-[30%] fixed transition-all duration-700 ease tablet:z-20 tablet:w-[40%] small-desktop:p-4 phone:w-[50%] ${props.showAside ? 'left-0' : 'left-[-30%] tablet:left-[-100%]'}`}>
+        <aside className={`p-10 bg-slate-200 h-[100%] w-[30%] fixed transition-all duration-700 ease tablet:z-20 tablet:w-[60%] small-desktop:p-4 phone:w-[75%] ${props.showAside ? 'left-0 top-0' : 'left-[-30%] top-0 tablet:left-[-100%]'}`}>
             <div className="flex flex-col bg-slate-100 h-full p-10 small-desktop:p-4">
                 {   showCloseBtn ? 
                     <div className={`relative`}>

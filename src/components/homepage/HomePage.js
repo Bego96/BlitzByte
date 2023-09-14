@@ -7,6 +7,7 @@ import Slider from "./Slider";
 import Television from "./Television";
 import WhatWeSale from "./WhatWeSale";
 import { useState } from "react";
+import './styles.css'
 
 function HomePage(props) {
 

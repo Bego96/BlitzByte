@@ -9,16 +9,16 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 function Laptop(props) {
 
-    const [slidesPerView, setSlidesPerView] = useState(5);
+   // const [slidesPerView, setSlidesPerView] = useState(5);
 
     const [laptopProduct, setDesktopProduct] = useState(
         props.products.filter((product) => product.product.type === "Laptop") 
     )
     
 
-    useEffect(() => {
+    /*useEffect(() => {
         const handleResize = () => {
-            setSlidesPerView(window.innerWidth < 650 ? 2 : window.innerWidth < 1024 ? 3 : window.innerWidth < 1281 ? 4 : 5);
+            setSlidesPerView(window.screen.width < 650 ? 2 : window.screen.width < 1024 ? 3 : window.screen.width < 1281 ? 4 : 5);
         };
 
         window.addEventListener('resize', handleResize);
@@ -27,7 +27,7 @@ function Laptop(props) {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, []);
+    }, []);*/
 
     return (
         <div className="p-10 phone:p-6">
@@ -37,9 +37,20 @@ function Laptop(props) {
                 </div>
             
                 <Swiper
+                    breakpoints={{
+                        // when window width is >= 640px
+                        640: {
+                          width: 640,
+                          slidesPerView: 1,
+                        },
+                        // when window width is >= 768px
+                        768: {
+                          width: 768,
+                          slidesPerView: 2,
+                        },
+                    }}
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
                     spaceBetween={10}
-                    slidesPerView={slidesPerView}
                     navigation
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}
