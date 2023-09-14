@@ -2,8 +2,15 @@
 import {BsCart} from 'react-icons/bs';
 
 function ProductItem(props) {
+
+   
+    const selectItem = () => {
+        const itemId = props.id;
+        console.log(itemId);
+    }
+
     return (
-        <div>
+        <div onClick={() => selectItem()}>
             <div className="">
                 <img className="" src={props.image} alt="product"/>
             </div>

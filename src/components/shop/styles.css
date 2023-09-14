@@ -1,0 +1,9 @@
+.paginationContainer {
+    display: flex;
+    margin: 30px 0;
+    color: #336eaa;
+}
+
+.paginationContainer li {
+    margin: 0 10px;
+}
