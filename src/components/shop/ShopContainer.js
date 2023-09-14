@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useMediaQuery } from "@uidotdev/usehooks";
 
 function ShopContainer(props) {
-    const [showMenu, setShowMenu] = useState(window.innerWidth > 768 ? true : false);
+    const [showMenu, setShowMenu] = useState(window.innerWidth > 768);
     
     const showMenuFunction = () => {
         setShowMenu(!showMenu);
@@ -13,8 +13,10 @@ function ShopContainer(props) {
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth < 769) {
+            if (window.innerWidth > 768) {
                 setShowMenu(true);
+            } else {
+                setShowMenu(false)
             }
         }
 
