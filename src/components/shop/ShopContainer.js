@@ -4,22 +4,32 @@ import { useEffect, useState } from "react";
 
 function ShopContainer(props) {
 
-    console.log("Shop COntainer " + props.products)
-    const [showMenu, setShowMenu] = useState(true);
+    
+    const [showMenu, setShowMenu] = useState(window.innerWidth < 769 ? false : true);
 
+    console.log(showMenu)
+    console.log(showMenu)
     const showMenuFunction = () => {
         setShowMenu(!showMenu)
     }
 
+    
     useEffect(() =>{
         const showInfoOnSmallDevices = () => {
-            if (window.innerWidth < 769) {
+            if (window.innerWidth < 768) {
                 setShowMenu(false);
             } else {
                 setShowMenu(true);
             }
-        } 
+        };
+    
+        // Add the event listener
         window.addEventListener('resize', showInfoOnSmallDevices);
+    
+        // Clean up by removing the event listener when the component unmounts
+        return () => {
+            window.removeEventListener('resize', showInfoOnSmallDevices);
+        };
     }, [showMenu])
 
     return (
@@ -29,9 +39,9 @@ function ShopContainer(props) {
             </div>
             
             {
-                showMenu ? <ShopSidebar selectedCategory={props.selectedCategory} products={props.products} filterByPrice={props.filterByPrice}/> : null
+                showMenu  ? <ShopSidebar selectedCategory={props.selectedCategory} products={props.products} filterByPrice={props.filterByPrice}/> : null
             }
-            
+            <p>{showMenu}</p>
             <ShopProductList products={props.products}/>
         </div>
     )
