@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ShopNavigation from "./ShopNavigation";
 import ShopContainer from "./ShopContainer";
 
@@ -32,16 +32,17 @@ function Shop(props) {
     }
 
 
-    const filterByPrice = (min, max) => {
+    const filterByPrice = (minMax) => {
         // Filter products based on price range and update filtered state
         const filteredProducts = products.filter(
-            (product) => product.product.price >= min && product.product.price <= max
+            (product) => product.product.price >= minMax[0] && product.product.price <= minMax[1]
         );
-        //setFiltered(filteredProducts);
-        console.log(filteredProducts)
+      // setFiltered(filteredProducts);
+        console.log(filteredProducts + "Min" + minMax[0] + " Max" + minMax[1])
     };
 
-    console.log(products);
+
+    
     return (
         <><div className="">
             <div className="p-10 text-center">

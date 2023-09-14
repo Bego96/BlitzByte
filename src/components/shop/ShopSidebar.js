@@ -11,26 +11,27 @@ function valuetext(value) {
 function ShopSidebar(props) {
 
     const price=  props.products.map((price) => price.product.price);
-
+    console.log(typeof Math.max(...price))
     const [priceValue, setPriceValue] = useState([0, Math.max(...price)]);
 
     const handlePriceChange = (event, newValue) => {
       setPriceValue(newValue);
-
+        const priceNewValue = priceValue;
+        props.filterByPrice(priceNewValue);
     };
 
     const minPrice = (event) => {
        const newMinPrice = parseFloat(event.target.value); // Parse the input value to a float
        setPriceValue([newMinPrice, priceValue[1]]); // Update the priceValue state with the new minimum price
        console.log(event.target.value)
-    
+        props.filterByPrice([newMinPrice, priceValue[1]])
     }
 
     const maxPrice = (event) => {
        const newMaxPrice = parseFloat(event.target.value); // Parse the input value to a float
        setPriceValue([priceValue[0], newMaxPrice]); // Update the priceValue state with the new minimum price
        console.log(event.target.value)
-       
+       props.filterByPrice([priceValue[0], newMaxPrice])
     }
 
     const selectCategory = (value) => {
@@ -38,10 +39,7 @@ function ShopSidebar(props) {
         props.selectedCategory(selectedCategory);
     }
 
-    useEffect(() => {
-        // Update the filtered products when the priceValue changes
-        props.filterByPrice(priceValue[0], priceValue[1]);
-    }, [priceValue, props]);
+    
 
     return (
         <div className="w-[15%] laptop:w-[25%] tablet:w-full ">
@@ -55,7 +53,7 @@ function ShopSidebar(props) {
                     <label for="min">Min:</label>
                     <input className="border w-full mb-2 p-1 tablet:w-[50%]" type="number" name="min" min={0} max={priceValue[1]} value={priceValue[0]} onChange={minPrice}/>
                     <label for="max">Max:</label>
-                    <input className="border w-full p-1 tablet:w-[50%]" type="number" name="max" min={0} max={Math.max(...price)} value={priceValue[1]} onChange={maxPrice}/>
+                    <input className="border w-full p-1 tablet:w-[50%]" type="number" name="max" min={0} max={priceValue[1]} value={priceValue[1]} onChange={maxPrice}/>
                 </div>
                 <div className="w-full tablet:w-[50%]">
                     <Box sx={{ width: '100%'}}>
