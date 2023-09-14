@@ -16,7 +16,7 @@ function ShopContainer(props) {
     
     useEffect(() =>{
         const showInfoOnSmallDevices = () => {
-            if (window.innerWidth < 768) {
+            if (window.innerWidth < 769) {
                 setShowMenu(false);
             } else {
                 setShowMenu(true);
