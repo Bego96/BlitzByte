@@ -11,27 +11,25 @@ function Slider() {
     );
 
     // Define a state variable to store the number of slides per view
-    const [slidesPerView, setSlidesPerView] = useState(2);
 
     // Update the number of slides per view when the window width changes
-    useEffect(() => {
-        const handleResize = () => {
-            setSlidesPerView(window.innerWidth < 769 ? 1 : 2);
-        };
-
-        window.addEventListener('resize', handleResize);
-
-        // Clean up the event listener when the component unmounts
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
 
     return (
         <div className="w-full">
              <Swiper
+                breakpoints={{
+                    // when window width is >= 640px
+                    640: {
+                      width: 640,
+                      slidesPerView: 1,
+                    },
+                    // when window width is >= 768px
+                    768: {
+                      width: 768,
+                      slidesPerView: 2,
+                    },
+                }}
                 spaceBetween={0}
-                slidesPerView={slidesPerView}
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper) => console.log(swiper)}
             >

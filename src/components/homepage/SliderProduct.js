@@ -24,13 +24,13 @@ function SliderProduct(props) {
 
     // Show info on hover, will be improved with framer motion for more dynamic hover effect
 
-    const [showInfo, setShowInfo] = useState(false);
+    const [showInfo, setShowInfo] = useState(window.screen.width < 769 ? true : false);
 
 
     useEffect(() => {
 
         const showInfoOnSmallDevices = () => {
-            if (window.innerWidth < 769) {
+            if (window.screen.width < 769) {
                 setShowInfo(true);
             } else {
                 setShowInfo(false);
