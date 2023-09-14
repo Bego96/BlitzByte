@@ -42,7 +42,7 @@ function ShopSidebar(props) {
     
 
     return (
-        <div className="w-[15%] laptop:w-[25%] tablet:w-full ">
+        <div className="w-[15%] laptop:w-[25%] tablet:w-full">
             <div className="">
                 <ShopSidebarCategories selectCategory={selectCategory}/>
             </div>
