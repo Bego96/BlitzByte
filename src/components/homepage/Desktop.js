@@ -9,25 +9,14 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 function Desktop(props) {
 
-    const [slidesPerView, setSlidesPerView] = useState(5);
+    
 
     const [desktopProduct, setDesktopProduct] = useState(
         props.products.filter((product) => product.product.type === "Desktop PC") 
     )
     
 
-    useEffect(() => {
-        const handleResize = () => {
-            setSlidesPerView(window.innerWidth < 650 ? 2 : window.innerWidth < 1024 ? 3 : window.innerWidth < 1281 ? 4 : 5);
-        };
-
-        window.addEventListener('resize', handleResize);
-
-        // Clean up the event listener when the component unmounts
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
+    
 
     return (
         <div className="p-10 phone:p-6">
@@ -37,9 +26,20 @@ function Desktop(props) {
                 </div>
             
                 <Swiper
+                    breakpoints={{
+                        // when window width is >= 640px
+                        640: {
+                          width: 640,
+                          slidesPerView: 1,
+                        },
+                        // when window width is >= 768px
+                        768: {
+                          width: 768,
+                          slidesPerView: 2,
+                        },
+                    }}
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
                     spaceBetween={10}
-                    slidesPerView={slidesPerView}
                     navigation
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}
