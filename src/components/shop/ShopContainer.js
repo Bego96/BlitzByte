@@ -1,17 +1,22 @@
 import ShopProductList from "./ShopProductList";
 import ShopSidebar from "./ShopSidebar";
 import { useEffect, useState } from "react";
+import { useMediaQuery } from "@uidotdev/usehooks";
 
 function ShopContainer(props) {
-    const [showMenu, setShowMenu] = useState(window.innerWidth >= 769);
-
+    const [showMenu, setShowMenu] = useState();
+    
     const showMenuFunction = () => {
         setShowMenu(!showMenu);
     }
 
     useEffect(() => {
         const handleResize = () => {
-            setShowMenu(window.innerWidth >= 769);
+            if (window.screen.width < 769) {
+                setShowMenu(false)
+            } else {
+                setShowMenu(true)
+            }
         }
 
         window.addEventListener('resize', handleResize);
@@ -31,7 +36,7 @@ function ShopContainer(props) {
             </div>
             
             {showMenu && (
-                <ShopSidebar selectedCategory={props.selectedCategory} products={props.products} filterByPrice={props.filterByPrice} showMenu={showMenu} />
+                <ShopSidebar selectedCategory={props.selectedCategory} products={props.products} filterByPrice={props.filterByPrice} />
             )}
 
             <ShopProductList products={props.products}/>
