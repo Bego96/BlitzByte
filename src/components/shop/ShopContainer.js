@@ -4,19 +4,16 @@ import { useEffect, useState } from "react";
 import { useMediaQuery } from "@uidotdev/usehooks";
 
 function ShopContainer(props) {
-    const [showMenu, setShowMenu] = useState();
+    const [showMenu, setShowMenu] = useState(window.innerWidth > 768 ? true : false);
     
     const showMenuFunction = () => {
         setShowMenu(!showMenu);
     }
 
+
     useEffect(() => {
         const handleResize = () => {
-            if (window.screen.width < 769) {
-                setShowMenu(false)
-            } else {
-                setShowMenu(true)
-            }
+            setShowMenu(window.innerWidth > 768 ? true : false)
         }
 
         window.addEventListener('resize', handleResize);
@@ -25,7 +22,7 @@ function ShopContainer(props) {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, []);
+    }, [showMenu]);
 
     return (
         <div className="flex justify-between tablet:flex-col">
