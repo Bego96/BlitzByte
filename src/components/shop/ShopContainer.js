@@ -13,7 +13,9 @@ function ShopContainer(props) {
 
     useEffect(() => {
         const handleResize = () => {
-            setShowMenu(window.innerWidth > 768 ? true : false)
+            if (window.innerWidth < 769) {
+                setShowMenu(true);
+            }
         }
 
         window.addEventListener('resize', handleResize);
@@ -22,7 +24,7 @@ function ShopContainer(props) {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [showMenu]);
+    }, []);
 
     return (
         <div className="flex justify-between tablet:flex-col">
