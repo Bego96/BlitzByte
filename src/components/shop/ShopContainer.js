@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 function ShopContainer(props) {
 
     
-    const [showMenu, setShowMenu] = useState(window.innerWidth < 769 ? false : true);
+    const [showMenu, setShowMenu] = useState(window.screen.width < 769 ? false : true);
 
     console.log(showMenu)
     console.log(showMenu)
@@ -16,7 +16,7 @@ function ShopContainer(props) {
     
     useEffect(() =>{
         const showInfoOnSmallDevices = () => {
-            if (window.innerWidth < 769) {
+            if (window.screen.width< 769) {
                 setShowMenu(false);
             } else {
                 setShowMenu(true);
@@ -27,9 +27,7 @@ function ShopContainer(props) {
         window.addEventListener('resize', showInfoOnSmallDevices);
     
         // Clean up by removing the event listener when the component unmounts
-        return () => {
-            window.removeEventListener('resize', showInfoOnSmallDevices);
-        };
+       
     }, [showMenu])
 
     return (
