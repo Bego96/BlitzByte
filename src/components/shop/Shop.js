@@ -37,7 +37,7 @@ function Shop(props) {
         const filteredProducts = products.filter(
             (product) => product.product.price >= minMax[0] && product.product.price <= minMax[1]
         );
-      // setFiltered(filteredProducts);
+      setFiltered(filteredProducts);
         console.log(filteredProducts + "Min" + minMax[0] + " Max" + minMax[1])
     };
 
