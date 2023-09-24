@@ -58,9 +58,7 @@ function Sidebar(props) {
                     <ul>
                         <li className="mb-4"><Link to="/">Home</Link></li>
                         <li className="mb-4"><Link to="/Shop">Shop</Link></li>
-                        <li className="mb-4"><Link to="/Kontakt">Kontakt</Link></li>
                         <li className="mb-4"><Link to="/Snizeno">Sniženo</Link></li>
-                        <li className="mb-4"><Link to="/O nama">O nama</Link></li>
                     </ul>
                 </div>
             </div>
