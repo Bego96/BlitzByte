@@ -6,9 +6,7 @@ function Menu() {
             <ul className="flex ">
                 <li className="mx-6"><Link to="/">Home</Link></li>
                 <li className="mx-6"><Link to="/Shop">Shop</Link></li>
-                <li className="mx-6"><Link to="/Kontakt">Kontakt</Link></li>
                 <li className="mx-6"><Link to="/Snizeno">Sniženo</Link></li>
-                <li className="mx-6"><Link to="/O nama">O nama</Link></li>
             </ul>
 
         </div>
