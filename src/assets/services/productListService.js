@@ -896,5 +896,28 @@ const productListService =
                   
 ];
 
+/*
+let makeDiscount = false;
+
+const priceCuts = {
+  'Desktop PC': {
+    priceCut: 
+  }
+}
+
+makeDiscount(makeDiscount)
+
+
+
+function makeDiscountFunc(makeDiscount) {
+  if (makeDiscount) {
+    for (let i = 0; i < productListService.length; i++) {
+      if ()
+    }
+  } else {
+    return null;
+  }
+}
+*/
 export default productListService;
 
