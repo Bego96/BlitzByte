@@ -1,6 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import {  faSearch, faHeart } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -10,16 +8,16 @@ import {IoSearchOutline} from 'react-icons/io5';
 import {BsCart} from 'react-icons/bs';
 import {BsPerson} from 'react-icons/bs';
 import Menu from "../menu/Menu";
-import Header from "../header/header";
+
 
 function Navigation(props) {
 
     const [currency, setCurrency] = useState('BAM');
     const [showSearch, setShowSearch] = useState(false);
-    const [scrollPos, setScrollPos] = useState(false);
     const targetRef = useRef();
     const searchBar = useRef();
-    console.log(showSearch)
+
+    
     const handleChange = (event) => {
       setCurrency(event.target.value);
     };
@@ -28,12 +26,29 @@ function Navigation(props) {
         props.setAside();
     }
 
-    const handleClickOutside = (event) => {
-        if (targetRef.current && !targetRef.current.contains(event.target)) {
-          setShowSearch(false);
-        }
-      };
+    const toggleSearch = (value) => {
+        
+       setShowSearch(value)
+        
+    }
 
+    const handleClickOutside = (event) => {
+        
+        
+            if (!targetRef.current.contains(event.target)) {
+                toggleSearch(false)
+                console.log(false);
+            }
+
+            if (searchBar.current.contains(event.target)) {
+                toggleSearch(!showSearch)
+            }
+        
+        
+       
+    };
+
+    console.log("Im search bar  " + showSearch)
     useEffect(() => {
 
 
@@ -41,7 +56,8 @@ function Navigation(props) {
         return () => {
           document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, []);
+
+    }, [showSearch]);
 
     return (
         <nav className={`bg-slate-100 relative`}>
@@ -60,7 +76,7 @@ function Navigation(props) {
                     
                 <div className="ml-[20px] flex items-center justify-center">
                 <div ref={searchBar} className="">
-                        <IoSearchOutline size={25} color="#64748b" className='cursor-pointer' onClick={() => setShowSearch(!showSearch)}/>
+                        <IoSearchOutline size={25} color="#64748b" className='cursor-pointer'/>
                     </div>
                     <div className="ml-[20px]">
                         <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
@@ -86,7 +102,7 @@ function Navigation(props) {
                     </div>
             </div>
            
-                <div ref={targetRef} className={`w-[40%] mx-auto transition-all ease-in-out delay-150 absolute left-1/2 z-10 transform -translate-x-1/2 -translate-y-1/2 ${showSearch ? 'block top-[120px]' : 'top-[100px] hidden'}`}>
+                <div ref={targetRef} className={`w-[55%] small-desktop:w-[75%] laptop:w-[100%] mx-auto transition-all ease-in-out delay-150 absolute left-1/2 z-10 transform -translate-x-1/2 -translate-y-1/2 ${showSearch ? 'block top-[144px] tablet:top-[160px]' : 'top-[100px] hidden'}`}>
                     <input type="text" placeholder="Search.." className="border-[1px] w-[70%] h-12 pl-2"/>
                     <button type="button" className="w-[30%] bg-blue-500 h-12 text-white align-top hover:bg-blue-400">Search</button>
                 </div> 
