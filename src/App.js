@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { motion as m } from 'framer-motion';
 import './App.css';
@@ -24,7 +24,7 @@ function App() {
           }`}
         >
           <Header setAside={toggleAside} showAside={showAside} />
-          <Main />
+          <Main/>
         </div>
       </div>
     </BrowserRouter>
