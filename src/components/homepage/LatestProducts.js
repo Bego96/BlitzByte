@@ -8,6 +8,9 @@ function LatestProducts(props) {
         props.products.slice(0, maxProducts)
     )
     
+    const placeProductLink = (link) => {
+        props.placeProductLink(link)
+    }
 
     console.log(latestProducts);
 
@@ -19,7 +22,7 @@ function LatestProducts(props) {
                         latestProducts.map((product) => {
                             console.log(product.id)
                             return (
-                                <ProductItem key={product.id} id={product.id} image={product.product.images[0].img} name={product.product.name} description={product.product.description} price={product.product.price}/>
+                                <ProductItem routes={props.routes} placeProductLink={placeProductLink} key={product.id} id={product.id} image={product.product.images} name={product.product.name} description={product.product.description} price={product.product.price} components={product.product.components}/>
                             )
                         })
                     }

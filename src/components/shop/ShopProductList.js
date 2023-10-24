@@ -36,10 +36,11 @@ function ShopProductList(props) {
                             
                             <ProductItem
                                 id={product.id}
-                                image={product.product.images[0].img}
+                                image={product.product.images}
                                 name={product.product.name}
                                 description={product.product.description}
                                 price={product.product.price}
+                                placeProductLink={props.placeProductLink}
                             />
                         
                         )

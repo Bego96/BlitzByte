@@ -15,7 +15,9 @@ function Desktop(props) {
         props.products.filter((product) => product.product.type === "Desktop PC") 
     )
     
-
+    const placeProductLink = (link) => {
+        props.placeProductLink(link)
+    }
     
 
     return (
@@ -48,7 +50,7 @@ function Desktop(props) {
                         desktopProduct.map((desktop) => {
                             return (
                                 <SwiperSlide key={desktop.id}>
-                                    <ProductItem image={desktop.product.images[0].img} name={desktop.product.name} description={desktop.product.description} price={desktop.product.price}/>
+                                    <ProductItem routes={props.routes} placeProductLink={placeProductLink} image={desktop.product.images} name={desktop.product.name} description={desktop.product.description} price={desktop.product.price}/>
                                 </SwiperSlide>
                             )
                         })

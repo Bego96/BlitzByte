@@ -1,0 +1,5 @@
+Maybe we can achieve this by each product having its own link route in array of products, so we can render trought map multiple
+routes in Routes components in Main, therefore, we would use that route link in each product item component and set it with Link to.
+
+Our current routing works but its not set immediately so unfortunately if we try to reach individual product link we get an error
+unless we already have that route link set. 
