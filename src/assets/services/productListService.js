@@ -91,6 +91,9 @@ import philips_50_4k from '../images/TV/Philips_50”_50PUS7607_4K_Smart/Philips
 
 import tesla_32_hd from '../images/TV/TESLA_32M325BHS_HD_Smart/TESLA_32M325BHS_HD_Smart.png';
 
+let img = 'tesla_32_hd'
+console.log(parseInt(img));
+
 const productListService = 
     [
         {
@@ -104,7 +107,7 @@ const productListService =
             "images": [
                 {
                     "id": 1,
-                    "img": asus_d300_1,
+                    "img": '../images/desktop/ASUS_D300TA-3101002930/ASUS_D300TA-3101002930_1.png',
                 },
                 {
                     "id": 2,
