@@ -107,7 +107,7 @@ const productListService =
             "images": [
                 {
                     "id": 1,
-                    "img": '../images/desktop/ASUS_D300TA-3101002930/ASUS_D300TA-3101002930_1.png',
+                    "img": asus_d300_1,
                 },
                 {
                     "id": 2,
@@ -899,28 +899,6 @@ const productListService =
                   
 ];
 
-/*
-let makeDiscount = false;
 
-const priceCuts = {
-  'Desktop PC': {
-    priceCut: 
-  }
-}
-
-makeDiscount(makeDiscount)
-
-
-
-function makeDiscountFunc(makeDiscount) {
-  if (makeDiscount) {
-    for (let i = 0; i < productListService.length; i++) {
-      if ()
-    }
-  } else {
-    return null;
-  }
-}
-*/
 export default productListService;
 
