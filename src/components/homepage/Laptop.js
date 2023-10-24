@@ -15,12 +15,7 @@ function Laptop(props) {
         props.products.filter((product) => product.product.type === "Laptop") 
     )
     
-    const placeProductLink = (link) => {
-        props.placeProductLink(link)
-    }
-
     
-
     return (
         <div className="p-10 phone:p-6">
             <div>
@@ -51,7 +46,7 @@ function Laptop(props) {
                         laptopProduct.map((laptop) => {
                             return (
                                 <SwiperSlide key={laptop.id}>
-                                    <ProductItem routes={props.routes} placeProductLink={placeProductLink} image={laptop.product.images} name={laptop.product.name} description={laptop.product.description} price={laptop.product.price}/>
+                                    <ProductItem image={laptop.product.images} name={laptop.product.name} description={laptop.product.description} price={laptop.product.price}/>
                                 </SwiperSlide>
                             )
                         })

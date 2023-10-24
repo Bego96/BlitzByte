@@ -6,26 +6,11 @@ import { Link} from "react-router-dom";
 
 function ProductItem(props) {
 
-    const linkName = props.name
-
-    const selectItem = () => {
-        const productDetails = {
-            images: props.image,
-            name: props.name,
-            price: props.price,
-            description: props.description,
-            components: props.components
-        }
-
-        props.placeProductLink({linkName: linkName, productDetails: productDetails})
-    }
-
-
 
     return (
         
-        <Link to={`/Product}`}>
-            <div onClick={() => selectItem()}>
+        <Link to={`/Product/${props.id}`}>
+            <div>
                 <div className="">
                     <img className="" src={props.image[0].img} alt="product"/>
                 </div>

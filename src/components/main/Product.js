@@ -4,6 +4,8 @@ import { Link} from "react-router-dom";
 
 function Product(props) {
 
+    console.log(props)
+
     return (
         <div className="bg-slate-200">
             <ul>
@@ -14,11 +16,11 @@ function Product(props) {
                     <img />
                     .. main image
                 </div>
-                <div>desc</div>
+                <div><h1>{props.name}</h1></div>
             </div>
             <div>
                 .. about product
-                <h2>{props.productDetails.name}</h2>
+                <h2>{}</h2>
                 <p>.. Name</p>
                 <p>.. type</p>
                 <p>.. description</p>

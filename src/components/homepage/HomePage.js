@@ -16,20 +16,17 @@ function HomePage(props) {
 
     )
 
-    const placeProductLink = (link) => {
-        props.placeProductLink(link)
-    }
 
     return(
         <div className="bg-slate-200">
             <Slider />
             <HowItsDone />
             <WhatWeSale />
-            <LatestProducts products={products} placeProductLink={placeProductLink} routes={['/']}/>
-            <Desktop products={products} placeProductLink={placeProductLink} routes={['/']}/>
-            <Laptop products={products} placeProductLink={placeProductLink} routes={['/']}/>
-            <Phone products={products} placeProductLink={placeProductLink} routes={['/']}/>
-            <Television products={products} placeProductLink={placeProductLink} routes={['/']}/>
+            <LatestProducts products={products}/>
+            <Desktop products={products}/>
+            <Laptop products={products}/>
+            <Phone products={products}/>
+            <Television products={products}/>
         </div>
     )
 }

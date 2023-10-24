@@ -14,10 +14,6 @@ function Television(props) {
         props.products.filter((product) => product.product.type === "LED TV") 
     )
     
-    const placeProductLink = (link) => {
-        props.placeProductLink(link)
-    }
-
 
     return (
         <div className="p-10 phone:p-6">
@@ -49,7 +45,7 @@ function Television(props) {
                         televisionProduct.map((television) => {
                             return (
                                 <SwiperSlide key={television.id}>
-                                    <ProductItem routes={props.routes} placeProductLink={placeProductLink} image={television.product.images} name={television.product.name} description={television.product.description} price={television.product.price}/>
+                                    <ProductItem image={television.product.images} name={television.product.name} description={television.product.description} price={television.product.price}/>
                                 </SwiperSlide>
                             )
                         })
