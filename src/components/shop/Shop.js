@@ -49,7 +49,7 @@ function Shop(props) {
                 <p className="text-2xl">Homepage  / <span className="text-blue-500">Shop</span></p>
             </div>
             <ShopNavigation products={products} sortingProducts={sortingProducts}/>
-            <ShopContainer products={filtered} selectedCategory={selectedCategory} filterByPrice={filterByPrice}/>
+            <ShopContainer products={filtered} selectedCategory={selectedCategory} filterByPrice={filterByPrice} placeProductLink={props.placeProductLink}/>
         </div>
         </>
     )

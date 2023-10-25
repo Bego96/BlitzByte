@@ -10,6 +10,9 @@ function ShopContainer(props) {
         setShowMenu(!showMenu);
     }
 
+    const placeProductLink = (link) => {
+        props.placeProductLink(link)
+    }
 
     return (
         <div className="flex justify-between tablet:flex-col">
@@ -23,7 +26,7 @@ function ShopContainer(props) {
                 <ShopSidebar selectedCategory={props.selectedCategory} products={props.products} filterByPrice={props.filterByPrice} />
             )}
 
-            <ShopProductList products={props.products}/>
+            <ShopProductList products={props.products} placeProductLink={props.placeProductLink}/>
         </div>
     )
 }

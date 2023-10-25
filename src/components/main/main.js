@@ -5,12 +5,15 @@ import Shop from "../shop/Shop";
 import Discounts from "../discounts/Discounts";
 import { useEffect, useState } from "react";
 import productListService from "../../assets/services/productListService";
+import Product from "./Product";
+import RouteLinks from "./RouteLinks";
 
 function Main() {
     // Main products list used for filter and printing products in a list inside of Homepage, Shop and Discounts. 
     // Main component is a higher order component for product list.
 
     const [products, setProducts] = useState()
+
 
     useEffect(() => {
 
@@ -32,6 +35,7 @@ function Main() {
         setProducts(productListService)
       }
       
+
     }, []);
   
     
@@ -39,11 +43,9 @@ function Main() {
       <>
         {
           products && 
-          <Routes>
-          <Route path="/" element={<HomePage products={products}/>}/>
-          <Route path="/Shop" element={<Shop products={products}/>}/>
-          <Route path="/Snizeno" element={<Discounts products={products}/>}/>
-        </Routes> 
+          
+            <RouteLinks products={products}/>
+          
         }
       </>
     )

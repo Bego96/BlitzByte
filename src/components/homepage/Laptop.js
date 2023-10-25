@@ -15,20 +15,7 @@ function Laptop(props) {
         props.products.filter((product) => product.product.type === "Laptop") 
     )
     
-
-    /*useEffect(() => {
-        const handleResize = () => {
-            setSlidesPerView(window.screen.width < 650 ? 2 : window.screen.width < 1024 ? 3 : window.screen.width < 1281 ? 4 : 5);
-        };
-
-        window.addEventListener('resize', handleResize);
-
-        // Clean up the event listener when the component unmounts
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);*/
-
+    
     return (
         <div className="p-10 phone:p-6">
             <div>
@@ -59,7 +46,7 @@ function Laptop(props) {
                         laptopProduct.map((laptop) => {
                             return (
                                 <SwiperSlide key={laptop.id}>
-                                    <ProductItem image={laptop.product.images[0].img} name={laptop.product.name} description={laptop.product.description} price={laptop.product.price}/>
+                                    <ProductItem image={laptop.product.images} name={laptop.product.name} description={laptop.product.description} price={laptop.product.price}/>
                                 </SwiperSlide>
                             )
                         })

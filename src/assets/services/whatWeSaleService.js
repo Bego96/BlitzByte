@@ -13,62 +13,62 @@ const whatWeSaleService = [
     {
         id: 1,
         image: gaming_pcs,
-        about: 'GAMING RAČUNARI',
-        alt:'Gaming računari'
+        about: 'GAMING PC',
+        alt:'Gaming computers'
     },
     {
         id: 2,
         image: laptops,
-        about: 'LAPTOPI',
-        alt: 'Laptopi'
+        about: 'LAPTOPS',
+        alt: 'Laptops'
     },
     {
         id: 3,
         image: monitors,
-        about: 'MONITORI',
-        alt: 'Monitori'
+        about: 'MONITORS',
+        alt: 'Monitors'
     },
     {
         id: 4,
         image: laptopChargers,
-        about: 'PUNJAČI ZA LAPTOP',
-        alt: 'Punjači za laptop'
+        about: 'LAPTOP CHARGERS',
+        alt: 'Laptop chargers'
     },
     {
         id: 5,
         image: mouses,
-        about: 'MIŠEVI',
-        alt: 'Miševi'
+        about: 'MOUSES',
+        alt: 'Mouses'
     },
     {
         id: 6,
         image: officeFurniture,
-        about: 'KANCELARIJSKI NAMJEŠTAJ',
-        alt: 'Kancelarijski namještaj'
+        about: 'OFFICE FURNITURE',
+        alt: 'Office furniture'
     },
     {
         id: 7,
         image: peripherals,
-        about: 'RAČUNARSKE PERIFERIJE',
-        alt: 'Računarske perfierije'
+        about: 'COMPUTER PERIPHERIES',
+        alt: 'Computer peripheries'
     },
     {
         id: 8,
         image: printers,
-        about: 'PRINTERI',
-        alt: 'Printeri'
+        about: 'PRINTERS',
+        alt: 'Printers'
     },
     {
         id: 9,
         image: smartWatches,
-        about: 'PAMETNI SATOVI',
-        alt: 'Pametni satovi'
+        about: 'SMART WATCHES',
+        alt: 'Smart watches'
     },
     {
         id: 10,
         image: tvs,
-        about: 'TELEVIZORI',
-        alt: 'Televizori'
+        about: 'TV',
+        alt: 'Tv'
     }
 ];
 

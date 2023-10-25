@@ -14,7 +14,6 @@ function Phone(props) {
         props.products.filter((product) => product.product.type === "Smartphone") 
     )
     
-    
 
     return (
         <div className="p-10 phone:p-6">
@@ -47,7 +46,7 @@ function Phone(props) {
                         phoneProduct.map((phone) => {
                             return (
                                 <SwiperSlide key={phone.id}>
-                                    <ProductItem image={phone.product.images[0].img} name={phone.product.name} description={phone.product.description} price={phone.product.price}/>
+                                    <ProductItem image={phone.product.images} name={phone.product.name} description={phone.product.description} price={phone.product.price}/>
                                 </SwiperSlide>
                             )
                         })

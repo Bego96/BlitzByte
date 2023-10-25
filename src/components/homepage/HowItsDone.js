@@ -10,22 +10,22 @@ function HowItsDone() {
             <div className=" flex flex-col items-center tablet:mb-6 phone:my-10">
                 <img className="w-20" src={delivery} alt="delivery" />
                 <div className="text-center mt-6">
-                    <h2 className="text-xl font-semibold text-orange-500">EUROEXPRESS DOSTAVA</h2>
-                    <p>Na kućnu dostavu</p>
+                    <h2 className="text-xl font-semibold text-orange-500">EUROEXPRESS DELIVERY</h2>
+                    <p>At home address</p>
                 </div>
             </div>
             <div className="flex flex-col items-center tablet:mb-6 phone:my-10">
                 <img className="w-20" src={payment} alt="payment" />
                 <div className="text-center mt-6">
-                    <h2 className="text-xl font-semibold text-green-500">PLAĆANJE</h2>
-                    <p>Po preuzimanju</p>
+                    <h2 className="text-xl font-semibold text-green-500">PAYMENT</h2>
+                    <p>Upon takeover</p>
                 </div>
             </div> 
             <div className="flex flex-col items-center tablet:mb-6 phone:my-10">
                 <img className="w-20" src={refund} alt="refund" />
                 <div className=" text-center mt-6">
-                    <h2 className="text-xl font-semibold text-yellow-500">VRAĆAMO NOVAC</h2>
-                    <p>Ukoliko niste zadovoljni proizvodom</p>
+                    <h2 className="text-xl font-semibold text-yellow-500">REFUND</h2>
+                    <p>If you are not satisfied with purchase</p>
                 </div>
             </div>
         </div>

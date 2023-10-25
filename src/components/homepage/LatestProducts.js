@@ -9,8 +9,6 @@ function LatestProducts(props) {
     )
     
 
-    console.log(latestProducts);
-
     return (
         <><div className="p-10 phone:p-6">
                 <h2 className=" text-2xl font-semibold mb-10">Najnovije</h2>
@@ -19,7 +17,7 @@ function LatestProducts(props) {
                         latestProducts.map((product) => {
                             console.log(product.id)
                             return (
-                                <ProductItem key={product.id} id={product.id} image={product.product.images[0].img} name={product.product.name} description={product.product.description} price={product.product.price}/>
+                                <ProductItem key={product.id} id={product.id} image={product.product.images} name={product.product.name} description={product.product.description} price={product.product.price} components={product.product.components}/>
                             )
                         })
                     }
