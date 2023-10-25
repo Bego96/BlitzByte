@@ -19,7 +19,7 @@ function Main() {
 
       // If server is available fetch products
       // Otherwise use products from service in front end
-      if (products === false || null) {
+      /*if (products === false || null) {
         fetch('http://localhost:3001/products') // Adjust the URL to match your server
         .then((response) => {
           if (response.ok) {
@@ -33,8 +33,22 @@ function Main() {
         .catch((error) => console.log("Im sorry but, " + error));
       } else {
         setProducts(productListService)
-      }
+      }*/
       
+      
+        fetch('http://localhost:3001/products') // Adjust the URL to match your server
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+            throw new Error('Network response was not ok');
+        })
+        .then((data) => {
+          setProducts(data); // Set the fetched data in the state
+        })
+        .catch((error) => console.log("Im sorry but, " + error));
+      
+
     }, []);
   
     

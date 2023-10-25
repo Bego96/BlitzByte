@@ -8,23 +8,24 @@ function ProductItem(props) {
 
 
     return (
-        
-        <Link to={`/Product/${props.id}`}>
             <div>
-                <div className="">
-                    <img className="" src={props.image[0].img} alt="product"/>
-                </div>
-                <div className="bg-slate-50 p-4 h-[200px] flex flex-col justify-between">
+                <Link to={`/Product/${props.id}`}>
                     <div className="">
-                        <h2 className="text-orange-700 font-semibold text-base mb-5">{ props.name} </h2>
-                        <p className="font-semibold text-base mt-5">{ props.price }</p>
+                        <img className="" src={props.image[0].img} alt="product"/>
                     </div>
-                    <div className="flex justify-center mt-5">
-                        <button type="button" className="bg-blue-500 text-sm text-slate-100 h-12 flex justify-center items-center w-full hover:bg-blue-600"><BsCart size={18} color="#ffff" className='cursor-pointer mr-3'/>Dodaj u korpu</button>
-                    </div>
+                </Link>
+                <div className="bg-slate-50 p-4 h-[200px] flex flex-col justify-between">
+                    <Link to={`/Product/${props.id}`}>
+                        <div className="">
+                            <h2 className="text-orange-700 font-semibold text-base mb-5">{ props.name} </h2>
+                            <p className="font-semibold text-base mt-5">{ props.price }</p>
+                        </div>
+                    </Link>
+                        <div className="flex justify-center mt-5">
+                            <button type="button" className="bg-blue-500 text-sm text-slate-100 h-12 flex justify-center items-center w-full hover:bg-blue-600"><BsCart size={18} color="#ffff" className='cursor-pointer mr-3'/>Add to basket</button>
+                        </div>
                 </div>
             </div>
-        </Link>
     )
 }
 
