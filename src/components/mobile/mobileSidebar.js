@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import ShopSidebarCategories from "./ShopSidebarCategories";
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
+import MobileSideBarCategories from "./mobileSideBarCategories";
 
 function valuetext(value) {
     return `${value}`;
 }
 
-function ShopSidebar(props) {
+function MobileSidebar(props) {
 
     const price=  props.products.map((price) => price.product.price);
     console.log(typeof Math.max(...price))
@@ -43,7 +43,7 @@ function ShopSidebar(props) {
     return (
         <div className="w-[15%] laptop:w-[25%] tablet:w-full">
             <div className="">
-                <ShopSidebarCategories selectCategory={selectCategory}/>
+                <MobileSideBarCategories products={props.products} selectCategory={selectCategory}/>
             </div>
 
             <div className="my-10 pl-10">
@@ -72,4 +72,4 @@ function ShopSidebar(props) {
     )
 }
 
-export default ShopSidebar;
+export default MobileSidebar;

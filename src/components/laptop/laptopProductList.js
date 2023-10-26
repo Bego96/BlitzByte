@@ -3,7 +3,7 @@ import ProductItem from "../main/ProductItem";
 import ReactPaginate from 'react-paginate';
 import './styles.css'
 
-function ShopProductList(props) {
+function LaptopProductList(props) {
 
     /** PAGINATION TEST  **/
     const [itemsPerPage, setItemsPerPage] = useState(10)
@@ -61,4 +61,4 @@ function ShopProductList(props) {
     )
 }
 
-export default ShopProductList;
+export default LaptopProductList;

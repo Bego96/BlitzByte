@@ -1,11 +1,6 @@
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "../homepage/HomePage";
-import Shop from "../shop/Shop";
-import Discounts from "../discounts/Discounts";
 import { useEffect, useState } from "react";
 import productListService from "../../assets/services/productListService";
-import Product from "./Product";
 import RouteLinks from "./RouteLinks";
 
 function Main() {
@@ -34,8 +29,6 @@ function Main() {
       } else {
         setProducts(productListService)
       }
-      
-
     }, []);
   
     
@@ -45,7 +38,7 @@ function Main() {
           products && 
           
             <RouteLinks products={products}/>
-          
+
         }
       </>
     )
