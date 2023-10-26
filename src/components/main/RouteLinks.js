@@ -1,15 +1,16 @@
 import { Route, Routes } from "react-router-dom";
 import HomePage from "../homepage/HomePage";
 import Shop from "../shop/Shop";
-import Discounts from "../discounts/Discounts";
 import Product from "./Product";
+import Desktop from "../desktop/desktop";
+ 
 
 function RouteLinks(props) {
   return (
     <Routes>
       <Route path="/" element={<HomePage products={props.products} />} />
       <Route path="/Shop" element={<Shop products={props.products} />} />
-      <Route path="/Snizeno" element={<Discounts products={props.products} />} />
+      <Route path="/Desktop" element={<Desktop products={props.products}/>}/>
       {props.products.map(route => (
         <Route
           key={route.id}

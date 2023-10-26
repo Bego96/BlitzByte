@@ -4,7 +4,7 @@
 // Asus Desktop PC
 import asus_d300_1 from '../images/desktop/ASUS_D300TA-3101002930/ASUS_D300TA-3101002930_1.png';
 import asus_d300_2 from '../images/desktop/ASUS_D300TA-3101002930/ASUS_D300TA-3101002930_2.png';
-import asus_d300_3 from '../images/desktop/ASUS_D300TA-3101002930/ASUS_D300TA-3101002930_2.png';
+import asus_d300_3 from '../images/desktop/ASUS_D300TA-3101002930/ASUS-D300TA-3101002930_3.png';
 
 // Dell desktop PC
 
@@ -102,6 +102,7 @@ const productListService =
           "product": {
             "name": "Asus Desktop PC",
             "type": "Desktop PC",
+            "brand": "Asus",
             "description": "Powerful Asus desktop PC for your computing needs.",
             "price": 999.99,
             "images": [
@@ -155,6 +156,7 @@ const productListService =
             "product": {
               "name": "Dell Vostro Desktop",
               "type": "Desktop PC",
+              "brand": "Dell",
               "description": "Reliable Dell Vostro desktop PC for business use.",
               "price": 799.99,
               "images": [
@@ -195,6 +197,7 @@ const productListService =
             "product": {
               "name": "HP Desktop 290 PC",
               "type": "Desktop PC",
+              "brand": "HP",
               "description": "Efficient HP desktop PC for your daily tasks.",
               "price": 699.99,
               "images": [
@@ -235,6 +238,7 @@ const productListService =
             "product": {
               "name": "HP Desktop 290 MT PC",
               "type": "Desktop PC",
+              "brand": "HP",
               "description": "HP desktop PC with expandable design for your business needs.",
               "price": 799.99,
               "images": [
@@ -275,6 +279,7 @@ const productListService =
             "product": {
               "name": "Imel Ryzen PC",
               "type": "Desktop PC",
+              "brand": "Imel",
               "description": "Imel desktop PC powered by Ryzen for enhanced performance.",
               "price": 899.99,
               "images": [
@@ -315,6 +320,7 @@ const productListService =
             "product": {
               "name": "Asus 15.6 M250 Laptop",
               "type": "Laptop",
+              "brand": "Asus",
               "description": "Asus 15.6-inch laptop for your computing needs.",
               "price": 699.99,
               "images": [
@@ -354,6 +360,7 @@ const productListService =
             "product": {
               "name": "HP 15.6 250 G9 Laptop",
               "type": "Laptop",
+              "brand": "HP",
               "description": "HP 15.6-inch laptop for business and personal use.",
               "price": 799.99,
               "images": [
@@ -402,6 +409,7 @@ const productListService =
             "product": {
               "name": "HP 250 G8 Laptop",
               "type": "Laptop",
+              "brand": "HP",
               "description": "Reliable HP laptop for everyday tasks.",
               "price": 599.99,
               "images": [
@@ -442,6 +450,7 @@ const productListService =
             "product": {
               "name": "HP 250 G8 V2 Laptop",
               "type": "Laptop",
+              "brand": "HP",
               "description": "Updated version of HP 250 G8 laptop for better performance.",
               "price": 649.99,
               "images": [
@@ -482,6 +491,7 @@ const productListService =
             "product": {
               "name": "Lenovo IdeaPad 1 Laptop",
               "type": "Laptop",
+              "brand": "Lenovo",
               "description": "Compact and lightweight Lenovo laptop for on-the-go use.",
               "price": 499.99,
               "images": [
@@ -522,6 +532,7 @@ const productListService =
             "product": {
               "name": "Apple iPhone 13 128GB (Black)",
               "type": "Smartphone",
+              "brand": "Apple",
               "description": "The latest Apple iPhone with 128GB storage in Black.",
               "price": 1099.99,
               "images": [
@@ -562,6 +573,7 @@ const productListService =
             "product": {
               "name": "HONOR X6 4GB 64GB (Black)",
               "type": "Smartphone",
+              "brand": "HONOR",
               "description": "HONOR X6 smartphone with 4GB RAM and 64GB storage in Black.",
               "price": 349.99,
               "images": [
@@ -602,6 +614,7 @@ const productListService =
             "product": {
               "name": "Redmi Note 11 4GB 64GB",
               "type": "Smartphone",
+              "brand": "Redmi",
               "description": "Redmi Note 11 smartphone with 4GB RAM and 64GB storage.",
               "price": 299.99,
               "images": [
@@ -642,6 +655,7 @@ const productListService =
             "product": {
               "name": "Samsung Galaxy A34 5G 6GB 128GB",
               "type": "Smartphone",
+              "brand": "Samsung",
               "description": "Samsung Galaxy A34 5G smartphone with 6GB RAM and 128GB storage.",
               "price": 499.99,
               "images": [
@@ -682,6 +696,7 @@ const productListService =
             "product": {
               "name": "Samsung Galaxy A54 5G 8GB 128GB",
               "type": "Smartphone",
+              "brand": "Samsung",
               "description": "Samsung Galaxy A54 5G smartphone with 8GB RAM and 128GB storage.",
               "price": 599.99,
               "images": [
@@ -722,6 +737,7 @@ const productListService =
             "product": {
               "name": "Axen LED AX39",
               "type": "LED TV",
+              "brand": "Axen",
               "description": "Axen LED TV with a 39-inch screen for your entertainment.",
               "price": 349.99,
               "images": [
@@ -757,6 +773,7 @@ const productListService =
             "product": {
               "name": "HiSense TV LED",
               "type": "LED TV",
+              "brand": "HiSense",
               "description": "HiSense LED TV with a 43-inch screen for your viewing pleasure.",
               "price": 399.99,
               "images": [
@@ -792,6 +809,7 @@ const productListService =
             "product": {
               "name": "Philips 32 HD",
               "type": "LED TV",
+              "brand": "Philips",
               "description": "Philips LED TV with a 32-inch screen for high-definition viewing.",
               "price": 249.99,
               "images": [
@@ -831,6 +849,7 @@ const productListService =
             "product": {
               "name": "Philips 50 4K Smart",
               "type": "LED TV",
+              "brand": "Philips",
               "description": "Philips 4K Smart LED TV with a 50-inch screen for stunning visuals.",
               "price": 799.99,
               "images": [
@@ -866,6 +885,7 @@ const productListService =
             "product": {
               "name": "Tesla 32 HD Smart",
               "type": "LED TV",
+              "brand": "Tesla",
               "description": "Tesla 32-inch HD Smart LED TV for your entertainment needs.",
               "price": 299.99,
               "images": [
