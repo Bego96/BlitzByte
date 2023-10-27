@@ -7,7 +7,7 @@ import {IoSearchOutline} from 'react-icons/io5';
 import productListService from '../../assets/services/productListService';
 
 function MobileNavigation(props) {
-    const [sortProduct, setSortProduct] = useState('All brands');
+    const [sortProduct, setSortProduct] = useState('All prices');
     const [productType, setProductType] = useState();
 
     const handleChange = (event) => {
@@ -37,7 +37,7 @@ function MobileNavigation(props) {
                 </div>
             </div>
             <div className="phone:mt-10">
-                <FormControl sx={{ m: 1, minWidth: 140 }} size="small">
+            <FormControl sx={{ m: 1, minWidth: 140 }} size="small">
                     <InputLabel id="demo-select-small-label">Sort</InputLabel>
                         <Select
                             labelId="demo-select-small-label"
@@ -46,19 +46,15 @@ function MobileNavigation(props) {
                             label="Product"
                             onChange={handleChange}
                         >
-                            <MenuItem value={"All brands"}>
-                                All brands
+                            <MenuItem value={"All prices"}>
+                                All prices
                             </MenuItem>
-                            {   productType &&
-                                productType.map((type, index) =>{
-                                    const id = index;
-                                    return (
-                                    <MenuItem key={id} value={`${type}`}>
-                                        {type}
-                                    </MenuItem>
-                                    )
-                                })
-                            }
+                            <MenuItem value={"Lowest"}>
+                                Lowest price
+                            </MenuItem>
+                            <MenuItem value={"Highest"}>
+                                Highest price
+                            </MenuItem>
                         </Select>
                 </FormControl>
             </div>

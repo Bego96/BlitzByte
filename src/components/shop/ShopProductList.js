@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ProductItem from "../main/ProductItem";
 import ReactPaginate from 'react-paginate';
-import './styles.css'
+import '../styles.css'
 
 function ShopProductList(props) {
 
@@ -46,16 +46,19 @@ function ShopProductList(props) {
                     })
                 }
             </div>
-            <ReactPaginate
+            {
+                props.products.length > itemsPerPage ? <ReactPaginate
                 breakLabel="..."
-                nextLabel="sljedeći >"
+                nextLabel=">"
                 onPageChange={handlePageClick}
                 pageRangeDisplayed={5}
                 pageCount={pageCount}
-                previousLabel="< posljednji"
+                previousLabel="<"
                 renderOnZeroPageCount={null}
                 containerClassName="paginationContainer"
-            />
+                /> : null
+            }
+            
             
         </div>
     )

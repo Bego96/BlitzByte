@@ -12,40 +12,30 @@ import Menu from "../menu/Menu";
 
 function Navigation(props) {
 
-    const [currency, setCurrency] = useState('BAM');
+    
     const [showSearch, setShowSearch] = useState(false);
     const targetRef = useRef();
     const searchBar = useRef();
 
     
-    const handleChange = (event) => {
-      setCurrency(event.target.value);
-    };
+    
 
     const setSideBar = () => {
         props.setAside();
     }
 
     const toggleSearch = (value) => {
-        
        setShowSearch(value)
-        
     }
 
     const handleClickOutside = (event) => {
-        
-        
             if (!targetRef.current.contains(event.target)) {
                 toggleSearch(false)
                 console.log(false);
             }
-
             if (searchBar.current.contains(event.target)) {
                 toggleSearch(!showSearch)
             }
-        
-        
-       
     };
 
     console.log("Im search bar  " + showSearch)
@@ -79,23 +69,6 @@ function Navigation(props) {
                         <IoSearchOutline size={25} color="#64748b" className='cursor-pointer'/>
                     </div>
                     <div className="flex items-center">
-                        <div className="mr-[20px] tablet:mr-[10px] phone:mr-[10px] phone:hidden">
-                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                                <InputLabel id="demo-select-small-label">Currency</InputLabel>
-                                    <Select
-                                        labelId="demo-select-small-label"
-                                        id="demo-select-small"
-                                        value={currency}
-                                        label="Currency"
-                                        onChange={handleChange}
-                                    >
-                                        <MenuItem value={"BAM"}>
-                                            BAM
-                                        </MenuItem>
-                                        <MenuItem value={"EUR"}>EUR</MenuItem>
-                                    </Select>
-                                </FormControl>
-                        </div>
                         <div className="block mr-[20px] phone:mr-[10px]"><AiOutlineHeart size={25} color="#64748b" className='cursor-pointer'/>
                         </div>
                         <div className="block mr-[20px] phone:mr-[10px]"><BsPerson size={25} color="#64748b" className='cursor-pointer'/></div>

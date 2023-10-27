@@ -60,25 +60,6 @@ function Sidebar(props) {
                         <GrClose className="absolute right-0 top-0 cursor-pointer" color='white' size={25} onClick={() => props.setAside()}/>
                     </div> : null
                 }
-
-                <div className="hidden phone:block mt-10">
-                    <FormControl sx={{ m: 1, minWidth: window.innerWidth > 914 ? 120 : 200,  }} size="small">
-                        <InputLabel id="demo-select-small-label">Currency</InputLabel>
-                            <Select
-                                labelId="demo-select-small-label"
-                                id="demo-select-small"
-                                value={currency}
-                                label="Currency"
-                                onChange={handleChange}
-                            >
-                                <MenuItem value={"BAM"}>
-                                    BAM
-                                </MenuItem>
-                                <MenuItem value={"EUR"}>EUR</MenuItem>
-                            </Select>
-                    </FormControl>
-                </div>
-        
                 <div className={`tablet:mt-10 tablet:flex tablet:flex-col transition-all ${showCloseBtn ? 'mt-14' : 'mt-0'}`}>
                     <input type="text" placeholder="Search.." className="border-[1px] w-[70%] h-12 pl-2 laptop:w-full"/>
                     <button type="button" className="w-[30%] bg-blue-500 h-12 text-white align-top hover:bg-blue-400 laptop:w-full">Search</button>

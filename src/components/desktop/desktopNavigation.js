@@ -7,8 +7,7 @@ import {IoSearchOutline} from 'react-icons/io5';
 import productListService from '../../assets/services/productListService';
 
 function DesktopNavigation(props) {
-    const [sortProduct, setSortProduct] = useState('All brands');
-    const [productType, setProductType] = useState();
+    const [sortProduct, setSortProduct] = useState('All prices');
 
     const handleChange = (event) => {
         const selectedValue = event.target.value;
@@ -16,14 +15,7 @@ function DesktopNavigation(props) {
         props.sortingProducts(selectedValue);
     };
 
-    useEffect(() => {
-        // Extract unique product types from productListService
     
-        const uniqueTypes = [...new Set(props.products.map(product => product.product.brand))];
-        setProductType(uniqueTypes);
-      }, []);
-
-      console.log(productType)
 
     return(
         <div className="flex mb-20 p-10 justify-between items-center laptop:items-start phone:flex-col phone:justify-center phone:items-center tablet:mb-10">
@@ -46,19 +38,15 @@ function DesktopNavigation(props) {
                             label="Product"
                             onChange={handleChange}
                         >
-                            <MenuItem value={"All brands"}>
-                                All brands
+                            <MenuItem value={"All prices"}>
+                                All prices
                             </MenuItem>
-                            {   productType &&
-                                productType.map((type, index) =>{
-                                    const id = index;
-                                    return (
-                                    <MenuItem key={id} value={`${type}`}>
-                                        {type}
-                                    </MenuItem>
-                                    )
-                                })
-                            }
+                            <MenuItem value={"Lowest"}>
+                                Lowest price
+                            </MenuItem>
+                            <MenuItem value={"Highest"}>
+                                Highest price
+                            </MenuItem>
                         </Select>
                 </FormControl>
             </div>
