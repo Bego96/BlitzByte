@@ -7,7 +7,7 @@ import {IoSearchOutline} from 'react-icons/io5';
 import productListService from '../../assets/services/productListService';
 
 function TelevisionNavigation(props) {
-    const [sortProduct, setSortProduct] = useState('All brands');
+    const [sortProduct, setSortProduct] = useState('All prices');
     const [productType, setProductType] = useState();
 
     const handleChange = (event) => {
@@ -46,19 +46,15 @@ function TelevisionNavigation(props) {
                             label="Product"
                             onChange={handleChange}
                         >
-                            <MenuItem value={"All brands"}>
-                                All brands
+                            <MenuItem value={"All prices"}>
+                                All prices
                             </MenuItem>
-                            {   productType &&
-                                productType.map((type, index) =>{
-                                    const id = index;
-                                    return (
-                                    <MenuItem key={id} value={`${type}`}>
-                                        {type}
-                                    </MenuItem>
-                                    )
-                                })
-                            }
+                            <MenuItem value={"Lowest"}>
+                                Lowest price
+                            </MenuItem>
+                            <MenuItem value={"Highest"}>
+                                Highest price
+                            </MenuItem>
                         </Select>
                 </FormControl>
             </div>

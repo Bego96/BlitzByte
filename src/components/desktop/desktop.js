@@ -7,21 +7,28 @@ function Desktop(props) {
     const [products, setProducts] = useState(
         props.products.filter((product) => product.category === 'PC')
     )
-
-    console.log(products);
     
     const [filtered, setFiltered] = useState(products)
 
-    
     const sortingProducts = (value) => {
-        if (value !== "All brands") {
-            console.log(value)
-            setFiltered(products.filter((product) => product.product.brand === value))
-            
-        } else {
-            setFiltered(products);
-        }
-        
+        const sortedProducts = [...products];
+            if (value === 'Lowest') {
+                // Create a copy of the products array to avoid modifying the original state directly
+                // Sort the products based on price in ascending order
+                sortedProducts.sort((a, b) => a.product.price - b.product.price);
+                // Update the state with the sorted products
+                setFiltered(sortedProducts);
+            } else if (value === 'Highest') {
+                // Create a copy of the products array to avoid modifying the original state directly
+                const sortedProducts = [...products];
+    
+                // Sort the products based on price in descending order
+                sortedProducts.sort((a, b) => b.product.price - a.product.price);
+               
+                setFiltered(sortedProducts);
+            } else if (value === 'All prices') {
+                setFiltered(sortedProducts);
+            }
     }
 
     const selectedCategory = (value) => {
