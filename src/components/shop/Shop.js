@@ -13,13 +13,24 @@ function Shop(props) {
     const [filtered, setFiltered] = useState(products)
 
     const sortingProducts = (value) => {
-        if (value !== "All products") {
-            setFiltered(products.filter((product) => product.product.type === value))
-            
-        } else {
-            setFiltered(products);
-        }
-        
+        const sortedProducts = [...products];
+            if (value === 'Lowest') {
+                // Create a copy of the products array to avoid modifying the original state directly
+                // Sort the products based on price in ascending order
+                sortedProducts.sort((a, b) => a.product.price - b.product.price);
+                // Update the state with the sorted products
+                setFiltered(sortedProducts);
+            } else if (value === 'Highest') {
+                // Create a copy of the products array to avoid modifying the original state directly
+                const sortedProducts = [...products];
+    
+                // Sort the products based on price in descending order
+                sortedProducts.sort((a, b) => b.product.price - a.product.price);
+               
+                setFiltered(sortedProducts);
+            } else if (value === 'All prices') {
+                setFiltered(sortedProducts);
+            }
     }
 
     const selectedCategory = (value) => {
@@ -45,7 +56,7 @@ function Shop(props) {
     
     return (
         <><div className="">
-            <div className="p-10 text-center">
+            <div className="pt-10 text-center">
                 <p className="text-2xl">Homepage  / <span className="text-blue-500">Shop</span></p>
             </div>
             <ShopNavigation products={products} sortingProducts={sortingProducts}/>

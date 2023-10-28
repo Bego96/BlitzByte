@@ -1,9 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import {AiOutlineHeart} from 'react-icons/ai';
+import {AiOutlineHeart, AiOutlineClose} from 'react-icons/ai';
 import {IoSearchOutline} from 'react-icons/io5';
 import {BsCart} from 'react-icons/bs';
 import {BsPerson} from 'react-icons/bs';
@@ -16,7 +12,7 @@ function Navigation(props) {
     const [showSearch, setShowSearch] = useState(false);
     const targetRef = useRef();
     const searchBar = useRef();
-
+    const closeSearchBtn = useRef();
     
     
 
@@ -31,9 +27,11 @@ function Navigation(props) {
     const handleClickOutside = (event) => {
             if (!targetRef.current.contains(event.target)) {
                 toggleSearch(false)
-                console.log(false);
             }
             if (searchBar.current.contains(event.target)) {
+                toggleSearch(!showSearch)
+            }
+            if (closeSearchBtn.current.contains(event.target)) {
                 toggleSearch(!showSearch)
             }
     };
@@ -50,7 +48,7 @@ function Navigation(props) {
     }, [showSearch]);
 
     return (
-        <nav className={`bg-slate-100 relative`}>
+        <nav className={`bg-slate-100 relative rounded-b-md`}>
             <div className={`py-[20px] px-[30px] flex justify-between items-center tablet:flex-col`}>
                 <div className="flex justify-between items-center w-[50%] tablet:w-[100%]">
                     <div className={`cursor-pointer`} onClick={() => setSideBar()}>
@@ -59,7 +57,7 @@ function Navigation(props) {
                         <div className={`w-[30px] h-0.5 bg-black mb-[6px] transition-all ${props.showAside ? '-rotate-45 translate-x-0 translate-y-[-5px] tablet:-rotate-0 tablet:translate-y-0' : ''}`}></div>
                     </div>
                     <div className={`{}`}>
-                        <h1 className="text-4xl">Blitz<span className="text-blue-400">Byte</span></h1>
+                        <h1 className="text-4xl">Blitz<span className="text-blue-500">Byte</span></h1>
                     </div>
                 </div>
                     
@@ -77,9 +75,12 @@ function Navigation(props) {
                 </div>
             </div>
            
-                <div ref={targetRef} className={`w-[55%] small-desktop:w-[75%] laptop:w-[100%] mx-auto transition-all ease-in-out delay-150 absolute left-1/2 z-10 transform -translate-x-1/2 -translate-y-1/2 ${showSearch ? 'block top-[176px] tablet:top-[190px] phone:top-[150px]' : 'top-[100px] hidden'}`}>
-                    <input type="text" placeholder="Search.." className="border-[1px] w-[70%] h-12 pl-2"/>
-                    <button type="button" className="w-[30%] bg-blue-500 h-12 text-white align-top hover:bg-blue-400">Search</button>
+                <div ref={targetRef} className={`w-[55%] small-desktop:w-[75%] laptop:w-[100%] mx-auto transition-all ease-in-out delay-150 absolute left-1/2 z-10 transform -translate-x-1/2 -translate-y-1/2 ${showSearch ? 'block top-10' : 'top-[100px] hidden'}`}>
+                <div className=" relative phone:w-full phone:mr-0">
+                    <input type="search" className="border-2 border-slate-300 h-14 w-full py-4 px-10 rounded-3xl" placeholder="Search.."/>
+                    <span><IoSearchOutline size={22} color="#94a3b8" className="absolute top-4 left-4 cursor-pointer"></IoSearchOutline></span>
+                    <span ref={closeSearchBtn}><AiOutlineClose size={22} className="absolute top-4 right-4 cursor-pointer"></AiOutlineClose></span>
+                </div>
                 </div> 
                 <Menu />
         </nav>

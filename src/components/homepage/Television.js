@@ -16,7 +16,7 @@ function Television(props) {
     
 
     return (
-        <div className="p-10 phone:p-6">
+        <div className="p-10 phone:p-6 bg-slate-100 rounded-md my-10">
             <div>
                 <div className="text-2xl font-semibold mb-10">
                     <h2>TV</h2>

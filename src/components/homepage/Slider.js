@@ -15,10 +15,10 @@ function Slider() {
     // Update the number of slides per view when the window width changes
 
     return (
-        <div className="w-full">
+        <div className="w-full my-16 phone:mb-0">
              <Swiper
                 slidesPerView={window.screen.width > 768 ? 2 : 1}
-                spaceBetween={0}
+                spaceBetween={20}
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper) => console.log(swiper)}
             >

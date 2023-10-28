@@ -1,19 +1,80 @@
-import { Link} from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
+function MenuItem({ to, text}) {
+    const [underLine, setUnderLine] = useState(false);
+
+    const handleMouseEnter = () => {
+      setUnderLine(true);
+    };
+  
+    const handleMouseLeave = () => {
+      setUnderLine(false);
+    };
+
+  return (
+    <li className="mx-6 relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <Link to={to}>{text}</Link>
+      <span
+        className={`${
+          underLine
+            ? 'w-full'
+            : 'w-0'
+        } transition-all ease-in-out duration-300 bg-slate-400 h-0.5 absolute bottom-0 left-0`}
+      ></span>
+    </li>
+  );
+}
+
 
 function Menu() {
-    return (
-        <div className="flex justify-center items-center tablet:hidden p-4">
-            <ul className="flex ">
-                <li className="mx-6"><Link to="/">Home</Link></li>
-                <li className="mx-6"><Link to="/Shop">Shop</Link></li>
-                <li className="mx-6"><Link to="/Desktop">Desktop PC</Link></li>
-                <li className="mx-6"><Link to="/Laptops">Laptops</Link></li>
-                <li className="mx-6"><Link to="/Mobiles">Mobiles</Link></li>
-                <li className="mx-6"><Link to="/TV's">TV's</Link></li>
-            </ul>
+  
+  const menuItems = [
+    { 
+        id: 1,
+        to: "/", 
+        text: "Home"
+    },
+    { 
+        id: 2,
+        to: "/Shop",
+        text: "Shop" 
+    },
+    { 
+        id: 3,
+        to: "/Desktop", 
+        text: "Desktop PC" 
+    },
+    {
+        id: 4,
+        to: "/Laptops", 
+        text: "Laptops" 
+    },
+    { 
+        id: 5,
+        to: "/Mobiles", 
+        text: "Mobiles" 
+    },
+    { 
+        id: 6,
+        to: "/TV's", 
+        text: "TV's" 
+    },
+  ];
 
-        </div>
-    )
+  return (
+    <div className="flex justify-center items-center tablet:hidden p-4">
+      <ul className="flex">
+        {menuItems.map((item, index) => (
+          <MenuItem
+            key={item.id}
+            to={item.to}
+            text={item.text}
+          />
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default Menu;

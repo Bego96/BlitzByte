@@ -58,8 +58,8 @@ function Television(props) {
 
     return (
         <><div className="">
-            <div className="p-10 text-center">
-                <p className="text-2xl">Homepage  / <span className="text-blue-500">Laptop</span></p>
+            <div className="pt-10 text-center">
+                <p className="text-2xl">Homepage  / <span className="text-blue-500">Television</span></p>
             </div>
             <TelevisionNavigation products={products} sortingProducts={sortingProducts}/>
             <TelevisionContainer products={filtered} selectedCategory={selectedCategory} filterByPrice={filterByPrice} placeProductLink={props.placeProductLink}/>

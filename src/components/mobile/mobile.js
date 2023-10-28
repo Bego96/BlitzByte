@@ -57,8 +57,8 @@ function Mobile(props) {
 
     return (
         <><div className="">
-            <div className="p-10 text-center">
-                <p className="text-2xl">Homepage  / <span className="text-blue-500">Laptop</span></p>
+            <div className="pt-10 text-center">
+                <p className="text-2xl">Homepage  / <span className="text-blue-500">Mobile</span></p>
             </div>
             <MobileNavigation products={products} sortingProducts={sortingProducts}/>
             <MobileContainer products={filtered} selectedCategory={selectedCategory} filterByPrice={filterByPrice} placeProductLink={props.placeProductLink}/>
