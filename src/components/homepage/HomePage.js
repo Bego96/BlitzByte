@@ -18,7 +18,7 @@ function HomePage(props) {
 
 
     return(
-        <div className="bg-slate-200">
+        <div className="">
             <Slider />
             <HowItsDone />
             <WhatWeSale />

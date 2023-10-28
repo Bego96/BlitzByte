@@ -44,7 +44,7 @@ function SliderProduct(props) {
             <img src={props.image} alt={props.alt}/>
             {
                 showInfo ? 
-                <div className={`bg-blue-600 flex justify-center items-center p-5 absolute left-0 right-0 top-0 bottom-0 text-white bg-opacity-50`}>
+                <div className={`bg-blue-200 flex justify-center items-center p-5 absolute left-0 right-0 top-0 bottom-0 text-white bg-opacity-50`}>
                 <div className="bg-slate-200 text-black p-5">
                     <h2 className="text-orange-700 font-semibold text-xl mb-5">{props.title}</h2>
                     <p>{props.about}</p>

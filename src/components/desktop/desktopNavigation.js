@@ -18,7 +18,7 @@ function DesktopNavigation(props) {
     
 
     return(
-        <div className="flex mb-20 p-10 justify-between items-center laptop:items-start phone:flex-col phone:justify-center phone:items-center tablet:mb-10">
+        <div className="flex bg-slate-100 p-4 my-10 rounded-md justify-between items-center laptop:items-start phone:flex-col phone:justify-center phone:items-center tablet:mb-10">
             <div className="flex items-center laptop:flex-col laptop:items-start phone:w-full phone:justify-center phone:items-center">
                 <div className="mr-10 relative phone:w-[90%] phone:mr-0">
                     <input type="search" className="bg-slate-100 h-10 w-[220px] p-4 rounded-3xl phone:w-full" placeholder="Search.."/>

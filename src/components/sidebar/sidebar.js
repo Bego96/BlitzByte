@@ -2,21 +2,72 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import {GrClose} from 'react-icons/gr'; 
 import { Link } from 'react-router-dom';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import {AiOutlineClose} from 'react-icons/ai';
+import {IoSearchOutline} from 'react-icons/io5';
 
-function Sidebar(props) {
-    console.log(props.showAside);
-    const [currency, setCurrency] = useState('BAM');
-    const [showCloseBtn, setShowCloseBtn] = useState(false);
 
-    const handleChange = (event) => {
-        setCurrency(event.target.value);
+function MenuItemList({ to, text}) {
+    const [underLine, setUnderLine] = useState(false);
+
+    const handleMouseEnter = () => {
+      setUnderLine(true);
+    };
+  
+    const handleMouseLeave = () => {
+      setUnderLine(false);
     };
 
+  return (
+    <li className="my-6 relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <Link to={to}>{text}</Link>
+      <span
+        className={`${
+          underLine
+            ? 'w-[20%]'
+            : 'w-0'
+        } transition-all ease-in-out duration-300 bg-slate-400 h-0.5 absolute bottom-0 left-0`}
+      ></span>
+    </li>
+  );
+}
 
+
+
+function Sidebar(props) {
+    const [showCloseBtn, setShowCloseBtn] = useState(false);
+
+    const menuItems = [
+        { 
+            id: 1,
+            to: "/", 
+            text: "Home"
+        },
+        { 
+            id: 2,
+            to: "/Shop",
+            text: "Shop" 
+        },
+        { 
+            id: 3,
+            to: "/Desktop", 
+            text: "Desktop PC" 
+        },
+        {
+            id: 4,
+            to: "/Laptops", 
+            text: "Laptops" 
+        },
+        { 
+            id: 5,
+            to: "/Mobiles", 
+            text: "Mobiles" 
+        },
+        { 
+            id: 6,
+            to: "/TV's", 
+            text: "TV's" 
+        },
+      ];
 
     useEffect(() => {
         const handleWindowResize = () => {
@@ -54,24 +105,25 @@ function Sidebar(props) {
     return (
 
         <aside className={`p-10 bg-slate-200 h-[100%] w-[30%] fixed transition-all duration-700 ease tablet:z-20 tablet:w-[60%] small-desktop:p-4 phone:w-[100%] ${props.showAside ? 'left-0 top-0' : 'left-[-30%] top-0 tablet:left-[-100%]'}`}>
-            <div className="flex flex-col bg-slate-100 h-full p-10 small-desktop:p-4">
+            <div className="flex flex-col rounded-md bg-slate-100 h-full p-10 small-desktop:p-4">
                 {   showCloseBtn ? 
                     <div className={`relative`}>
                         <GrClose className="absolute right-0 top-0 cursor-pointer" color='white' size={25} onClick={() => props.setAside()}/>
                     </div> : null
                 }
-                <div className={`tablet:mt-10 tablet:flex tablet:flex-col transition-all ${showCloseBtn ? 'mt-14' : 'mt-0'}`}>
-                    <input type="text" placeholder="Search.." className="border-[1px] w-[70%] h-12 pl-2 laptop:w-full"/>
-                    <button type="button" className="w-[30%] bg-blue-500 h-12 text-white align-top hover:bg-blue-400 laptop:w-full">Search</button>
+                <div className= {`relative phone:w-full phone:mr-0 ${showCloseBtn ? 'mt-14' : 'mt-0'}`}>
+                    <input type="search" className="border-2 border-slate-300 h-14 w-full p-4 rounded-3xl" placeholder="Search.."/>
+                    <span><IoSearchOutline size={22} color="#94a3b8" className="absolute top-4 right-4 cursor-pointer"></IoSearchOutline></span>
                 </div>
                 <div className="mt-10">
                     <ul>
-                    <li className="mb-4"><Link to="/">Home</Link></li>
-                    <li className="mb-4"><Link to="/Shop">Shop</Link></li>
-                    <li className="mb-4"><Link to="/Desktop">Desktop PC</Link></li>
-                    <li className="mb-4"><Link to="/Laptops">Laptops</Link></li>
-                    <li className="mb-4"><Link to="/Mobiles">Mobiles</Link></li>
-                    <li className="mb-4"><Link to="/TV's">TV's</Link></li>
+                    {menuItems.map((item, index) => (
+                        <MenuItemList
+                            key={item.id}
+                            to={item.to}
+                            text={item.text}
+                        />
+                    ))}
                     </ul>
                 </div>
             </div>

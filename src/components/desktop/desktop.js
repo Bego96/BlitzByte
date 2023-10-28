@@ -53,7 +53,7 @@ function Desktop(props) {
 
     return (
         <><div className="">
-            <div className="p-10 text-center">
+            <div className="pt-10 text-center">
                 <p className="text-2xl">Homepage  / <span className="text-blue-500">Desktop</span></p>
             </div>
             <DesktopNavigation products={products} sortingProducts={sortingProducts}/>
