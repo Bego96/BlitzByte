@@ -1,4 +1,0 @@
-On each product, when user goes to Add to Cart, that product gets found in Main components array of products by its ID.
-When ID is found, that product is found in main array that product then gets moved to cart's array which displays user's cart collection.
-One user purchases a product, that product gets removed from both cart aka its cart array and main array, because in reality that product
-is no longer available on shelf.
