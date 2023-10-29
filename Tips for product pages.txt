@@ -1,7 +1,0 @@
-Tips for product pages:
-When user clicks on a product wether its on a slider or a list, he gets redirected to new page. That new page is a single page where 
-data gets passed from a click on a particular product, when user clicks all data gets sent from that product to that page it technicaly sets aka binds data in that page.
-React router is used for pages. So when user clicks on a product, that products data gets sent over to that page where it gets all information and data bind in html. 
-
-1.User clicks on a product, function fires that checks product with corresponding id and takes those data's as prop's that gets passed to the page.
-2.Function should lay in parent component that works as a service for data sharing. In our case Main component is the parent component.
