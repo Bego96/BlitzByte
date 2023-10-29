@@ -1,6 +1,0 @@
-When user is on shop or simmilar page with list of products, on sidebar once he clicks on any filter i.e. "Desktop PC", filter gets updated with filters for only desktop's,
-where list shows desktop name, type, etc.. and it works for every other product laptops, mobiles etc.. 
-Tip for code, every item in filters list has a on click function that receives parameter which detects type of product, and based on that parameter we filter out
-only items for that product type and show instead of original filter list "Desktop PC, Laptop, Mobile etc.." we show filters for "Asus desktop, HP desktop etc.."
-
-THIS IS OPTIONAL
