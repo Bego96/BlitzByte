@@ -1,9 +1,0 @@
-Tips for currencies:
-1. When data is pulled from database, when components render we want to check which currency has been selected or set as default values
-for select option in navigation, 
-2. we do that with conditional statements that run each time component/'s render or re-render if necessary, 
-3. so first time render it checks the default value for selected currency in navigation, conditional statements checks wether its EUR or BAM etc.. 
-4.then it runs setCurrency state to update it to selected value, then we do go trought whole array of imported data from database and calculate all the prices 
-with formula to exchange current currency with selected one. 
-5. It should be done with useEffect considering data is fetched from back end. Thanks to for loop we can loop trought array of data and change currencies 
-with formula.
