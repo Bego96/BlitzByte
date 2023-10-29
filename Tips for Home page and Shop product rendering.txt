@@ -1,4 +1,0 @@
-1. Home Page should have list of 10-20 products who are latest. So from list of products we take all latest products from today do 10 days oldest max. We will use Slice or Splice for map, to cut from i.e. 1000 of products only 10 or up to 20. There will be helper variable that will hold max num of products to be sliced.
-2. Considering there might be ton of products like that, we can filter them with mix of filter method for map and perhaps using math.random to give us random type of product up to 10 days oldest so we can filter out 10-20 random products and show them on list. 
-3. Shop will have all products.
-4. There will be higher order component hiearchy, Main component holds react router for all pages which includes Home page and Shop, so main list will be in Main component and filtering will be done eighter in Main or better yet inside of Home Page component its self for better code control and peformance.
