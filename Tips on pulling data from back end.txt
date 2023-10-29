@@ -1,9 +1,0 @@
-Show products on web page:
-1. Pull products from data base in mySQL with select methods trought Nodejs + Express, make sure image file names are split where 
-character is at ", " (make sure it includes space too for proper splitting because imagefile names are placed as strings and each divided with
-a comma and single space after it). 
-2. Use state to hold values from data base and with map method to render it in component. 
-3. When it comes to filtering, we can use front end and filter method to capture data by certain keyword be it by brand or category etc.. etc.. 
-or we can do it in back end with eighter having each api endpoint functions for certain keyword and pull it wrong there or by using conditional statements in back end in single end point function and by request type we can do conditional statements to use select methods according to requested keyword (example being SELECT brand FROM products etc. etc.. or SELECT category FROM products etc. etc.. in each conditional statements inside endpoint function).
-
-THIS IS FOR TESTS PURPOSES ONLY! 
