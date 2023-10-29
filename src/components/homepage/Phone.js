@@ -46,7 +46,7 @@ function Phone(props) {
                         phoneProduct.map((phone) => {
                             return (
                                 <SwiperSlide key={phone.id}>
-                                    <ProductItem image={phone.product.images} name={phone.product.name} description={phone.product.description} price={phone.product.price}/>
+                                    <ProductItem id={phone.id} image={phone.product.images} name={phone.product.name} description={phone.product.description} price={phone.product.price}/>
                                 </SwiperSlide>
                             )
                         })
