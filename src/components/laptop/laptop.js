@@ -60,7 +60,7 @@ function Laptop(props) {
                 <p className="text-2xl">Homepage  / <span className="text-blue-500">Laptop</span></p>
             </div>
             <LaptopNavigation products={products} sortingProducts={sortingProducts}/>
-            <LaptopContainer products={filtered} selectedCategory={selectedCategory} filterByPrice={filterByPrice} placeProductLink={props.placeProductLink}/>
+            <LaptopContainer addToCart={props.addToCart} products={filtered} selectedCategory={selectedCategory} filterByPrice={filterByPrice} placeProductLink={props.placeProductLink}/>
         </div>
         </>
     )

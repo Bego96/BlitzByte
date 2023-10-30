@@ -46,7 +46,7 @@ function Laptop(props) {
                         laptopProduct.map((laptop) => {
                             return (
                                 <SwiperSlide key={laptop.id}>
-                                    <ProductItem id={laptop.id} image={laptop.product.images} name={laptop.product.name} description={laptop.product.description} price={laptop.product.price}/>
+                                    <ProductItem id={laptop.id} addToCart={props.addToCart} image={laptop.product.images} name={laptop.product.name} description={laptop.product.description} price={laptop.product.price}/>
                                 </SwiperSlide>
                             )
                         })

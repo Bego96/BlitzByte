@@ -26,6 +26,7 @@ function ShopProductList(props) {
         setItemOffset(newOffset);
     };
 
+
     return (
         <div className="p-10 bg-slate-100 w-[80%] small-desktop:w-[70%] laptop:w-[65%] tablet:w-full phone:p-2 rounded-md">
             <div className=" grid grid-cols-5 gap-2 place-items-stretch gap-y-8 small-desktop:grid-cols-3 laptop:grid-cols-2 laptop:gap-x-2 phone:place-items-center ">
@@ -40,6 +41,7 @@ function ShopProductList(props) {
                                 description={product.product.description}
                                 price={product.product.price}
                                 placeProductLink={props.placeProductLink}
+                                addToCart={props.addToCart}
                             />
                         
                         )

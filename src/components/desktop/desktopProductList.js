@@ -35,6 +35,7 @@ function DesktopProductList(props) {
                             
                             <ProductItem
                                 id={product.id}
+                                addToCart={props.addToCart}
                                 image={product.product.images}
                                 name={product.product.name}
                                 description={product.product.description}
