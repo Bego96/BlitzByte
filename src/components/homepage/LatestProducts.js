@@ -17,7 +17,7 @@ function LatestProducts(props) {
                         latestProducts.map((product) => {
                             console.log(product.id)
                             return (
-                                <ProductItem key={product.id} id={product.id} image={product.product.images} name={product.product.name} description={product.product.description} price={product.product.price} components={product.product.components}/>
+                                <ProductItem key={product.id} addToCart={props.addToCart} id={product.id} image={product.product.images} name={product.product.name} description={product.product.description} price={product.product.price} components={product.product.components}/>
                             )
                         })
                     }

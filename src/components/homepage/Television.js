@@ -45,7 +45,7 @@ function Television(props) {
                         televisionProduct.map((television) => {
                             return (
                                 <SwiperSlide key={television.id}>
-                                    <ProductItem id={television.id} image={television.product.images} name={television.product.name} description={television.product.description} price={television.product.price}/>
+                                    <ProductItem id={television.id} addToCart={props.addToCart} image={television.product.images} name={television.product.name} description={television.product.description} price={television.product.price}/>
                                 </SwiperSlide>
                             )
                         })

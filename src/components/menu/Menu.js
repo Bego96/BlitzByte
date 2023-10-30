@@ -60,6 +60,11 @@ function Menu() {
         to: "/TV's", 
         text: "TV's" 
     },
+    {
+      id: 7,
+      to: "/Cart",
+      text: "Cart"
+    }
   ];
 
   return (

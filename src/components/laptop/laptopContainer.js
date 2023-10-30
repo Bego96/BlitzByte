@@ -27,7 +27,7 @@ function LaptopContainer(props) {
             {showMenu && (
                 <LaptopSidebar selectedCategory={props.selectedCategory} products={props.products} filterByPrice={props.filterByPrice}/>
             )}
-            <LaptopProductList products={props.products} placeProductLink={props.placeProductLink}/>
+            <LaptopProductList addToCart={props.addToCart} products={props.products} placeProductLink={props.placeProductLink}/>
         </div>
     )
 }

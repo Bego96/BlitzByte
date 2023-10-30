@@ -22,11 +22,11 @@ function HomePage(props) {
             <Slider />
             <HowItsDone />
             <WhatWeSale />
-            <LatestProducts products={products}/>
-            <Desktop products={products}/>
-            <Laptop products={products}/>
-            <Phone products={products}/>
-            <Television products={products}/>
+            <LatestProducts products={products} addToCart={props.addToCart}/>
+            <Desktop products={products} addToCart={props.addToCart}/>
+            <Laptop products={products} addToCart={props.addToCart}/>
+            <Phone products={products} addToCart={props.addToCart}/>
+            <Television products={products} addToCart={props.addToCart}/>
         </div>
     )
 }

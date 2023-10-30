@@ -57,7 +57,7 @@ function Desktop(props) {
                 <p className="text-2xl">Homepage  / <span className="text-blue-500">Desktop</span></p>
             </div>
             <DesktopNavigation products={products} sortingProducts={sortingProducts}/>
-            <DesktopContainer products={filtered} selectedCategory={selectedCategory} filterByPrice={filterByPrice} placeProductLink={props.placeProductLink}/>
+            <DesktopContainer addToCart={props.addToCart} products={filtered} selectedCategory={selectedCategory} filterByPrice={filterByPrice} placeProductLink={props.placeProductLink}/>
         </div>
         </>
     )

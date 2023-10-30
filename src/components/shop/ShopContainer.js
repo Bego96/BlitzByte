@@ -26,7 +26,7 @@ function ShopContainer(props) {
                 <ShopSidebar selectedCategory={props.selectedCategory} products={props.products} filterByPrice={props.filterByPrice} />
             )}
 
-            <ShopProductList products={props.products} placeProductLink={props.placeProductLink}/>
+            <ShopProductList products={props.products} placeProductLink={props.placeProductLink} addToCart={props.addToCart}/>
         </div>
     )
 }
