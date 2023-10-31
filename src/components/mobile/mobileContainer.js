@@ -28,7 +28,7 @@ function MobileContainer(props) {
             {showMenu && (
                 <MobileSidebar selectedCategory={props.selectedCategory} products={props.products} filterByPrice={props.filterByPrice}/>
             )}
-            <MobileProductList addToCart={props.addToCart} products={props.products} placeProductLink={props.placeProductLink}/>
+            <MobileProductList itemsPerPage={props.itemsPerPage} addToCart={props.addToCart} products={props.products} placeProductLink={props.placeProductLink}/>
         </div>
     )
 }

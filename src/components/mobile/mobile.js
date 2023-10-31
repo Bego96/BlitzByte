@@ -8,11 +8,8 @@ function Mobile(props) {
     const [products, setProducts] = useState(
         props.products.filter((product) => product.category === 'Phone')
     )
-
-    console.log(products);
-    
     const [filtered, setFiltered] = useState(products)
-
+    const [itemsPerPage, setItemsPerPage] = useState(filtered.length > 9 ? 10 : filtered.length)
     
     const sortingProducts = (value) => {
         const sortedProducts = [...products];
@@ -60,8 +57,8 @@ function Mobile(props) {
             <div className="pt-10 text-center">
                 <p className="text-2xl">Homepage  / <span className="text-blue-500">Mobile</span></p>
             </div>
-            <MobileNavigation products={products} sortingProducts={sortingProducts}/>
-            <MobileContainer addToCart={props.addToCart} products={filtered} selectedCategory={selectedCategory} filterByPrice={filterByPrice} placeProductLink={props.placeProductLink}/>
+            <MobileNavigation products={products} sortingProducts={sortingProducts} itemsPerPage={itemsPerPage}/>
+            <MobileContainer itemsPerPage={itemsPerPage} addToCart={props.addToCart} products={filtered} selectedCategory={selectedCategory} filterByPrice={filterByPrice} placeProductLink={props.placeProductLink}/>
         </div>
         </>
     )

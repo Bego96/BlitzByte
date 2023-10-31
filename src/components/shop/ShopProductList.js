@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProductItem from "../main/ProductItem";
 import ReactPaginate from 'react-paginate';
 import '../styles.css'
@@ -6,7 +6,7 @@ import '../styles.css'
 function ShopProductList(props) {
 
     /** PAGINATION TEST  **/
-    const [itemsPerPage, setItemsPerPage] = useState(10)
+    const [itemsPerPage, setItemsPerPage] = useState(props.itemsPerPage ? props.itemsPerPage : 10)
     const [itemOffset, setItemOffset] = useState(0);
 
   // Simulate fetching items from another resources.

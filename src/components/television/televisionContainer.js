@@ -27,7 +27,7 @@ function TelevisionContainer(props) {
             {showMenu && (
                 <TelevisionSidebar selectedCategory={props.selectedCategory} products={props.products} filterByPrice={props.filterByPrice}/>
             )}
-            <TelevisionProductList addToCart={props.addToCart} products={props.products} placeProductLink={props.placeProductLink}/>
+            <TelevisionProductList itemsPerPage={props.itemsPerPage} addToCart={props.addToCart} products={props.products} placeProductLink={props.placeProductLink}/>
         </div>
     )
 }

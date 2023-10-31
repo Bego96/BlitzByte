@@ -19,7 +19,7 @@ function Phone(props) {
         <div className="p-10 phone:p-6 bg-slate-100 rounded-md my-10">
             <div>
                 <div className="text-2xl font-semibold mb-10">
-                    <h2>Mobiteli</h2>
+                    <h2>Smartphones</h2>
                 </div>
             
                 <Swiper

@@ -7,8 +7,8 @@ function Shop(props) {
     const [products, setProducts] = useState(
         props.products
     )
+    const [itemsPerPage, setItemsPerPage] = useState(products.length > 9 ? 10 : products.length)
 
-    console.log(products);
     
     const [filtered, setFiltered] = useState(products)
 
@@ -53,13 +53,15 @@ function Shop(props) {
     };
 
 
+
+
     return (
         <><div className="">
             <div className="pt-10 text-center">
                 <p className="text-2xl">Homepage  / <span className="text-blue-500">Shop</span></p>
             </div>
-            <ShopNavigation products={products} sortingProducts={sortingProducts}/>
-            <ShopContainer products={filtered} selectedCategory={selectedCategory} filterByPrice={filterByPrice} placeProductLink={props.placeProductLink} addToCart={props.addToCart}/>
+            <ShopNavigation products={products} sortingProducts={sortingProducts} itemsPerPage={itemsPerPage}/>
+            <ShopContainer itemsPerPage={itemsPerPage} products={filtered} selectedCategory={selectedCategory} filterByPrice={filterByPrice} placeProductLink={props.placeProductLink} addToCart={props.addToCart}/>
         </div>
         </>
     )

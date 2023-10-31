@@ -24,23 +24,22 @@ function SliderProduct(props) {
 
     // Show info on hover, will be improved with framer motion for more dynamic hover effect
 
-    const [showInfo, setShowInfo] = useState(window.screen.width < 769 ? true : false);
-
+    const [showInfo, setShowInfo] = useState(false);
 
     useEffect(() => {
-
-        const showInfoOnSmallDevices = () => {
-            if (window.screen.width < 769) {
-                setShowInfo(true);
-            } else {
-                setShowInfo(false);
-            }
+        if (window.innerWidth < 915) {
+            document.getElementById(`${props.contentId}`).addEventListener('click', () => {
+                setShowInfo(!showInfo);
+            })
+        }   else {
+            document.getElementById(`${props.contentId}`).removeEventListener('click', () => {
+                setShowInfo(!showInfo)
+            })
         }
-        window.addEventListener('resize', showInfoOnSmallDevices);
-    }, [showInfo]);
+    }, [showInfo])
     
     return (
-        <div className="relative" onMouseEnter={() => setShowInfo(true)} onMouseLeave={() => setShowInfo(false)}>
+        <div id={props.contentId} className="relative" onMouseEnter={() => setShowInfo(true)} onMouseLeave={() => setShowInfo(false)}>
             <img src={props.image} alt={props.alt}/>
             {
                 showInfo ? 
@@ -49,7 +48,7 @@ function SliderProduct(props) {
                     <h2 className="text-orange-700 font-semibold text-xl mb-5">{props.title}</h2>
                     <p>{props.about}</p>
                 </div>
-            </div> : null
+            </div>  : null
             }
         </div>
     )

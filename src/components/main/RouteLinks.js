@@ -14,17 +14,11 @@ function RouteLinks(props) {
 
   const [cartProductList, setCartProductList] = useState([]);
 
-  // FOR FUTURE UPDATE
-  // Cart number will be useful to detect amount of products in cart, if product exists only num of products will increase
-  // When user removes product from cart if num of products is higher than 1 then only num will decrease, other wise product will be completed removed
-  const [cartNum, setCartNum] = useState(1)
-
   const addToCart = (productId) => {
     const product = productId;
     const productValues = props.products.find((p) => p.id === product);
   
     if (!productValues) {
-      console.log("Product not found");
       return;
     }
   
@@ -52,7 +46,7 @@ function RouteLinks(props) {
 
   }
 
-  console.log(cartProductList);
+  
   return (
     <Routes>
       <Route path="/" element={<HomePage products={props.products} addToCart={addToCart}/>} />

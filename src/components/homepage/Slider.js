@@ -15,7 +15,7 @@ function Slider() {
     // Update the number of slides per view when the window width changes
 
     return (
-        <div className="w-full my-16 phone:mb-0">
+        <div className="w-full my-16 tablet:p-6 phone:mb-0">
              <Swiper
                 slidesPerView={window.screen.width > 768 ? 2 : 1}
                 spaceBetween={20}
@@ -28,6 +28,7 @@ function Slider() {
                             <SwiperSlide key={sliderItem.id}>
                                 <SliderProduct
                                     key={sliderItem.id}
+                                    contentId={sliderItem.contentId}
                                     title={sliderItem.title}
                                     about={sliderItem.about}
                                     image={sliderItem.assets.gallery[0]}

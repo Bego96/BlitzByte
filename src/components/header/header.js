@@ -5,9 +5,12 @@ function Header (props) {
 
 
     return (
-        <header>
-            <Navigation setAside={props.setAside} showAside={props.showAside}/>
+        <>
+        <header className="sticky top-0 z-50">
+            <Navigation setAside={props.setAside} showAside={props.showAside} showCloseBtn={props.showCloseBtn}/>
         </header>
+         <Menu /> 
+         </>
     )
 };
 

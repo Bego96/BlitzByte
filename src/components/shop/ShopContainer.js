@@ -5,13 +5,9 @@ import { useMediaQuery } from "@uidotdev/usehooks";
 
 function ShopContainer(props) {
     const [showMenu, setShowMenu] = useState(window.innerWidth > 768);
-    
+
     const showMenuFunction = () => {
         setShowMenu(!showMenu);
-    }
-
-    const placeProductLink = (link) => {
-        props.placeProductLink(link)
     }
 
     return (
@@ -26,7 +22,7 @@ function ShopContainer(props) {
                 <ShopSidebar selectedCategory={props.selectedCategory} products={props.products} filterByPrice={props.filterByPrice} />
             )}
 
-            <ShopProductList products={props.products} placeProductLink={props.placeProductLink} addToCart={props.addToCart}/>
+            <ShopProductList itemsPerPage={props.itemsPerPage} updateAmountOfShownProducts={props.updateAmountOfShownProducts} products={props.products} addToCart={props.addToCart}/>
         </div>
     )
 }

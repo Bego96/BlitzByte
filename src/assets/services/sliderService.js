@@ -26,6 +26,7 @@ import pcbuild3_img4 from '../images/images_for_slider_test_only/pcbuild3/pcbuil
 const sliderProductGallery = [
     {
         id: 1,
+        contentId: 'slider1',
         title: 'Designs by IFR-All-White Z690 Formula Build',
         about: 'ROG Maximus Z690 Formula, Intel Core i5-12600k, Corsair iCUE 5000X - White, Corsair Dominator Platinum RGB 32GB (2 x 16GB) DDR5-5200 C36 Black, Corsair iCUE QL120 RGB White, Moonlight White peripherals',
         assets: {
@@ -40,6 +41,7 @@ const sliderProductGallery = [
     },
     {
         id: 2,
+        contentId: 'slider2',
         title: 'EKWB x ROG - Z690 Extreme Glacial Build',
         about: 'ROG Maximus Z690 Extreme Glacial, Intel Core i9-12900K, ROG Strix Helios White Edition, ROG Thor 850W Platinum, ASUS EKWB GeForce RTX 3090, EKWB custom liquid cooling',
         assets: {
@@ -54,6 +56,7 @@ const sliderProductGallery = [
     },
     {
         id: 3,
+        contentId: 'slider3',
         title: 'EKWB x ROG - Z690 Extreme Glacial Build',
         about: 'ROG Maximus Z690 Extreme Glacial, Intel Core i9-12900k, ROG Strix Helios White Edition, ROG Thor 850W Platinum, ASUS EKWB GeForce RTX 3090, EKWB custom liquid cooling',
         assets: {

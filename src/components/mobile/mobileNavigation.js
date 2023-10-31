@@ -28,12 +28,8 @@ function MobileNavigation(props) {
     return(
         <div className="flex bg-slate-100 p-4 my-10 rounded-md justify-between items-center laptop:items-start phone:flex-col phone:justify-center phone:items-center tablet:mb-10">
             <div className="flex items-center laptop:flex-col laptop:items-start phone:w-full phone:justify-center phone:items-center">
-                <div className="mr-10 relative phone:w-[90%] phone:mr-0">
-                    <input type="search" className="bg-slate-100 h-10 w-[220px] p-4 rounded-3xl phone:w-full" placeholder="Search.."/>
-                    <span><IoSearchOutline size={22} className="absolute top-2 right-2 cursor-pointer"></IoSearchOutline></span>
-                </div>
                 <div className="laptop:mt-6">
-                    <p>Showing 1-12 of 16 results</p>
+                    <p>Showing 1-{props.itemsPerPage} of {props.products.length} results</p>
                 </div>
             </div>
             <div className="phone:mt-10">

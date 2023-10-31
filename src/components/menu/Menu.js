@@ -13,7 +13,7 @@ function MenuItem({ to, text}) {
     };
 
   return (
-    <li className="mx-6 relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <li className="mx-6 relative text-lg" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <Link to={to}>{text}</Link>
       <span
         className={`${
@@ -59,11 +59,6 @@ function Menu() {
         id: 6,
         to: "/TV's", 
         text: "TV's" 
-    },
-    {
-      id: 7,
-      to: "/Cart",
-      text: "Cart"
     }
   ];
 
