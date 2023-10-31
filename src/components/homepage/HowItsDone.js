@@ -11,21 +11,21 @@ function HowItsDone() {
                 <img className="w-20" src={delivery} alt="delivery" />
                 <div className="text-center mt-6">
                     <h2 className="text-xl font-semibold text-orange-500">EUROEXPRESS DELIVERY</h2>
-                    <p>At home address</p>
+                    <p className='font-semibold'>At home address</p>
                 </div>
             </div>
             <div className="flex flex-col py-10 rounded-md items-center tablet:mb-6 phone:my-0 w-full bg-[#daede0]">
                 <img className="w-20" src={payment} alt="payment" />
                 <div className="text-center mt-6">
                     <h2 className="text-xl font-semibold text-green-500">PAYMENT</h2>
-                    <p>Upon takeover</p>
+                    <p className='font-semibold'>Upon takeover</p>
                 </div>
             </div> 
             <div className="flex flex-col py-10 rounded-md items-center tablet:mb-6 phone:my-0 w-full bg-[#f5f4c6]">
                 <img className="w-20" src={refund} alt="refund" />
                 <div className=" text-center mt-6">
                     <h2 className="text-xl font-semibold text-yellow-500">REFUND</h2>
-                    <p>If you are not satisfied with purchase</p>
+                    <p className='font-semibold'>If you are not satisfied with purchase</p>
                 </div>
             </div>
         </div>

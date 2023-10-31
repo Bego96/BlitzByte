@@ -26,7 +26,7 @@ function DesktopContainer(props) {
             {showMenu && (
                 <DesktopSidebar selectedCategory={props.selectedCategory} products={props.products} filterByPrice={props.filterByPrice}/>
             )}
-            <DesktopProductList addToCart={props.addToCart} products={props.products} placeProductLink={props.placeProductLink}/>
+            <DesktopProductList itemsPerPage={props.itemsPerPage} addToCart={props.addToCart} products={props.products}/>
         </div>
     )
 }

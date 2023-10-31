@@ -6,7 +6,7 @@ import '../styles.css'
 function MobileProductList(props) {
 
     /** PAGINATION TEST  **/
-    const [itemsPerPage, setItemsPerPage] = useState(10)
+    const [itemsPerPage, setItemsPerPage] = useState(props.itemsPerPage)
     const [itemOffset, setItemOffset] = useState(0);
 
   // Simulate fetching items from another resources.

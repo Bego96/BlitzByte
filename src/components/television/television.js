@@ -9,12 +9,9 @@ function Television(props) {
     const [products, setProducts] = useState(
         props.products.filter((product) => product.category === 'TV')
     )
-
-    console.log(products);
-    
     const [filtered, setFiltered] = useState(products)
+    const [itemsPerPage, setItemsPerPage] = useState(filtered.length > 9 ? 10 : filtered.length)
 
-    
     const sortingProducts = (value) => {
         const sortedProducts = [...products];
             if (value === 'Lowest') {
@@ -61,8 +58,8 @@ function Television(props) {
             <div className="pt-10 text-center">
                 <p className="text-2xl">Homepage  / <span className="text-blue-500">Television</span></p>
             </div>
-            <TelevisionNavigation products={products} sortingProducts={sortingProducts}/>
-            <TelevisionContainer addToCart={props.addToCart} products={filtered} selectedCategory={selectedCategory} filterByPrice={filterByPrice} placeProductLink={props.placeProductLink}/>
+            <TelevisionNavigation products={products} sortingProducts={sortingProducts} itemsPerPage={itemsPerPage}/>
+            <TelevisionContainer itemsPerPage={itemsPerPage} addToCart={props.addToCart} products={filtered} selectedCategory={selectedCategory} filterByPrice={filterByPrice} placeProductLink={props.placeProductLink}/>
         </div>
         </>
     )

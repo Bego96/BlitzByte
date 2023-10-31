@@ -6,7 +6,7 @@ import '../styles.css'
 function DesktopProductList(props) {
 
     /** PAGINATION TEST  **/
-    const [itemsPerPage, setItemsPerPage] = useState(10)
+    const [itemsPerPage, setItemsPerPage] = useState(props.itemsPerPage)
     const [itemOffset, setItemOffset] = useState(0);
 
   // Simulate fetching items from another resources.
@@ -40,7 +40,6 @@ function DesktopProductList(props) {
                                 name={product.product.name}
                                 description={product.product.description}
                                 price={product.product.price}
-                                placeProductLink={props.placeProductLink}
                             />
                         
                         )

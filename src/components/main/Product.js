@@ -11,18 +11,14 @@ import { useState,  } from "react";
 function Product(props) {
 
     const { productId } = useParams();
-    console.log('props.products:', props.products);
-    console.log('productId:', productId);
 
     const [mainImage, setMainImage] = useState(0)
     const [numOfProducts, setNumOfProducts] = useState(0)
     
     const product = props.products.find((p) => p.id === Number(productId));
-    console.log('product:', product);
 
     const addToCart = (productId) => {
-        const product = productId;
-        console.log(product)
+        const product = parseInt(productId);
         props.addToCart(product)
     }
 

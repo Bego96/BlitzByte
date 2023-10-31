@@ -4,7 +4,8 @@ import {GrClose} from 'react-icons/gr';
 import { Link } from 'react-router-dom';
 import {AiOutlineClose} from 'react-icons/ai';
 import {IoSearchOutline} from 'react-icons/io5';
-
+import { BsCart } from 'react-icons/bs';
+import { BsPerson } from 'react-icons/bs';
 
 function MenuItemList({ to, text}) {
     const [underLine, setUnderLine] = useState(false);
@@ -18,7 +19,7 @@ function MenuItemList({ to, text}) {
     };
 
   return (
-    <li className="my-6 relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <li className="my-6 relative text-lg" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <Link to={to}>{text}</Link>
       <span
         className={`${
@@ -81,18 +82,6 @@ function Sidebar(props) {
         // Initial check
         handleWindowResize();
 
-        const showCloseBtnOnScroll = () => {
-            if (window.innerWidth >= 769) {
-                if (window.scrollY > 120) {
-                    setShowCloseBtn(true)
-                } else {
-                    setShowCloseBtn(false);
-                }
-            }
-        }
-
-        window.addEventListener('scroll', showCloseBtnOnScroll);
-
         // Attach event listener
         window.addEventListener('resize', handleWindowResize);
 
@@ -104,14 +93,18 @@ function Sidebar(props) {
 
     return (
 
-        <aside className={`p-10 bg-slate-200 h-[100%] w-[30%] fixed transition-all duration-700 ease tablet:z-20 tablet:w-[60%] small-desktop:p-4 phone:w-[100%] ${props.showAside ? 'left-0 top-0' : 'left-[-30%] top-0 tablet:left-[-100%]'}`}>
+        <aside className={`p-10 bg-slate-200 h-[100%] w-[28%] fixed transition-all duration-700 ease tablet:z-[130] tablet:w-[60%] small-desktop:p-4 phone:w-[100%] ${props.showAside ? 'left-0 top-0' : 'left-[-30%] top-0 tablet:left-[-100%]'}`}>
             <div className="flex flex-col rounded-md bg-slate-100 h-full p-10 small-desktop:p-4">
-                {   showCloseBtn ? 
+                {   window.innerWidth < 915 ? 
                     <div className={`relative`}>
                         <GrClose className="absolute right-0 top-0 cursor-pointer" color='white' size={25} onClick={() => props.setAside()}/>
                     </div> : null
                 }
-                <div className= {`relative phone:w-full phone:mr-0 ${showCloseBtn ? 'mt-14' : 'mt-0'}`}>
+                <div className={`flex items-center hidden mb-10 tablet:flex ${showCloseBtn ? 'mt-14' : ''}`}>
+                        <div className="block mr-[20px] phone:mr-[10px]"><BsPerson size={25} color="#64748b" className='cursor-pointer' /></div>
+                        <Link to="/Cart"><div className="block mr-[20px] phone:mr-[10px]"><BsCart size={25} color="#64748b" className='cursor-pointer' /></div></Link>
+                    </div>
+                <div className= {`relative phone:w-full phone:mr-0 ${showCloseBtn && window.innerWidth > 914 ? 'mt-14' : ''}`}>
                     <input type="search" className="border-2 border-slate-300 h-14 w-full p-4 rounded-3xl" placeholder="Search.."/>
                     <span><IoSearchOutline size={22} color="#94a3b8" className="absolute top-4 right-4 cursor-pointer"></IoSearchOutline></span>
                 </div>
