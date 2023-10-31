@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 function Navigation(props) {
     const [showSearch, setShowSearch] = useState(false);
-    const [showHamburgerMenu, setShowHamburgerMenu] = useState(true); // Initially true for all screen sizes
+    const [showHamburgerMenu, setShowHamburgerMenu] = useState(window.innerWidth > 914 ? false : true); // Initially true for all screen sizes
     const targetRef = useRef();
     const searchBar = useRef();
     const closeSearchBtn = useRef();
@@ -23,6 +23,7 @@ function Navigation(props) {
 
     const handleScroll = () => {
         // Determine whether to show the hamburger menu based on scroll position
+        if (window.innerWidth > 914) 
         setShowHamburgerMenu(window.scrollY > 50);
     }
 
@@ -41,7 +42,7 @@ function Navigation(props) {
     useEffect(() => {
         // Add scroll event listener to control hamburger menu appearance
         window.addEventListener('scroll', handleScroll);
-
+        window.addEventListener('click', handleClickOutside);
         // Clean up the event listener
         return () => {
             window.removeEventListener('scroll', handleScroll);
@@ -54,7 +55,7 @@ function Navigation(props) {
                 <div className="flex justify-between items-center w-[50%] tablet:w-[100%]">
                     <div className="flex items-center tablet:justify-between tablet:w-full">
                     {
-                        showHamburgerMenu  ? 
+                        showHamburgerMenu ? 
                         <div className={`cursor-pointer`} onClick={() => setSideBar()}>
                             <div className={`w-[30px] h-0.5 bg-black mb-[6px] transition-all ${props.showAside ? 'rotate-45 translate-x-0 translate-y-[11px] tablet:rotate-0 tablet:translate-y-0' : ''}`}></div>
                             <div className={`w-[30px] h-0.5 bg-black mb-[6px] transition-all ${props.showAside ? 'opacity-0 tablet:opacity-100' : ''}`}></div>
