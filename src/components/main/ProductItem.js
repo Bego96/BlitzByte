@@ -13,10 +13,10 @@ function ProductItem(props) {
     }
 
     return (
-            <div>
+            <div className="">
                 <Link to={`/Product/${props.id}`}>
-                    <div className="">
-                        <img className="" src={props.image[0].img} alt="product"/>
+                    <div className="overflow-hidden">
+                        <img className="hover:scale-105 transition-all delay-50" src={props.image[0].img} alt="product"/>
                     </div>
                 </Link>
                 <div className="bg-white p-4 h-[200px] flex flex-col justify-between">

@@ -37,8 +37,8 @@ function Product(props) {
     return (
         <div className="flex justify-between p-20 tablet:flex-col laptop:p-10">
             <div className="w-1/2 tablet:w-full tablet:mb-20">
-                <div className="mb-10">
-                    <img src={product.product.images[mainImage].img} alt='product main'/>
+                <div className="mb-10 overflow-hidden cursor-pointer">
+                    <img className='hover:scale-105 transition-all delay-50' src={product.product.images[mainImage].img} alt='product main'/>
                 </div>
                 <div className="w-[70%]">
                     <Swiper

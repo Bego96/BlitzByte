@@ -7,7 +7,7 @@ import {IoSearchOutline} from 'react-icons/io5';
 import { BsCart } from 'react-icons/bs';
 import { BsPerson } from 'react-icons/bs';
 
-function MenuItemList({ to, text}) {
+function MenuItemList({ to, text, showAside, toggleAside}) {
     const [underLine, setUnderLine] = useState(false);
 
     const handleMouseEnter = () => {
@@ -20,7 +20,7 @@ function MenuItemList({ to, text}) {
 
   return (
     <li className="my-6 relative text-lg" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <Link to={to}>{text}</Link>
+      <Link to={to} onClick={() => toggleAside(false)}>{text}</Link>
       <span
         className={`${
           underLine
@@ -99,18 +99,23 @@ function Sidebar(props) {
                     <div className={`relative hidden tablet:block`}>
                         <GrClose className="absolute right-0 top-0 cursor-pointer" color='white' size={25} onClick={() => props.setAside()}/>
                     </div> 
+                {
+                    window.innerWidth > 914 ? 
+                    <div className= {`relative phone:w-full phone:mr-0 ${window.innerWidth < 915 ? 'mt-16' : 'mt-0'}`}>
+                        <input type="search" className="border-2 border-slate-300 h-14 w-full p-4 rounded-3xl" placeholder="Search.."/>
+                        <span><IoSearchOutline size={22} color="#94a3b8" className="absolute top-4 right-4 cursor-pointer"></IoSearchOutline></span>
+                    </div> : null
+                }
                 
-                <div className= {`relative phone:w-full phone:mr-0 ${window.innerWidth < 915 ? 'mt-16' : 'mt-0'}`}>
-                    <input type="search" className="border-2 border-slate-300 h-14 w-full p-4 rounded-3xl" placeholder="Search.."/>
-                    <span><IoSearchOutline size={22} color="#94a3b8" className="absolute top-4 right-4 cursor-pointer"></IoSearchOutline></span>
-                </div>
-                <div className="mt-10">
+                <div className="tablet:mt-10">
                     <ul>
                     {menuItems.map((item, index) => (
                         <MenuItemList
                             key={item.id}
                             to={item.to}
                             text={item.text}
+                            showAside={props.showAside}
+                            toggleAside={props.setAside}
                         />
                     ))}
                     </ul>
