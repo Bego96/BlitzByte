@@ -53,28 +53,28 @@ function Navigation(props) {
         <nav className={`bg-slate-100 rounded-b-md`}>
             <div className={`p-6 flex justify-between items-center`}>
                 <div className="flex justify-between items-center w-[50%] tablet:w-[100%]">
-                    <div className="flex items-center tablet:justify-between tablet:w-full">
+                    <div className="flex items-center tablet:justify-between">
                     {
                         showHamburgerMenu ? 
                         <div className={`cursor-pointer`} onClick={() => setSideBar()}>
-                            <div className={`w-[30px] h-0.5 bg-black mb-[6px] transition-all ${props.showAside ? 'rotate-45 translate-x-0 translate-y-[11px] tablet:rotate-0 tablet:translate-y-0' : ''}`}></div>
-                            <div className={`w-[30px] h-0.5 bg-black mb-[6px] transition-all ${props.showAside ? 'opacity-0 tablet:opacity-100' : ''}`}></div>
-                            <div className={`w-[30px] h-0.5 bg-black mb-[6px] transition-all ${props.showAside ? '-rotate-45 translate-x-0 translate-y-[-5px] tablet:-rotate-0 tablet:translate-y-0' : ''}`}></div>
+                            <div className={`w-[30px] h-0.5 bg-black mb-[6px] transition-all phone:mb-[4px] phone:h-0.3 phone:w-[25px] ${props.showAside ? 'rotate-45 translate-x-0 translate-y-[11px] tablet:rotate-0 tablet:translate-y-0' : ''}`}></div>
+                            <div className={`w-[30px] h-0.5 bg-black mb-[6px] transition-all phone:mb-[4px] phone:h-0.3 phone:w-[25px] ${props.showAside ? 'opacity-0 tablet:opacity-100' : ''}`}></div>
+                            <div className={`w-[30px] h-0.5 bg-black mb-[6px] transition-all phone:mb-[4px] phone:h-0.3 phone:w-[25px] ${props.showAside ? '-rotate-45 translate-x-0 translate-y-[-5px] tablet:-rotate-0 tablet:translate-y-0' : ''}`}></div>
                         </div> : null
                     }
 
-                        <div className={`transition-all ${showHamburgerMenu ? 'ml-6' : 'ml-0 '}`}>
-                            <h1 className="text-4xl">Blitz<span className="text-blue-500">Byte</span></h1>
+                        <div className={`transition-all ${showHamburgerMenu ? 'ml-4' : 'ml-0 '}`}>
+                            <h1 className="text-4xl tablet:text-3xl phone:text-2xl">Blitz<span className="text-blue-500">Byte</span></h1>
                         </div>
                     </div>
                 </div>
-                <div className="ml-[20px] flex justify-center items-center tablet:hidden">
+                <div className="ml-[20px] flex justify-center items-center">
                     <div className="flex items-center">
-                        <div ref={searchBar} className="mr-[20px] phone:mr-[10px]">
-                            <IoSearchOutline size={25} color="#64748b" className='cursor-pointer' />
+                        <div ref={searchBar} className="mr-[20px] phone:mr-[14px]">
+                            <IoSearchOutline size={window.innerWidth > 480 ? 25 : 22} color="#64748b" className='cursor-pointer' />
                         </div>
-                        <div className="block mr-[20px] phone:mr-[10px]"><BsPerson size={25} color="#64748b" className='cursor-pointer' /></div>
-                        <Link to="/Cart"><div className="block mr-[20px] phone:mr-[10px]"><BsCart size={25} color="#64748b" className='cursor-pointer' /></div></Link>
+                        <div className="block mr-[20px] phone:mr-[14px]"><BsPerson size={window.innerWidth > 480 ? 25 : 20} color="#64748b" className='cursor-pointer' /></div>
+                        <Link to="/Cart"><div className="block mr-[20px] phone:mr-0"><BsCart size={window.innerWidth > 914 ? 25 : 22} color="#64748b" className='cursor-pointer' /></div></Link>
                     </div>
                 </div>
             </div>
