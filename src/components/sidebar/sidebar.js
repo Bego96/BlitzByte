@@ -99,14 +99,7 @@ function Sidebar(props) {
                     <div className={`relative hidden tablet:block`}>
                         <GrClose className="absolute right-0 top-0 cursor-pointer" color='white' size={25} onClick={() => props.setAside()}/>
                     </div> 
-                {
-                    window.innerWidth > 914 ? 
-                    <div className= {`relative phone:w-full phone:mr-0 ${window.innerWidth < 915 ? 'mt-16' : 'mt-0'}`}>
-                        <input type="search" className="border-2 border-slate-300 h-14 w-full p-4 rounded-3xl" placeholder="Search.."/>
-                        <span><IoSearchOutline size={22} color="#94a3b8" className="absolute top-4 right-4 cursor-pointer"></IoSearchOutline></span>
-                    </div> : null
-                }
-                
+
                 <div className="tablet:mt-10">
                     <ul>
                     {menuItems.map((item, index) => (
