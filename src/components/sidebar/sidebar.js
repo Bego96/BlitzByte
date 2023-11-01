@@ -95,16 +95,12 @@ function Sidebar(props) {
 
         <aside className={`p-10 bg-slate-200 h-[100%] w-[28%] fixed transition-all duration-700 ease tablet:z-[130] tablet:w-[60%] small-desktop:p-4 phone:w-[100%] ${props.showAside ? 'left-0 top-0' : 'left-[-30%] top-0 tablet:left-[-100%]'}`}>
             <div className="flex flex-col rounded-md bg-slate-100 h-full p-10 small-desktop:p-4">
-                {   window.innerWidth < 915 ? 
-                    <div className={`relative`}>
+                  
+                    <div className={`relative hidden tablet:block`}>
                         <GrClose className="absolute right-0 top-0 cursor-pointer" color='white' size={25} onClick={() => props.setAside()}/>
-                    </div> : null
-                }
-                <div className={`flex items-center hidden mb-10 tablet:flex ${showCloseBtn ? 'mt-14' : ''}`}>
-                        <div className="block mr-[20px] phone:mr-[10px]"><BsPerson size={25} color="#64748b" className='cursor-pointer' /></div>
-                        <Link to="/Cart"><div className="block mr-[20px] phone:mr-[10px]"><BsCart size={25} color="#64748b" className='cursor-pointer' /></div></Link>
-                    </div>
-                <div className= {`relative phone:w-full phone:mr-0 ${showCloseBtn && window.innerWidth > 914 ? 'mt-14' : ''}`}>
+                    </div> 
+                
+                <div className= {`relative phone:w-full phone:mr-0 ${window.innerWidth < 915 ? 'mt-16' : 'mt-0'}`}>
                     <input type="search" className="border-2 border-slate-300 h-14 w-full p-4 rounded-3xl" placeholder="Search.."/>
                     <span><IoSearchOutline size={22} color="#94a3b8" className="absolute top-4 right-4 cursor-pointer"></IoSearchOutline></span>
                 </div>
