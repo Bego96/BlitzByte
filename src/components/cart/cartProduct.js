@@ -2,12 +2,13 @@ import {BsCart} from 'react-icons/bs';
 
 function CartProduct(props) {
 
+
     const removeFromCart = (productId) => {
         props.removeFromCart(productId);
     }
 
     return (
-        <div className="flex justify-between items-center bg-slate-100 p-6 mb-6 rounded-md phone:flex-col">
+        <div className={`flex justify-between items-center bg-slate-100 p-6 mb-6 rounded-md phone:flex-col`}>
             <div className="flex w-[80%] tablet:w-[60%] phone:w-full phone:flex-col">
                 <div className="w-[20%] tablet:w-[40%] phone:w-[100%] phone:mx-0">
                     <img src={props.image} alt="Product wishlist"/>

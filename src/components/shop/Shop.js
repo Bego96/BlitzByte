@@ -8,8 +8,6 @@ function Shop(props) {
         props.products
     )
     const [itemsPerPage, setItemsPerPage] = useState(products.length > 9 ? 10 : products.length)
-
-    
     const [filtered, setFiltered] = useState(products)
 
     const sortingProducts = (value) => {
@@ -49,10 +47,8 @@ function Shop(props) {
             (product) => product.product.price >= minMax[0] && product.product.price <= minMax[1]
         );
       setFiltered(filteredProducts);
-        console.log(filteredProducts + "Min" + minMax[0] + " Max" + minMax[1])
+        
     };
-
-
 
 
     return (

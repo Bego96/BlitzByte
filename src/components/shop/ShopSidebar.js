@@ -10,27 +10,24 @@ function valuetext(value) {
 function ShopSidebar(props) {
 
     const price=  props.products.map((price) => price.product.price);
-    console.log(typeof Math.max(...price))
     const [priceValue, setPriceValue] = useState([0, Math.max(...price)]);
 
     const handlePriceChange = (event, newValue) => {
-      setPriceValue(newValue);
         const priceNewValue = priceValue;
+        setPriceValue(newValue);
         props.filterByPrice(priceNewValue);
     };
 
     const minPrice = (event) => {
        const newMinPrice = parseFloat(event.target.value); // Parse the input value to a float
        setPriceValue([newMinPrice, priceValue[1]]); // Update the priceValue state with the new minimum price
-       console.log(event.target.value)
-        props.filterByPrice([newMinPrice, priceValue[1]])
+       props.filterByPrice([newMinPrice, priceValue[1]])
     }
 
     const maxPrice = (event) => {
        const newMaxPrice = parseFloat(event.target.value); // Parse the input value to a float
-       setPriceValue([priceValue[0], newMaxPrice]); // Update the priceValue state with the new minimum price
-       console.log(event.target.value)
-       props.filterByPrice([priceValue[0], newMaxPrice])
+        setPriceValue([priceValue[0], newMaxPrice]); // Update the priceValue state with the new minimum price
+        props.filterByPrice([priceValue[0], newMaxPrice])
     }
 
     const selectCategory = (value) => {

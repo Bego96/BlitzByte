@@ -5,6 +5,7 @@ import CartProduct from "./cartProduct";
 function Cart(props) {
    
 
+
     return (
         <div className="py-6 phone:px-6">
             {   !props.cartList || props.cartList.length === 0 ? 

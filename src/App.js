@@ -16,6 +16,20 @@ function App() {
   }
 
 
+  useEffect(() => {
+
+    const toggleSideBar = () => {
+      if (window.scrollY < 50) {
+        setShowAside(false);
+      } 
+    }
+
+    if (window.innerWidth > 914) {
+      window.addEventListener('scroll', toggleSideBar)
+    } else {
+      window.removeEventListener('scroll', toggleSideBar)
+    }
+  }, [])
 
   return (
     <BrowserRouter>
