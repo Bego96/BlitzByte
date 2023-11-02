@@ -47,7 +47,7 @@ function Product(props) {
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}
                         >
-                            {
+                            {   product.product.images.length > 1 ? 
                                 product.product.images.map((image) => {
                                 return (
                                     <SwiperSlide key={image.id}>
@@ -56,7 +56,7 @@ function Product(props) {
                                         </div>
                                     </SwiperSlide>
                                     )
-                                })
+                                }) : null
                             }
                         </Swiper>
                     </div>
@@ -64,7 +64,7 @@ function Product(props) {
             <div className="w-1/2 pl-6 tablet:w-full tablet:p-0">
                 <h2 className="text-3xl mb-6">{product.product.name}</h2>
                 <p className="mb-3">{product.product.description}</p>
-                <p className="mb-3 text-4xl font-bold text-slate-600">{product.product.price}</p>
+                <p className="mb-3 text-4xl font-bold text-slate-600">{product.product.price}$</p>
                 <ul className="mb-10 text-slate-500">
                 {
                     product.product.components.map((component) => {
@@ -79,7 +79,7 @@ function Product(props) {
                         <input className="w-full p-2 rounded border border-slate-400" type="number" id="productNum" name="productNum" step="1" value={numOfProducts < 1 ? 1 : numOfProducts} onChange={numOfProduct}/>
                     </div>
                     <div className="w-[40%]">
-                        <button className="bg-blue-500 w-full h-10 text-white rounded" onClick={() => addToCart(productId)}>Add to basket</button>
+                        <button className="bg-blue-500 w-full h-10 text-white rounded hover:bg-slate-100 hover:text-blue-600 hover:border hover:border-2 hover:border-blue-500 transition-all delay-50" onClick={() => addToCart(productId)}>Add to basket</button>
                     </div>
                 </div>  
             </div>

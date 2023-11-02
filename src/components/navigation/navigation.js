@@ -70,7 +70,7 @@ function Navigation(props) {
             </div>
             <div ref={targetRef} className={`w-[55%] small-desktop:w-[75%] laptop:w-[100%] mx-auto transition-all ease-in-out duration-500 absolute left-1/2 z-10 transform -translate-x-1/2 -translate-y-1/2 ${showSearch ? 'opacity-100 top-10' : 'top-[-100px] opacity-0'}`}>
                 <div className=" relative phone:w-full phone:mr-0">
-                    <input type="search" className="border-2 border-slate-300 h-14 w-full py-4 px-10 rounded-3xl" placeholder="Search.." />
+                    <input type="search" className="border-2 border-slate-300 h-14 w-full py-4 px-10 rounded-lg" placeholder="Search.." />
                     <span><IoSearchOutline size={22} color="#94a3b8" className="absolute top-4 left-4 cursor-pointer"></IoSearchOutline></span>
                     <span ref={closeSearchBtn} onClick={() => setShowSearch(!showSearch)}><AiOutlineClose size={22} className="absolute top-4 right-4 cursor-pointer"></AiOutlineClose></span>
                 </div>
