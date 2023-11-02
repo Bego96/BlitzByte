@@ -2,6 +2,7 @@ import { useState } from "react";
 import ProductItem from "../main/ProductItem";
 import ReactPaginate from 'react-paginate';
 import '../styles.css'
+import { AiOutlineRight, AiOutlineLeft} from 'react-icons/ai'
 
 function LaptopProductList(props) {
 
@@ -51,11 +52,11 @@ function LaptopProductList(props) {
                 props.products.length > itemsPerPage ?
                 <ReactPaginate
                 breakLabel="..."
-                nextLabel=">"
+                nextLabel={<AiOutlineRight></AiOutlineRight>}
                 onPageChange={handlePageClick}
                 pageRangeDisplayed={5}
                 pageCount={pageCount}
-                previousLabel="<"
+                previousLabel={<AiOutlineLeft></AiOutlineLeft>}
                 renderOnZeroPageCount={null}
                 containerClassName="paginationContainer"
                 /> : null

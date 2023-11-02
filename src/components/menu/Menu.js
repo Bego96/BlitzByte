@@ -63,7 +63,7 @@ function Menu() {
   ];
 
   return (
-    <div className="flex justify-center items-center tablet:hidden p-4 bg-blue-500 mt-6 text-slate-100 rounded-md">
+    <div className="flex justify-center items-center tablet:hidden p-4 bg-slate-600 mt-6 text-slate-100 rounded-md">
       <ul className="flex">
         {menuItems.map((item, index) => (
           <MenuItem
