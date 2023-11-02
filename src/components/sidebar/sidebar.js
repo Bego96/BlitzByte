@@ -90,7 +90,7 @@ function Sidebar(props) {
 
     return (
 
-        <aside className={`p-10 text-white flex flex-col bg-blue-600 h-[100%] w-[25%] fixed transition-all duration-700 ease tablet:z-[130] tablet:w-[60%] small-desktop:p-4 phone:w-[100%] ${props.showAside ? 'left-0 top-0' : 'left-[-30%] top-0 tablet:left-[-100%]'}`}>
+        <aside className={`p-10 text-white flex flex-col bg-blue-500 h-[100%] w-[25%] fixed transition-all duration-700 ease tablet:z-[130] tablet:w-[60%] small-desktop:p-4 phone:w-[100%] ${props.showAside ? 'left-0 top-0' : 'left-[-30%] top-0 tablet:left-[-100%]'}`}>
             
                   
                     <div className={`relative hidden tablet:block`}>
