@@ -27,7 +27,7 @@ function ProductItem(props) {
                         </div>
                     </Link>
                         <div className="flex justify-center mt-5">
-                            <button type="button" onClick={() => addToCart(props.id)} className="rounded-md bg-blue-500 text-sm text-slate-100 h-12 flex justify-center items-center w-full hover:bg-blue-600"><BsCart size={18} color="#ffff" className='cursor-pointer mr-3 phone:mr-1'/>Add to cart</button>
+                            <button type="button" onClick={() => addToCart(props.id)} className="box-border rounded-md bg-blue-500 text-md text-slate-100 h-12 w-full hover:bg-slate-100 hover:text-blue-600 hover:border hover:border-2 hover:border-blue-500 hover:mb-1 transition-all delay-50">Add to cart</button>
                         </div>
                 </div>
             </div>

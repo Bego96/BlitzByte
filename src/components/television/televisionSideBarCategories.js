@@ -26,14 +26,14 @@ function TelevisionSideBarCategories(props) {
 
   return (
     <div className="pl-10">
-      <h2 className="text-xl">Categories</h2>
+      <h2 className="text-xl font-semibold">Categories</h2>
       <ul className="w-fit flex flex-col mt-10">
-        <li className="my-2 cursor-pointer" onClick={() => selectCategory("All brands")}>See all ({brandTypes.length})</li>
+        <li className="my-2 cursor-pointer text-slate-600" onClick={() => selectCategory("All brands")}>See all ({brandTypes.length})</li>
         {brands.map((brand, index) => {
             console.log(index);
             const itemCount = calcItems(brand);
             return (
-                <li key={index} onClick={() => selectCategory(brand)} className="cursor-pointer my-2">{brand + " "} ({itemCount})</li>
+                <li key={index} onClick={() => selectCategory(brand)} className="cursor-pointer my-2 text-slate-600">{brand + " "} ({itemCount})</li>
             )
         })}
       </ul>

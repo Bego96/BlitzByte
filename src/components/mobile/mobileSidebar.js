@@ -48,10 +48,10 @@ function MobileSidebar(props) {
 
             <div className="my-10 pl-10">
                 <div className="mb-6 tablet:flex tablet:flex-col">
-                    <h2 className="text-xl mb-10">Cijene</h2>
-                    <label for="min">Min:</label>
+                    <h2 className="text-xl mb-10 font-semibold">Prices</h2>
+                    <label for="min" className="text-slate-600">Min:</label>
                     <input className="border w-full mb-2 p-1 tablet:w-[50%]" type="number" name="min" min={0} max={priceValue[1]} value={priceValue[0]} onChange={minPrice}/>
-                    <label for="max">Max:</label>
+                    <label for="max" className="text-slate-600">Max:</label>
                     <input className="border w-full p-1 tablet:w-[50%]" type="number" name="max" min={0} max={priceValue[1]} value={priceValue[1]} onChange={maxPrice}/>
                 </div>
                 <div className="w-full tablet:w-[50%]">
