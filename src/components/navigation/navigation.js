@@ -39,7 +39,7 @@ function Navigation(props) {
     }, [showSearch, showHamburgerMenu,]);
     return (
         <>
-        <nav className={`rounded-b-md transition ease-in-out delay-50 ${!navigationBg ? 'bg-blue-600' : 'bg-blue-700'}`}>
+        <nav className={` transition ease-in-out delay-50 ${!navigationBg ? 'bg-blue-600' : 'bg-blue-700'}`}>
             <div className={`p-6 flex justify-between items-center`}>
                 <div className="flex justify-between items-center w-[50%] tablet:w-[100%]">
                     <div className="flex items-center tablet:justify-between">
