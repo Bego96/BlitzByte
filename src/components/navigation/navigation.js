@@ -5,19 +5,21 @@ import { BsCart } from 'react-icons/bs';
 import { BsPerson } from 'react-icons/bs';
 import Menu from "../menu/Menu";
 import { Link } from "react-router-dom";
+import Search from "../search/search";
 
 function Navigation(props) {
+    const [searchValue, setSearchValue] = useState('');
+    const [results, setResults] = useState([]);
     const [showSearch, setShowSearch] = useState(false);
     const [showHamburgerMenu, setShowHamburgerMenu] = useState(window.innerWidth > 914 ? false : true); // Initially true for all screen sizes
-    const targetRef = useRef();
     const searchBar = useRef();
-    const closeSearchBtn = useRef();
     const [navigationBg, setNavigationBg] = useState(false);
 
     const setSideBar = () => {
         props.setAside();
     }
 
+    
 
     const handleScroll = () => {
         // Determine whether to show the hamburger menu based on scroll position
@@ -27,6 +29,25 @@ function Navigation(props) {
         }
     }
 
+
+    const searchResults = (value) => {
+        // Update the search value and setResults accordingly
+
+
+        setSearchValue(value);
+        // You can filter products based on the value here and set them to results
+        
+        const filteredResults = props.products.filter((product) =>
+          product.product.name.toLowerCase().includes(value.toLowerCase())
+        );
+
+        /*if (filteredResults === null || undefined || []) {
+            setResults(props.products.filter((product) => product.product.name === results))
+        }*/
+
+        console.log(filteredResults)
+        setResults(filteredResults);
+      };
 
     useEffect(() => {
         // Add scroll event listener to control hamburger menu appearance
@@ -39,7 +60,7 @@ function Navigation(props) {
     }, [showSearch, showHamburgerMenu,]);
     return (
         <>
-        <nav className={` transition ease-in-out delay-50 ${!navigationBg ? 'bg-blue-600' : 'bg-blue-700'}`}>
+        <nav className={`transition ease-in-out delay-50 ${!navigationBg ? 'bg-blue-600' : 'bg-blue-700'}`}>
             <div className={`p-6 flex justify-between items-center`}>
                 <div className="flex justify-between items-center w-[50%] tablet:w-[100%]">
                     <div className="flex items-center tablet:justify-between">
@@ -68,13 +89,9 @@ function Navigation(props) {
                     </div>
                 </div>
             </div>
-            <div ref={targetRef} className={`w-[55%] small-desktop:w-[75%] laptop:w-[100%] mx-auto transition-all ease-in-out duration-500 absolute left-1/2 z-10 transform -translate-x-1/2 -translate-y-1/2 ${showSearch ? 'opacity-100 top-10' : 'top-[-100px] opacity-0'}`}>
-                <div className=" relative phone:w-full phone:mr-0">
-                    <input type="search" className="border-2 border-slate-300 h-14 w-full py-4 px-10 rounded-lg" placeholder="Search.." />
-                    <span><IoSearchOutline size={22} color="#94a3b8" className="absolute top-4 left-4 cursor-pointer"></IoSearchOutline></span>
-                    <span ref={closeSearchBtn} onClick={() => setShowSearch(!showSearch)}><AiOutlineClose size={22} className="absolute top-4 right-4 cursor-pointer"></AiOutlineClose></span>
-                </div>
-            </div>
+            {   
+                showSearch && <Search results={results} searchValue={searchValue} searchResults={searchResults} setShowSearch={setShowSearch} showSearch={showSearch} products={props.products} addToCart={props.addToCart}/>
+            }
         </nav>
          </>
     )
