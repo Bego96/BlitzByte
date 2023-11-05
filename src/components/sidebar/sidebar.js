@@ -37,7 +37,7 @@ function Sidebar(props) {
     const menuItems = [
         { 
             id: 1,
-            to: "/", 
+            to: "/Home", 
             text: "Home"
         },
         { 

@@ -52,7 +52,7 @@ function Navigation(props) {
                         </div> : null
                     }
 
-                        <Link to='/'><div className={`transition-all ${showHamburgerMenu ? 'ml-4' : 'ml-0 '}`}>
+                        <Link to='/Home'><div className={`transition-all ${showHamburgerMenu ? 'ml-4' : 'ml-0 '}`}>
                             <h1 className="text-4xl tablet:text-3xl phone:text-2xl text-white">Blitz<span className="">Byte</span></h1>
                         </div>
                         </Link>

@@ -1,6 +1,6 @@
 // This Product component will be used as a single page to set product details when user clicks on Product Item in a list of products (From latest products in Home page, from all products in Shop, and discounted in Discounts ). Essentialy it opens new page for clicked products details.
 // Regarding images, there will be main image and under it array of images, when we click on image in array then main image changes, detecting is done with image's id.
-import { Link, useParams} from "react-router-dom";
+import { Link, useParams, useLocation} from "react-router-dom";
 import sliderService from '../../assets/services/sliderService';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -11,7 +11,14 @@ import { useState,  } from "react";
 function Product(props) {
 
     const { productId } = useParams();
+    const location = useLocation();
+    const pathnames = location.pathname.split('/').filter((item) => item);
+  
+    const routeTo = `/${pathnames.slice(0, 1 + 1).join('/')}`;
+    const route = `${routeTo}`
 
+    const separatedRoutes = route.split('/').filter(segment => segment !== '');
+    
     const [mainImage, setMainImage] = useState(0)
     const [numOfProducts, setNumOfProducts] = useState(0)
     
@@ -32,9 +39,28 @@ function Product(props) {
     if (!product) {
         return <div>Product not found</div>;
     }
-
     
     return (
+        <>
+        <div className="flex text-lg mt-10 px-20 laptop:px-10">
+            {separatedRoutes.map((route, index) => {
+                let numericRoute = isNaN(route) ? route : parseInt(route, 10);
+
+                if (isNaN(numericRoute)) {
+                // If route is a non-numeric string, render it inside a Link
+                return (
+                    (
+                    <Link to={`/${route}`} key={index}>
+                        <p className="mx-2">{route}</p>
+                    </Link>
+                    )
+                )
+                } else {
+                // If route is a number, render it as plain text
+                return <><span className="mx-4">/</span><p key={index} className="font-semibold">{product.product.name}</p></>;
+                }
+            })}
+        </div>
         <div className="flex justify-between p-20 tablet:flex-col laptop:p-10">
             <div className="w-1/2 tablet:w-full tablet:mb-20">
                 <div className="mb-10 overflow-hidden cursor-pointer">
@@ -84,7 +110,7 @@ function Product(props) {
                 </div>  
             </div>
         </div>
-        
+        </>
     )
 }
 

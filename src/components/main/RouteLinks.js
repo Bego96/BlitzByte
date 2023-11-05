@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import HomePage from "../homepage/HomePage";
 import Shop from "../shop/Shop";
 import Product from "./Product";
@@ -49,14 +49,20 @@ function RouteLinks(props) {
   
   return (
     <Routes>
-      <Route path="/" element={<HomePage products={props.products} addToCart={addToCart}/>} />
+      <Route path='/' element={<HomePage products={props.products} addToCart={addToCart}/>}/>
+      <Route path='/Home' element={<HomePage products={props.products} addToCart={addToCart}/>}/>
+      <Route path="/Home/:productId" element={<Product products={props.products} addToCart={addToCart}/>}/>
       <Route path="/Shop" element={<Shop products={props.products} addToCart={addToCart}/>} />
       <Route path="/Desktop" element={<Desktop products={props.products} addToCart={addToCart}/>}/>
       <Route path="/Laptops" element={<Laptop products={props.products} addToCart={addToCart}/>}/>
       <Route path="/Mobiles" element={<Mobile products={props.products} addToCart={addToCart}/>}/>
       <Route path="/TV's" element={<Television products={props.products} addToCart={addToCart}/>}/>
       <Route path="/Cart" element={<Cart cartList={cartProductList} removeFromCart={removeFromCart}/>}/>
-      <Route path="/Product/:productId" element={<Product products={props.products} addToCart={addToCart}/>} />
+      <Route path="/Shop/:productId" element={<Product products={props.products} addToCart={addToCart}/>}/>
+      <Route path="/Desktop/:productId" element={<Product products={props.products} addToCart={addToCart}/>}/>
+      <Route path="/Laptops/:productId" element={<Product products={props.products} addToCart={addToCart}/>}/>
+      <Route path="/Mobiles/:productId" element={<Product products={props.products} addToCart={addToCart}/>}/>
+      <Route path="/TV's/:productId" element={<Product products={props.products} addToCart={addToCart}/>}/>
     </Routes>
   );
 }
