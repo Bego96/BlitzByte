@@ -2,9 +2,20 @@
 import {BsCart} from 'react-icons/bs';
 import Product from './Product';
 import { useState } from 'react';
-import { Link} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function ProductItem(props) {
+
+    const location = useLocation();
+    console.log(location)
+    const pathnames = location.pathname.split('/').filter((item) => item);
+    console.log(pathnames)
+    const routeTo = `/${pathnames.slice(0, 1 + 1).join('/')}`;
+    console.log(routeTo)
+    const route = `${routeTo}/${props.id}`
+    
+    console.log(props.id)
+    console.log(route)
 
     const addToCart = (productId) => {
         const product = productId;
@@ -14,13 +25,13 @@ function ProductItem(props) {
 
     return (
             <div className="">
-                <Link to={`/Product/${props.id}`}>
+                <Link to={route}>
                     <div className="overflow-hidden">
                         <img className="hover:scale-105 transition-all delay-50" src={props.image[0].img} alt="product"/>
                     </div>
                 </Link>
                 <div className="bg-white p-4 h-[200px] flex flex-col justify-between">
-                    <Link to={`/Product/${props.id}`}>
+                    <Link to={route}>
                         <div className="">
                             <h2 className="text-orange-700 font-semibold text-base mb-5">{ props.name} </h2>
                             <p className="font-semibold text-base mt-5">{ props.price } $</p>

@@ -55,7 +55,7 @@ function Laptop(props) {
     return (
         <><div className="">
             <div className="pt-10 text-center">
-                <p className="text-2xl">Homepage  / <span className="text-blue-500">Laptop</span></p>
+                <p className="text-3xl text-blue-600">Laptop</p>
             </div>
             <LaptopNavigation products={products} sortingProducts={sortingProducts} itemsPerPage={itemsPerPage}/>
             <LaptopContainer itemsPerPage={itemsPerPage} addToCart={props.addToCart} products={filtered} selectedCategory={selectedCategory} filterByPrice={filterByPrice} placeProductLink={props.placeProductLink}/>

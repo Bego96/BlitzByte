@@ -8,6 +8,7 @@ import Television from "./Television";
 import WhatWeSale from "./WhatWeSale";
 import { useState } from "react";
 import './styles.css'
+import { useLocation, Navigate } from "react-router-dom";
 
 function HomePage(props) {
 
@@ -16,6 +17,12 @@ function HomePage(props) {
 
     )
 
+    const location = useLocation();
+    console.log(location)
+
+    if (location.pathname === '/') {
+        return <Navigate to='/Home' />
+    }
 
     return(
         <div className="">
