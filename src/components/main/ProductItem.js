@@ -7,19 +7,18 @@ import { Link, useLocation } from "react-router-dom";
 function ProductItem(props) {
 
     const location = useLocation();
-    console.log(location)
+   
     const pathnames = location.pathname.split('/').filter((item) => item);
-    console.log(pathnames)
+    
     const routeTo = `/${pathnames.slice(0, 1 + 1).join('/')}`;
-    console.log(routeTo)
+    
     const route = `${routeTo}/${props.id}`
     
-    console.log(props.id)
-    console.log(route)
+    
 
     const addToCart = (productId) => {
         const product = productId;
-        console.log(product)
+       
         props.addToCart(product)
     }
 
