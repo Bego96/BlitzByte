@@ -6,6 +6,7 @@ import { BsPerson } from 'react-icons/bs';
 import Menu from "../menu/Menu";
 import { Link } from "react-router-dom";
 import Search from "../search/search";
+import Logo from '../../assets/images/logo/logo.png'
 
 function Navigation(props) {
     const [searchValue, setSearchValue] = useState('');
@@ -73,8 +74,8 @@ function Navigation(props) {
                         </div> : null
                     }
 
-                        <Link to='/Home'><div className={`transition-all ${showHamburgerMenu ? 'ml-4' : 'ml-0 '}`}>
-                            <h1 className="text-4xl tablet:text-3xl phone:text-2xl text-white">Blitz<span className="">Byte</span></h1>
+                        <Link to='/Home'><div className={`transition-all w-[250px] tablet:w-[200px] phone:w-[150px] ${showHamburgerMenu ? 'ml-4' : 'ml-0 '}`}>
+                            <img src={Logo} alt="Logo"/>
                         </div>
                         </Link>
                     </div>
