@@ -24,7 +24,7 @@ function Slider() {
         <div className="w-full my-16 tablet:p-6 phone:mb-0">
              <Swiper
                 slidesPerView={window.screen.width > 768 ? 2 : 1}
-                spaceBetween={20}
+                spaceBetween={0}
                 modules={[Navigation, Pagination, Scrollbar, A11y, ]}
                 navigation
                 onSlideChange={() => console.log('slide change')}
