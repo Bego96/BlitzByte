@@ -6,6 +6,7 @@ import Main from './components/main/main';
 import Sidebar from './components/sidebar/sidebar';
 import Header from './components/header/header';
 import productListService from './assets/services/productListService';
+import Footer from './components/footer/Footer';
 
 function App() {
   const [showAside, setShowAside] = useState(false);
@@ -91,12 +92,13 @@ function App() {
       <div className="relative">
         <Sidebar showAside={showAside} setAside={toggleAside} />
         <div
-          className={`w-[70%] transition-all ease duration-700 tablet:w-[100%] tablet:z-10 ${
-            showAside ? 'ml-[30%] tablet:ml-0' : 'ml-[15%] tablet:ml-0'
+          className={`w-[80%] transition-all ease duration-700 tablet:w-[100%] tablet:z-10 ${
+            showAside ? 'ml-[20%] tablet:ml-0' : 'ml-[10%] tablet:ml-0'
           }`}
         >
           <Header setAside={toggleAside} showAside={showAside} products={products} addToCart={addToCart}/>
           <Main products={products} addToCart={addToCart} removeFromCart={removeFromCart} cartProductList={cartProductList}/>
+          <Footer />
         </div>
       </div>
     </BrowserRouter>
