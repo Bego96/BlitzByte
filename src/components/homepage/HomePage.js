@@ -25,7 +25,7 @@ function HomePage(props) {
     }
 
     return(
-        <div className="">
+        <div className="p-10">
             <Slider />
             <HowItsDone />
             <WhatWeSale />
