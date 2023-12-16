@@ -7,7 +7,7 @@ function Header (props) {
     return (
         <>
         <header className="sticky top-0 z-50">
-            <Navigation setAside={props.setAside} showAside={props.showAside} showCloseBtn={props.showCloseBtn} products={props.products} addToCart={props.addToCart}/>
+            <Navigation setAside={props.setAside} showAside={props.showAside} showCloseBtn={props.showCloseBtn} products={props.products} addToCart={props.addToCart} showCartCount={props.showCartCount}/>
         </header>
          <Menu/> 
          </>
