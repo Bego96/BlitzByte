@@ -30,6 +30,10 @@ function Navigation(props) {
         }
     }
 
+    const closeSearchOnClickLink = () => {
+        setShowSearch(false);
+    }
+
 
     const searchResults = (value) => {
         // Update the search value and setResults accordingly
@@ -86,12 +90,16 @@ function Navigation(props) {
                             <IoSearchOutline size={window.innerWidth > 480 ? 25 : 22} color="white" className='cursor-pointer' />
                         </div>
                         <div className="block mr-[20px] phone:mr-[14px]"><BsPerson size={window.innerWidth > 480 ? 25 : 20} color="white" className='cursor-pointer' /></div>
-                        <Link to="/Cart"><div className="block mr-[20px] phone:mr-0"><BsCart size={window.innerWidth > 914 ? 25 : 22} color="white" className='cursor-pointer' /></div></Link>
+                        <Link to="/Cart"><div className="block mr-[20px] phone:mr-0"><BsCart size={window.innerWidth > 914 ? 25 : 22} color="white" className='cursor-pointer relative' /></div>
+                        {
+                            props.showCartCount < 1 ? null : <span className="w-6 rounded-full bg-red-600 absolute text-center text-sm text-white right-14">{props.showCartCount}</span>
+                        }
+                        </Link>
                     </div>
                 </div>
             </div>
             {   
-                showSearch && <Search results={results} searchValue={searchValue} searchResults={searchResults} setShowSearch={setShowSearch} showSearch={showSearch} products={props.products} addToCart={props.addToCart}/>
+                showSearch && <Search closeSearchOnClickLink={closeSearchOnClickLink} results={results} searchValue={searchValue} searchResults={searchResults} setShowSearch={setShowSearch} showSearch={showSearch} products={props.products} addToCart={props.addToCart}/>
             }
         </nav>
          </>

@@ -2,10 +2,14 @@ import { Link, useLocation } from "react-router-dom";
 
 function ResultItem(props) {
 
+
+    const closeSearchOnClickLink = () => {
+        props.closeSearchOnClickLink();
+    }
     
     return (
         <div className="bg-white rounded-md mb-4 flex justify-between items-center p-4 bg-slate-200">
-            <Link to={`/Shop/${props.id}`}><div className="w-[70%] flex items-center">
+            <Link to={`/Shop/${props.id}`}><div className="w-[70%] flex items-center" onClick={closeSearchOnClickLink}>
                 <div className="w-[20%] mr-4 tablet:w-full">
                     <img src={props.image[0].img} alt="produt"/>
                 </div>

@@ -16,6 +16,7 @@ function SearchResults(props) {
                             addToCart={props.addToCart}
                             setShowSearch={props.setShowSearch}
                             showSearch={props.showSearch}
+                            closeSearchOnClickLink={props.closeSearchOnClickLink}
                             />
                         )
                     })
