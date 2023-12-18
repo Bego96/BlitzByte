@@ -8,6 +8,8 @@ function Desktop(props) {
         //props.products.filter((product) => product.category === 'PC')
     )
     const [itemsPerPage, setItemsPerPage] = useState(null);
+
+    
     const sortingProducts = (value) => {
         const sortedProducts = [...products];
             if (value === 'Lowest') {
@@ -34,7 +36,7 @@ function Desktop(props) {
         let brand = value;
         console.log(brand)
         if (value !== 'All brands') {
-            fetch(`http://localhost:3001/bycategory?category=${category}&brand=${brand}`)
+            fetch(`https://blitzbyte-server.vercel.app/bycategory?category=${category}&brand=${brand}`)
             .then((response) => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -50,7 +52,7 @@ function Desktop(props) {
                 console.error("Error fetching by category and type", error);
         });
         } else {
-            fetch('http://localhost:3001/desktopPc')
+            fetch('https://blitzbyte-server.vercel.app/desktopPc')
           .then((response) => {
             if (response.ok) {
               return response.json();
@@ -74,15 +76,36 @@ function Desktop(props) {
 
     const filterByPrice = (minMax) => {
         // Filter products based on price range and update filtered state
-        const filteredProducts = products.filter(
-            (product) => product.product.price >= minMax[0] && product.product.price <= minMax[1]
-        );
-      setProducts(filteredProducts);
-        console.log(filteredProducts + "Min" + minMax[0] + " Max" + minMax[1])
+        const category = "PC"
+        const minPrice = minMax[0];
+        const maxPrice = minMax[1];
+       
+        fetch(`https://blitzbyte-server.vercel.app/sortByPriceAndCategory?minPrice=${minPrice}&maxPrice=${maxPrice}&category=${category}`)
+        .then((response) => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+        })
+        .then((data) => {
+          if (Array.isArray(data)) {
+            const productList = data;
+            setProducts(productList);
+            setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+          } else {
+            console.error('Invalid data format from the server:', data);
+          }
+        })
+        .catch((error) => {
+            console.error("Error fetching by category and type", error);
+      });
+
+      console.log(products)
+
     };
 
     useEffect(() => {
-        fetch('http://localhost:3001/desktopPc')
+        fetch('https://blitzbyte-server.vercel.app/desktopPc')
           .then((response) => {
             if (response.ok) {
               return response.json();

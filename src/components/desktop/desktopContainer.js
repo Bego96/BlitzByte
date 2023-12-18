@@ -11,9 +11,6 @@ function DesktopContainer(props) {
         setShowMenu(!showMenu);
     }
 
-    const placeProductLink = (link) => {
-        props.placeProductLink(link)
-    }
 
     return (
         <div className="flex justify-between tablet:flex-col">
