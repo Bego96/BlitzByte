@@ -54,7 +54,7 @@ function Television(props) {
 
 
     return (
-        <><div className="">
+        <><div className="pb-10 px-6">
             <div className="pt-10 text-center">
                 <p className="text-3xl text-blue-600">TV</p>
             </div>

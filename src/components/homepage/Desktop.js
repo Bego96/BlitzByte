@@ -34,7 +34,7 @@ function Desktop(props) {
                         768: {
                           width: 768,
                           slidesPerView: 2,
-                        },
+                        }
                     }}
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
                     spaceBetween={10}
