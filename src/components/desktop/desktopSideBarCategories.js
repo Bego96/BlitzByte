@@ -15,6 +15,7 @@ function DesktopSideBarCategories(props) {
   const selectCategory = (value) => {
     const selectedCategory = value;
     props.selectCategory(selectedCategory);
+    console.log(selectedCategory)
   }
 
   useEffect(() => {

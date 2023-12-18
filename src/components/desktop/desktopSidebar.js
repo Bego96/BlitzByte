@@ -12,25 +12,43 @@ function DesktopSidebar(props) {
     const price=  props.products.map((price) => price.product.price);
     console.log(typeof Math.max(...price))
     const [priceValue, setPriceValue] = useState([0, Math.max(...price)]);
+    
 
+    //SLIDER PRICE RANGE CHANGE
     const handlePriceChange = (event, newValue) => {
-      setPriceValue(newValue);
-        const priceNewValue = priceValue;
-        props.filterByPrice(priceNewValue);
+        const [newMinPrice, newMaxPrice] = newValue.map(val => parseFloat(val));
+
+        setTimeout(() => {
+            setPriceValue([newMinPrice, newMaxPrice]);
+            console.log("PRICE VALUE " + priceValue);
+            console.log(newMinPrice);
+            console.log(newMaxPrice);
+            props.filterByPrice(priceValue)
+        }, 200);
+
     };
 
     const minPrice = (event) => {
        const newMinPrice = parseFloat(event.target.value); // Parse the input value to a float
-       setPriceValue([newMinPrice, priceValue[1]]); // Update the priceValue state with the new minimum price
-       console.log(event.target.value)
+
+       setTimeout(() => {
+        setPriceValue([newMinPrice, priceValue[1]]);
         props.filterByPrice([newMinPrice, priceValue[1]])
+       }, 100)
+       
+        
     }
 
     const maxPrice = (event) => {
        const newMaxPrice = parseFloat(event.target.value); // Parse the input value to a float
-       setPriceValue([priceValue[0], newMaxPrice]); // Update the priceValue state with the new minimum price
-       console.log(event.target.value)
-       props.filterByPrice([priceValue[0], newMaxPrice])
+
+       setTimeout(() => {
+        setPriceValue([priceValue[0], newMaxPrice]);
+        props.filterByPrice([priceValue[0], newMaxPrice])
+       },100)
+        // Update the priceValue state with the new minimum price
+       console.log(newMaxPrice)
+       
     }
 
     const selectCategory = (value) => {
@@ -38,7 +56,7 @@ function DesktopSidebar(props) {
         props.selectedCategory(selectedCategory);
     }
 
-    
+   
 
     return (
         <div className="w-[15%] laptop:w-[25%] tablet:w-full">
@@ -61,7 +79,7 @@ function DesktopSidebar(props) {
                         value={priceValue}
                         onChange={handlePriceChange}
                         valueLabelDisplay="auto"
-                        min={0}
+                        min={0.0}
                         max={Math.max(...price)}
                         getAriaValueText={valuetext}
                     />

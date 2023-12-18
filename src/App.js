@@ -70,8 +70,8 @@ function App() {
 
     // If server is available fetch products
       // Otherwise use products from service in front end
-      if (products === false || null) {
-        fetch('http://localhost:3001/products') // Adjust the URL to match your server
+      
+        fetch('https://blitzbyte-server.vercel.app/products') // Adjust the URL to match your server
         .then((response) => {
           if (response.ok) {
             return response.json();
@@ -82,9 +82,7 @@ function App() {
           setProducts(data); // Set the fetched data in the state
         })
         .catch((error) => console.log("Im sorry but, " + error));
-      } else {
-        setProducts(productListService)
-      }
+      
 
 
     const toggleSideBar = () => {
