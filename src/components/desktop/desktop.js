@@ -116,6 +116,7 @@ function Desktop(props) {
             if (Array.isArray(data)) {
               const productList = data;
               setProducts(productList);
+              console.log(productList)
               setItemsPerPage(productList.length > 9 ? 10 : productList.length);
             } else {
               console.error('Invalid data format from the server:', data);
