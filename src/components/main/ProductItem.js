@@ -36,6 +36,9 @@ function ProductItem(props) {
                             <p className="font-semibold text-base mt-5">{ props.price } $</p>
                         </div>
                     </Link>
+                    <div>
+                        <p className='text-green-700 font-semibold'>Available</p>
+                    </div>
                         <div className="flex justify-center mt-5">
                             <button type="button" onClick={() => addToCart(props.id)} className="box-border rounded-md bg-blue-500 text-md text-slate-100 h-12 w-full hover:bg-slate-100 hover:text-blue-600 hover:border hover:border-2 hover:border-blue-500 hover:mb-1 transition-all delay-50">Add to cart</button>
                         </div>

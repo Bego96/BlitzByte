@@ -15,7 +15,7 @@ function Footer() {
         <div className="flex-grow laptop:mt-10">
           <p>Subscribe for our newsletter</p>
           <div className="flex items-center mt-4">
-            <input type="email" className="w-full h-10 bg-slate-300" />
+            <input type="email" className="w-full h-10 bg-slate-100 pl-4" placeholder="Email.."/>
             <button type="button" className="w-40 h-10 bg-blue-500">Subscribe</button>
           </div>
         </div>
