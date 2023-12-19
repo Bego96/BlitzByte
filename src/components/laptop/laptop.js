@@ -5,60 +5,186 @@ import LaptopContainer from "./laptopContainer";
 function Laptop(props) {
 
     const [products, setProducts] = useState(
-        props.products.filter((product) => product.category === 'Laptop')
+        //props.products.filter((product) => product.category === 'PC')
     )
-    const [filtered, setFiltered] = useState(products)
-    const [itemsPerPage, setItemsPerPage] = useState(filtered.length > 9 ? 10 : filtered.length)
+    const [itemsPerPage, setItemsPerPage] = useState(null);
 
     
     const sortingProducts = (value) => {
-        const sortedProducts = [...products];
+        const category = "Laptop";
             if (value === 'Lowest') {
-                // Create a copy of the products array to avoid modifying the original state directly
-                // Sort the products based on price in ascending order
-                sortedProducts.sort((a, b) => a.product.price - b.product.price);
-                // Update the state with the sorted products
-                setFiltered(sortedProducts);
+                  fetch(`https://blitzbyte-server.vercel.app/products/lowest-price?category=${category}`)
+                  .then((response) => {
+                  if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                  }
+                  return response.json();
+                  })
+                  .then((data) => {
+                    if (Array.isArray(data)) {
+                      const productList = data;
+                      setProducts(productList);
+                      setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+                    } else {
+                      console.error('Invalid data format from the server:', data);
+                    }
+                  })
+                  .catch((error) => {
+                      console.error("Error fetching by category and type", error);
+                  });
             } else if (value === 'Highest') {
-                // Create a copy of the products array to avoid modifying the original state directly
-                const sortedProducts = [...products];
-    
-                // Sort the products based on price in descending order
-                sortedProducts.sort((a, b) => b.product.price - a.product.price);
-               
-                setFiltered(sortedProducts);
+              fetch(`https://blitzbyte-server.vercel.app/products/highest-price?category=${category}`)
+              .then((response) => {
+              if (!response.ok) {
+                  throw new Error('Network response was not ok');
+              }
+              return response.json();
+              })
+              .then((data) => {
+                if (Array.isArray(data)) {
+                  const productList = data;
+                  setProducts(productList);
+                  setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+                } else {
+                  console.error('Invalid data format from the server:', data);
+                }
+              })
+              .catch((error) => {
+                  console.error("Error fetching by category and type", error);
+              });
             } else if (value === 'All prices') {
-                setFiltered(sortedProducts);
+              fetch('https://blitzbyte-server.vercel.app/laptops')
+              .then((response) => {
+                if (response.ok) {
+                  return response.json();
+                }
+                throw new Error('Network response was not ok');
+              })
+              .then((data) => {
+                if (Array.isArray(data)) {
+                  const productList = data;
+                  setProducts(productList);
+                  console.log(productList)
+                  setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+                } else {
+                  console.error('Invalid data format from the server:', data);
+                }
+              })
+              .catch((error) => console.log("I'm sorry but, " + error));
             }
     }
 
     const selectedCategory = (value) => {
-        if (value !== "All brands") {
-            setFiltered(products.filter((product) => product.product.brand === value))
-        } else  {
-            setFiltered(products);
+        let category = "Laptop"; // Assuming 'brand' is equivalent to 'type' in your backend
+        let brand = value;
+        console.log(brand)
+        if (value !== 'All brands') {
+            fetch(`https://blitzbyte-server.vercel.app/bycategory?category=${category}&brand=${brand}`)
+            .then((response) => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+            })
+            .then((data) => {
+              if (Array.isArray(data)) {
+                const productList = data;
+                setProducts(productList);
+                setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+              } else {
+                console.error('Invalid data format from the server:', data);
+              }
+            })
+            .catch((error) => {
+                console.error("Error fetching by category and type", error);
+        });
+        } else {
+            fetch('https://blitzbyte-server.vercel.app/laptops')
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok');
+          })
+          .then((data) => {
+            if (Array.isArray(data)) {
+              const productList = data;
+              setProducts(productList);
+              setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+            } else {
+              console.error('Invalid data format from the server:', data);
+            }
+          })
+          .catch((error) => console.log("I'm sorry but, " + error));
         }
+        
         
     }
 
 
     const filterByPrice = (minMax) => {
         // Filter products based on price range and update filtered state
-        const filteredProducts = products.filter(
-            (product) => product.product.price >= minMax[0] && product.product.price <= minMax[1]
-        );
-      setFiltered(filteredProducts);
-        console.log(filteredProducts + "Min" + minMax[0] + " Max" + minMax[1])
+        const category = "Laptop"
+        const minPrice = minMax[0];
+        const maxPrice = minMax[1];
+       
+        fetch(`https://blitzbyte-server.vercel.app/sortByPriceAndCategory?minPrice=${minPrice}&maxPrice=${maxPrice}&category=${category}`)
+        .then((response) => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+        })
+        .then((data) => {
+          if (Array.isArray(data)) {
+            const productList = data;
+            setProducts(productList);
+            setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+          } else {
+            console.error('Invalid data format from the server:', data);
+          }
+        })
+        .catch((error) => {
+            console.error("Error fetching by category and type", error);
+      });
+
+      console.log(products)
     };
 
+    
+    useEffect(() => {
+        fetch('https://blitzbyte-server.vercel.app/laptops')
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok');
+          })
+          .then((data) => {
+            if (Array.isArray(data)) {
+              const productList = data;
+              setProducts(productList);
+              console.log(productList)
+              setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+            } else {
+              console.error('Invalid data format from the server:', data);
+            }
+          })
+          .catch((error) => console.log("I'm sorry but, " + error));
+      }, []);
 
     return (
         <><div className="pb-10 px-6">
             <div className="pt-10 text-center">
                 <p className="text-3xl text-blue-600">Laptop</p>
             </div>
-            <LaptopNavigation products={products} sortingProducts={sortingProducts} itemsPerPage={itemsPerPage}/>
-            <LaptopContainer itemsPerPage={itemsPerPage} addToCart={props.addToCart} products={filtered} selectedCategory={selectedCategory} filterByPrice={filterByPrice} placeProductLink={props.placeProductLink}/>
+            {
+                products &&  <LaptopNavigation products={products} sortingProducts={sortingProducts} itemsPerPage={itemsPerPage}/>
+            }
+            {
+                products && <LaptopContainer itemsPerPage={itemsPerPage} addToCart={props.addToCart} products={products} selectedCategory={selectedCategory} filterByPrice={filterByPrice} placeProductLink={props.placeProductLink}/>
+            }
+            
         </div>
         </>
     )
