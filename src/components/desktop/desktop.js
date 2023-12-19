@@ -11,23 +11,66 @@ function Desktop(props) {
 
     
     const sortingProducts = (value) => {
-        const sortedProducts = [...products];
+        const category = "PC";
             if (value === 'Lowest') {
-                // Create a copy of the products array to avoid modifying the original state directly
-                // Sort the products based on price in ascending order
-                sortedProducts.sort((a, b) => a.product.price - b.product.price);
-                // Update the state with the sorted products
-                setProducts(sortedProducts);
+                  fetch(`https://blitzbyte-server.vercel.app/products/lowest-price?category=${category}`)
+                  .then((response) => {
+                  if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                  }
+                  return response.json();
+                  })
+                  .then((data) => {
+                    if (Array.isArray(data)) {
+                      const productList = data;
+                      setProducts(productList);
+                      setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+                    } else {
+                      console.error('Invalid data format from the server:', data);
+                    }
+                  })
+                  .catch((error) => {
+                      console.error("Error fetching by category and type", error);
+                  });
             } else if (value === 'Highest') {
-                // Create a copy of the products array to avoid modifying the original state directly
-                const sortedProducts = [...products];
-    
-                // Sort the products based on price in descending order
-                sortedProducts.sort((a, b) => b.product.price - a.product.price);
-               
-                setProducts(sortedProducts);
+              fetch(`https://blitzbyte-server.vercel.app/products/highest-price?category=${category}`)
+              .then((response) => {
+              if (!response.ok) {
+                  throw new Error('Network response was not ok');
+              }
+              return response.json();
+              })
+              .then((data) => {
+                if (Array.isArray(data)) {
+                  const productList = data;
+                  setProducts(productList);
+                  setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+                } else {
+                  console.error('Invalid data format from the server:', data);
+                }
+              })
+              .catch((error) => {
+                  console.error("Error fetching by category and type", error);
+              });
             } else if (value === 'All prices') {
-                setProducts(sortedProducts);
+              fetch('https://blitzbyte-server.vercel.app/desktopPc')
+              .then((response) => {
+                if (response.ok) {
+                  return response.json();
+                }
+                throw new Error('Network response was not ok');
+              })
+              .then((data) => {
+                if (Array.isArray(data)) {
+                  const productList = data;
+                  setProducts(productList);
+                  console.log(productList)
+                  setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+                } else {
+                  console.error('Invalid data format from the server:', data);
+                }
+              })
+              .catch((error) => console.log("I'm sorry but, " + error));
             }
     }
 
@@ -44,9 +87,13 @@ function Desktop(props) {
             return response.json();
             })
             .then((data) => {
-                let products = data;
-                setProducts(products);
-                console.log(data)
+              if (Array.isArray(data)) {
+                const productList = data;
+                setProducts(productList);
+                setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+              } else {
+                console.error('Invalid data format from the server:', data);
+              }
             })
             .catch((error) => {
                 console.error("Error fetching by category and type", error);
@@ -124,6 +171,7 @@ function Desktop(props) {
           })
           .catch((error) => console.log("I'm sorry but, " + error));
       }, []);
+
     return (
         <><div className="pb-10 px-6">
             <div className="pt-10 text-center">
