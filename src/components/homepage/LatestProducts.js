@@ -10,9 +10,9 @@ function LatestProducts(props) {
     
 
     return (
-        <><div className="p-10 phone:p-6 bg-slate-200 rounded-md">
+        <><div className="p-10 phone:p-4 bg-slate-100 rounded-md">
                 <h2 className=" text-3xl font-semibold mb-10 text-slate-600">Latest</h2>
-                <div className="grid grid-cols-5 gap-2 place-items-stretch gap-y-8 small-desktop:grid-cols-4 laptop:grid-cols-3 tablet:grid-cols-2 tablet:gap-x-2 phone:grid-cols-1">
+                <div className="grid grid-cols-5 gap-2 place-items-stretch gap-y-8 small-desktop:grid-cols-4 laptop:grid-cols-3 tablet:grid-cols-2 tablet:gap-x-2 phone:grid-cols-2">
                     {  
                         latestProducts.map((product) => {
                             console.log(product.id)

@@ -17,7 +17,7 @@ function Laptop(props) {
     
     
     return (
-        <div className="p-10 phone:p-6 bg-slate-200 rounded-md my-10">
+        <div className="p-10 phone:p-6 bg-slate-100 rounded-md my-10">
             <div>
                 <div className="text-3xl text-slate-600 font-semibold mb-10">
                     <h2>Laptops</h2>
