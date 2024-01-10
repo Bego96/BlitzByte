@@ -13,7 +13,12 @@ module.exports = {
       // => @media (max-width: 640px) { ... }
       'phone': {'max': '480px'}
     },
-    extend: {},
+    extend: {
+      
+        zIndex: {
+          '100': '100',
+        }
+    },
   },
   plugins: [],
 }

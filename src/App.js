@@ -67,10 +67,6 @@ function App() {
 
 
   useEffect(() => {
-
-    // If server is available fetch products
-      // Otherwise use products from service in front end
-      
         fetch('https://blitzbyte-server.vercel.app/products') // Adjust the URL to match your server
         .then((response) => {
           if (response.ok) {
@@ -83,8 +79,6 @@ function App() {
         })
         .catch((error) => console.log("Im sorry but, " + error));
       
-
-
     const toggleSideBar = () => {
       if (window.scrollY < 50) {
         setShowAside(false);
@@ -99,20 +93,22 @@ function App() {
   }, [])
 
   return (
+    <>
     <BrowserRouter>
       <div className="relative">
         <Sidebar showAside={showAside} setAside={toggleAside} />
         <div
-          className={`w-[80%] transition-all ease duration-700 tablet:w-[100%] tablet:z-10 ${
-            showAside ? 'ml-[20%] tablet:ml-0' : 'ml-[10%] tablet:ml-0'
+          className={`w-[90%] z-20 transition-all ease duration-700 tablet:w-[100%] tablet:z-10 ${
+            showAside ? 'ml-[10%] tablet:ml-0' : 'ml-[5%] tablet:ml-0'
           }`}
         >
           <Header setAside={toggleAside} showAside={showAside} products={products} addToCart={addToCart} showCartCount={showCartCount}/>
           <Main products={products} addToCart={addToCart} removeFromCart={removeFromCart} cartProductList={cartProductList}/>
-          <Footer />
         </div>
       </div>
     </BrowserRouter>
+    <Footer />
+    </>
   );
 }
 

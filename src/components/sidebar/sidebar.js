@@ -16,8 +16,8 @@ function MenuItemList({ to, text, showAside, toggleAside}) {
     };
 
   return (
-    <li className="my-6 relative hover:bg-blue-900 p-4 hover:rounded-md cursor-pointer text-lg" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <Link to={to} onClick={() => toggleAside(false)}>{text}</Link>
+    <Link to={to} onClick={() => toggleAside(false)}><li className="my-6 relative hover:bg-blue-900 p-4 hover:rounded-md cursor-pointer text-lg" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      {text}
       <span
         className={`${
           underLine
@@ -26,6 +26,7 @@ function MenuItemList({ to, text, showAside, toggleAside}) {
         } transition-all ease-in-out duration-300 bg-slate-400 h-0.5 absolute bottom-0 left-4`}
       ></span>
     </li>
+    </Link>
   );
 }
 
@@ -90,7 +91,7 @@ function Sidebar(props) {
 
     return (
 
-        <aside className={`p-10 text-white flex flex-col bg-blue-500 h-[100%] w-[20%] fixed transition-all duration-700 ease tablet:z-[130] tablet:w-[60%] small-desktop:p-4 phone:w-[100%] ${props.showAside ? 'left-0 top-0' : 'left-[-30%] top-0 tablet:left-[-100%]'}`}>
+        <aside className={`p-10 z-50 text-white flex flex-col bg-blue-500 h-[100%] w-[20%] fixed transition-all duration-700 ease tablet:z-[130] tablet:w-[60%] small-desktop:p-4 phone:w-[100%] ${props.showAside ? 'left-0 top-0' : 'left-[-30%] top-0 tablet:left-[-100%]'}`}>
             
                   
                     <div className={`relative hidden tablet:block`}>

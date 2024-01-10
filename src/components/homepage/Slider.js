@@ -21,7 +21,7 @@ function Slider() {
     // Update the number of slides per view when the window width changes
 
     return (
-        <div className="w-full my-16 tablet:p-6 phone:mb-0">
+        <div className="w-full my-10 phone:mb-0 rounded-md overflow-hidden">
              <Swiper
                 slidesPerView={window.screen.width > 768 ? 2 : 1}
                 spaceBetween={0}

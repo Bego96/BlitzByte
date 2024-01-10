@@ -25,6 +25,14 @@
     color: white;
 }
 
+/*.swiper-button-next {
+    color: rgb(37, 173, 173);
+}
+
+.swiper-button-prev {
+    color: rgb(37, 173, 173);
+}
+*/
 @media only screen and (max-width: 914px) {
     .paginationContainer a {
         padding: 2px;

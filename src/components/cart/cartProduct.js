@@ -20,7 +20,7 @@ function CartProduct(props) {
                 </div>
             </div>
             <div className='w-[20%] tablet:w-[30%] text-center phone:w-[100%]'>
-                <button type="button" className="rounded-md mb-2 bg-blue-500 text-slate-100 h-12 flex justify-center w-full items-center hover:bg-blue-600">Purchase</button>
+                <button type="button" className="rounded-md mb-2 bg-gradient-to-r from-indigo-600 to-purple-700 text-slate-100 h-12 flex justify-center w-full items-center hover:from-pink-500 hover:to-pink-600">Purchase</button>
                 <span className='text-red-600 cursor-pointer' onClick={() => removeFromCart(props.id)}>Remove</span>
             </div>
         </div>

@@ -17,9 +17,9 @@ function Desktop(props) {
     
 
     return (
-        <div className="p-10 phone:p-6 bg-slate-100 rounded-md my-10">
+        <div className="p-10 phone:p-6 bg-slate-200  rounded-md my-10">
             <div>
-                <div className="text-2xl font-semibold mb-10">
+                <div className="text-3xl text-slate-600 font-semibold mb-10">
                     <h2>Desktop</h2>
                 </div>
             
@@ -36,6 +36,10 @@ function Desktop(props) {
                           slidesPerView: 2,
                         }
                     }}
+                    style={{
+                        "--swiper-navigation-color": "#000",
+                        "--swiper-navigation-size": "30px",
+                      }}
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
                     spaceBetween={10}
                     navigation
