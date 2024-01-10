@@ -72,9 +72,9 @@ function Navigation(props) {
                     {
                         showHamburgerMenu && props && typeof props.showAside !== 'undefined' ?
                         <div className={`cursor-pointer`} onClick={() => setSideBar()}>
-                            <div className={`w-[30px] h-[3px] bg-white mb-[6px] transition-all ease-in-out delay-250 duration-500 phone:mb-[4px] phone:h-[2px] phone:w-[25px] ${props.showAside ? 'rotate-45 translate-x-0 translate-y-[13px] tablet:rotate-0 tablet:translate-y-0 ml-44' : ''}`}></div>
-                            <div className={`w-[30px] h-[3px] bg-white mb-[6px] transition-all ease-in-out delay-250 duration-500 phone:mb-[4px] phone:h-[2px] phone:w-[25px] ${props.showAside ? 'opacity-0 tablet:opacity-100 ml-44' : ''}`}></div>
-                            <div className={`w-[30px] h-[3px] bg-white mb-[6px] transition-all ease-in-out delay-250 duration-500 phone:mb-[4px] phone:h-[2px] phone:w-[25px] ${props.showAside ? '-rotate-45 translate-x-0 translate-y-[-5px] tablet:-rotate-0 tablet:translate-y-0 ml-44' : ''}`}></div>
+                            <div className={`w-[30px] h-[3px] bg-white mb-[6px] transition-all ease-in-out delay-250 duration-500 phone:mb-[4px] phone:h-[2px] phone:w-[25px] ${props.showAside ? 'rotate-45 translate-x-0 translate-y-[13px] tablet:rotate-0 tablet:translate-y-0 ml-44 tablet:ml-0' : ''}`}></div>
+                            <div className={`w-[30px] h-[3px] bg-white mb-[6px] transition-all ease-in-out delay-250 duration-500 phone:mb-[4px] phone:h-[2px] phone:w-[25px] ${props.showAside ? 'opacity-0 tablet:opacity-100 ml-44 tablet:ml-0' : ''}`}></div>
+                            <div className={`w-[30px] h-[3px] bg-white mb-[6px] transition-all ease-in-out delay-250 duration-500 phone:mb-[4px] phone:h-[2px] phone:w-[25px] ${props.showAside ? '-rotate-45 translate-x-0 translate-y-[-5px] tablet:-rotate-0 tablet:translate-y-0 ml-44 tablet:ml-0' : ''}`}></div>
                         </div> : null
                     }
 

@@ -165,7 +165,7 @@ function Shop(props) {
       }, []);
   return (
     <>
-      <div className="pb-10 px-6 tablet:px-2">
+      <div className="pb-10 px-6 tablet:px-4">
         <div className="pt-10 text-center">
           <p className="text-3xl text-blue-600">Shop</p>
         </div>
