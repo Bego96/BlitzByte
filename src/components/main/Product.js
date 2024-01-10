@@ -51,13 +51,13 @@ function Product(props) {
                 return (
                     (
                     <Link to={`/${route}`} key={index}>
-                        <p className="mx-2">{route}</p>
+                        <p className="mx-2 text-slate-600">{route}</p>
                     </Link>
                     )
                 )
                 } else {
                 // If route is a number, render it as plain text
-                return <><span className="mx-4">/</span><p key={index} className="font-semibold">{product.product.name}</p></>;
+                return <><span className="mx-4 text-slate-600">/</span><p key={index} className="font-semibold text-purple-600">{product.product.name}</p></>;
                 }
             })}
         </div>
@@ -88,7 +88,7 @@ function Product(props) {
                     </div>
             </div>
             <div className="w-1/2 pl-6 tablet:w-full tablet:p-0">
-                <h2 className="text-3xl mb-6">{product.product.name}</h2>
+                <h2 className="text-3xl mb-6 text-slate-600">{product.product.name}</h2>
                 <p className="mb-3">{product.product.description}</p>
                 <p className="mb-3 text-4xl font-bold text-slate-600">{product.product.price}$</p>
                 <ul className="mb-10 text-slate-500">
@@ -102,10 +102,10 @@ function Product(props) {
                 </ul> 
                 <div className="flex">    
                     <div className="w-14 mr-4">
-                        <input className="w-full p-2 rounded border border-slate-400" type="number" id="productNum" name="productNum" step="1" value={numOfProducts < 1 ? 1 : numOfProducts} onChange={numOfProduct}/>
+                        <input className="w-full p-2 rounded border border-cyan-400" type="number" id="productNum" name="productNum" step="1" value={numOfProducts < 1 ? 1 : numOfProducts} onChange={numOfProduct}/>
                     </div>
                     <div className="w-[40%]">
-                        <button className="bg-blue-500 w-full h-10 text-white rounded hover:bg-slate-100 hover:text-blue-600 hover:border hover:border-2 hover:border-blue-500 transition-all delay-50" onClick={() => addToCart(productId)}>Add to basket</button>
+                        <button className="bg-gradient-to-r from-cyan-500 via-cyan-500 to-cyan-500 w-full h-10 text-white rounded hover:from-pink-500 hover:to-pink-600 transition-all delay-50" onClick={() => addToCart(productId)}>Add to basket</button>
                     </div>
                 </div>  
             </div>

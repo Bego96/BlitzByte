@@ -3,9 +3,7 @@ import ShopNavigation from "./ShopNavigation";
 import ShopContainer from "./ShopContainer";
 
 function Shop(props) {
-    const [products, setProducts] = useState(
-        //props.products.filter((product) => product.category === 'PC')
-    )
+    const [products, setProducts] = useState()
     const [itemsPerPage, setItemsPerPage] = useState(null);
 
     
@@ -63,7 +61,6 @@ function Shop(props) {
                 if (Array.isArray(data)) {
                   const productList = data;
                   setProducts(productList);
-                  console.log(productList)
                   setItemsPerPage(productList.length > 9 ? 10 : productList.length);
                 } else {
                   console.error('Invalid data format from the server:', data);
@@ -88,7 +85,6 @@ function Shop(props) {
               if (Array.isArray(data)) {
                 const productList = data;
                 setProducts(productList);
-                console.log(data)
                 setItemsPerPage(productList.length > 9 ? 10 : productList.length);
               } else {
                 console.error('Invalid data format from the server:', data);
@@ -109,7 +105,6 @@ function Shop(props) {
             if (Array.isArray(data)) {
               const productList = data;
               setProducts(productList);
-              console.log(data)
               setItemsPerPage(productList.length > 9 ? 10 : productList.length);
             } else {
               console.error('Invalid data format from the server:', data);
@@ -146,8 +141,6 @@ function Shop(props) {
         .catch((error) => {
             console.error("Error fetching by category and type", error);
       });
-
-      console.log(products)
     };
 
     
@@ -163,7 +156,6 @@ function Shop(props) {
             if (Array.isArray(data)) {
               const productList = data;
               setProducts(productList);
-              console.log(productList)
               setItemsPerPage(productList.length > 9 ? 10 : productList.length);
             } else {
               console.error('Invalid data format from the server:', data);
@@ -173,7 +165,7 @@ function Shop(props) {
       }, []);
   return (
     <>
-      <div className="pb-10 px-6">
+      <div className="pb-10 px-6 tablet:px-2">
         <div className="pt-10 text-center">
           <p className="text-3xl text-blue-600">Shop</p>
         </div>

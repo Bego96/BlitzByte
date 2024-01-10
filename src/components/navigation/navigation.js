@@ -65,16 +65,16 @@ function Navigation(props) {
     }, [showSearch, showHamburgerMenu,]);
     return (
         <>
-        <nav className={`transition ease-in-out delay-50 ${!navigationBg ? 'bg-blue-600' : 'bg-blue-700'}`}>
+        <nav className={`transition-all ease-in-out duration-300 delay-250 bg-gradient-to-r from-cyan-700 to-blue-800`}>
             <div className={`p-6 flex justify-between items-center`}>
                 <div className="flex justify-between items-center w-[50%] tablet:w-[100%]">
                     <div className="flex items-center tablet:justify-between">
                     {
                         showHamburgerMenu && props && typeof props.showAside !== 'undefined' ?
                         <div className={`cursor-pointer`} onClick={() => setSideBar()}>
-                            <div className={`w-[30px] h-[3px] bg-white mb-[6px] transition-all phone:mb-[4px] phone:h-[2px] phone:w-[25px] ${props.showAside ? 'rotate-45 translate-x-0 translate-y-[13px] tablet:rotate-0 tablet:translate-y-0' : ''}`}></div>
-                            <div className={`w-[30px] h-[3px] bg-white mb-[6px] transition-all phone:mb-[4px] phone:h-[2px] phone:w-[25px] ${props.showAside ? 'opacity-0 tablet:opacity-100' : ''}`}></div>
-                            <div className={`w-[30px] h-[3px] bg-white mb-[6px] transition-all phone:mb-[4px] phone:h-[2px] phone:w-[25px] ${props.showAside ? '-rotate-45 translate-x-0 translate-y-[-5px] tablet:-rotate-0 tablet:translate-y-0' : ''}`}></div>
+                            <div className={`w-[30px] h-[3px] bg-white mb-[6px] transition-all ease-in-out delay-250 duration-500 phone:mb-[4px] phone:h-[2px] phone:w-[25px] ${props.showAside ? 'rotate-45 translate-x-0 translate-y-[13px] tablet:rotate-0 tablet:translate-y-0 ml-44' : ''}`}></div>
+                            <div className={`w-[30px] h-[3px] bg-white mb-[6px] transition-all ease-in-out delay-250 duration-500 phone:mb-[4px] phone:h-[2px] phone:w-[25px] ${props.showAside ? 'opacity-0 tablet:opacity-100 ml-44' : ''}`}></div>
+                            <div className={`w-[30px] h-[3px] bg-white mb-[6px] transition-all ease-in-out delay-250 duration-500 phone:mb-[4px] phone:h-[2px] phone:w-[25px] ${props.showAside ? '-rotate-45 translate-x-0 translate-y-[-5px] tablet:-rotate-0 tablet:translate-y-0 ml-44' : ''}`}></div>
                         </div> : null
                     }
 
@@ -92,7 +92,7 @@ function Navigation(props) {
                         <div className="block mr-[20px] phone:mr-[14px]"><BsPerson size={window.innerWidth > 480 ? 25 : 20} color="white" className='cursor-pointer' /></div>
                         <Link to="/Cart"><div className="block mr-[20px] phone:mr-0"><BsCart size={window.innerWidth > 914 ? 25 : 22} color="white" className='cursor-pointer relative' /></div>
                         {
-                            props.showCartCount < 1 ? null : <span className="w-6 rounded-full bg-red-600 absolute text-center text-sm text-white right-14">{props.showCartCount}</span>
+                            props.showCartCount < 1 ? null : <span className="w-6 rounded-full bg-red-600 absolute text-center text-sm text-white right-14 phone:right-8">{props.showCartCount}</span>
                         }
                         </Link>
                     </div>

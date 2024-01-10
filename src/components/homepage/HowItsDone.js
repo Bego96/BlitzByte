@@ -6,7 +6,7 @@ function HowItsDone() {
 
 
     return (
-        <div className="grid grid-cols-3 gap-2 justify-items-center my-20 tablet:grid-cols-2 phone:grid-cols-1 phone:my-4 phone:gap-4 phone:p-6">
+        <div className="grid grid-cols-3 gap-2 justify-items-center my-20 tablet:grid-cols-2 phone:grid-cols-1 phone:my-4 phone:gap-4">
             <div className=" flex flex-col py-10 rounded-md items-center tablet:mb-6 phone:my-0 bg-[#f5f1d5] w-full">
                 <img className="w-20" src={delivery} alt="delivery" />
                 <div className="text-center mt-6">
