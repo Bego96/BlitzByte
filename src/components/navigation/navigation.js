@@ -1,9 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import { AiOutlineHeart, AiOutlineClose } from 'react-icons/ai';
 import { IoSearchOutline } from 'react-icons/io5';
 import { BsCart } from 'react-icons/bs';
 import { BsPerson } from 'react-icons/bs';
-import Menu from "../menu/Menu";
 import { Link } from "react-router-dom";
 import Search from "../search/search";
 import Logo from '../../assets/images/logo/logo.png'
@@ -20,8 +18,6 @@ function Navigation(props) {
         props.setAside();
     }
 
-    
-
     const handleScroll = () => {
         // Determine whether to show the hamburger menu based on scroll position
         setNavigationBg(window.scrollY > 90 ? true : false) 
@@ -34,23 +30,14 @@ function Navigation(props) {
         setShowSearch(false);
     }
 
-
     const searchResults = (value) => {
         // Update the search value and setResults accordingly
-
-
         setSearchValue(value);
         // You can filter products based on the value here and set them to results
-        
         const filteredResults = props.products.filter((product) =>
           product.product.name.toLowerCase().includes(value.toLowerCase())
         );
-
-        /*if (filteredResults === null || undefined || []) {
-            setResults(props.products.filter((product) => product.product.name === results))
-        }*/
-
-        console.log(filteredResults)
+        
         setResults(filteredResults);
       };
 
