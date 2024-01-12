@@ -12,12 +12,13 @@ function SliderProduct(props) {
             <img src={props.image} alt={props.alt} />
             <div
                 className={
-                    `${showInfo ? 'bottom-0 h-full' : '-bottom-full h-0'} backdrop-blur-md transition-all delay-150 duration-300 bg-sky-800 flex justify-center items-center p-5 absolute text-white bg-opacity-80`
+                    `${showInfo ? 'bottom-0 h-full' : '-bottom-full h-0'} backdrop-blur-md transition-all delay-150 duration-300 bg-sky-800 
+                    flex justify-center items-center p-5 absolute text-white bg-opacity-80`
                 }
             >
-                <div className=' text-white p-5'>
-                    <h2 className="font-bold text-3xl mb-5">{props.title}</h2>
-                    <p className="text-lg">{props.about}</p>
+                <div className=' text-white p-5 '>
+                    <h2 className="font-bold text-3xl mb-5 phone:text-xl">{props.title}</h2>
+                    <p className="text-lg phone:text-sm">{props.about}</p>
                 </div>
             </div>
         </div>
