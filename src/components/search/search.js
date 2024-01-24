@@ -15,7 +15,7 @@ function Search(props) {
         }
     },[])
     return (
-        <div className="w-full bg-sky-600 bg-opacity-50 backdrop-blur-md absolute top-0 z-50 h-full">
+        <div className="w-full bg-sky-600 bg-opacity-50 backdrop-blur-md fixed top-0 z-50 h-full">
             <span onClick={() => props.setShowSearch(!props.showSearch)}><AiOutlineClose size={26} color='white' className="fixed top-4 right-4 cursor-pointer"></AiOutlineClose></span>
             <SearchEngine setShowSearch={props.setShowSearch} showSearch={props.showSearch} products={props.products} searchResults={props.searchResults} searchValue={props.searchValue} results={props.results}/>
             {
