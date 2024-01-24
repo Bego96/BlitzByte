@@ -7,8 +7,7 @@ import Search from "../search/search";
 import Logo from '../../assets/images/logo/logo.png'
 
 function Navigation(props) {
-    const [searchValue, setSearchValue] = useState('');
-    const [results, setResults] = useState([]);
+
     const [showSearch, setShowSearch] = useState(false);
     const [showHamburgerMenu, setShowHamburgerMenu] = useState(window.innerWidth > 914 ? false : true); // Initially true for all screen sizes
     const searchBar = useRef();
@@ -25,21 +24,6 @@ function Navigation(props) {
             setShowHamburgerMenu(window.scrollY > 90);
         }
     }
-
-    const closeSearchOnClickLink = () => {
-        setShowSearch(false);
-    }
-
-    const searchResults = (value) => {
-        // Update the search value and setResults accordingly
-        setSearchValue(value);
-        // You can filter products based on the value here and set them to results
-        const filteredResults = props.products.filter((product) =>
-          product.product.name.toLowerCase().includes(value.toLowerCase())
-        );
-
-        setResults(filteredResults);
-      };
 
     useEffect(() => {
         // Add scroll event listener to control hamburger menu appearance
@@ -76,7 +60,7 @@ function Navigation(props) {
                 </div>
                 <div className="ml-[20px] flex justify-center items-center">
                     <div className="flex items-center">
-                        <div ref={searchBar} onClick={() => setShowSearch(!showSearch)} className="mr-[20px] phone:mr-[14px]">
+                        <div ref={searchBar} onClick={() => props.setShowSearch(!props.showSearch)} className="mr-[20px] phone:mr-[14px]">
                             <IoSearchOutline size={window.innerWidth > 480 ? 25 : 22} color="white" className='cursor-pointer' />
                         </div>
                         <div className="block mr-[20px] phone:mr-[14px]"><BsPerson size={window.innerWidth > 480 ? 25 : 20} color="white" className='cursor-pointer' /></div>
@@ -93,10 +77,6 @@ function Navigation(props) {
                     </div>
                 </div>
             </div>
-            {   
-                showSearch && <Search closeSearchOnClickLink={closeSearchOnClickLink} results={results} searchValue={searchValue} searchResults={searchResults} 
-                setShowSearch={setShowSearch} showSearch={showSearch} products={props.products} addToCart={props.addToCart}/>
-            }
         </nav>
          </>
     )
