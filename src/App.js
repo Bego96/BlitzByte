@@ -5,7 +5,7 @@ import Main from './components/main/main';
 import Sidebar from './components/sidebar/sidebar';
 import Header from './components/header/header';
 import Footer from './components/footer/Footer';
-
+import Search from './components/search/search';
 let productCount = 0;
 
 function App() {
@@ -13,6 +13,24 @@ function App() {
   const [products, setProducts] = useState()
   const [cartProductList, setCartProductList] = useState([]);
   const [showCartCount, setShowCartCount] = useState(productCount);
+  const [showSearch, setShowSearch] = useState(false);
+  const [results, setResults] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
+
+  const closeSearchOnClickLink = () => {
+    setShowSearch(false);
+  }
+
+  const searchResults = (value) => {
+    // Update the search value and setResults accordingly
+    setSearchValue(value);
+    // You can filter products based on the value here and set them to results
+    const filteredResults = products.filter((product) =>
+      product.product.name.toLowerCase().includes(value.toLowerCase())
+    );
+
+    setResults(filteredResults);
+  };
 
   function toggleAside() {
     setShowAside(prevShowAside => !prevShowAside);
@@ -85,13 +103,17 @@ function App() {
     <>
     <BrowserRouter>
       <div className="relative">
+      {   
+                showSearch && <Search closeSearchOnClickLink={closeSearchOnClickLink} results={results} searchValue={searchValue} searchResults={searchResults} 
+                setShowSearch={setShowSearch} showSearch={showSearch} products={products} addToCart={addToCart}/>
+    }
         <Sidebar showAside={showAside} setAside={toggleAside} />
         <div
           className={`w-[90%] z-20 transition-all ease duration-700 tablet:w-[100%] tablet:z-10 ${
             showAside ? 'ml-[10%] tablet:ml-0' : 'ml-[5%] tablet:ml-0'
           }`}
         >
-          <Header setAside={toggleAside} showAside={showAside} products={products} addToCart={addToCart} showCartCount={showCartCount}/>
+          <Header setAside={toggleAside} showAside={showAside} products={products} addToCart={addToCart} showCartCount={showCartCount} showSearch={showSearch} setShowSearch={setShowSearch}/>
           <Main products={products} addToCart={addToCart} removeFromCart={removeFromCart} cartProductList={cartProductList}/>
         </div>
       </div>
