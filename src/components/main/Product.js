@@ -20,19 +20,12 @@ function Product(props) {
     const separatedRoutes = route.split('/').filter(segment => segment !== '');
     
     const [mainImage, setMainImage] = useState(0)
-    const [numOfProducts, setNumOfProducts] = useState(0)
     
     const product = props.products.find((p) => p.id === Number(productId));
 
     const addToCart = (productId) => {
         const product = parseInt(productId);
         props.addToCart(product)
-    }
-
-
-    const numOfProduct = (event) => {
-        let num  = event.target.value;
-        setNumOfProducts(num);
     }
 
 
@@ -100,14 +93,9 @@ function Product(props) {
                     })
                 }
                 </ul> 
-                <div className="flex">    
-                    <div className="w-14 mr-4">
-                        <input className="w-full p-2 rounded border border-cyan-400" type="number" id="productNum" name="productNum" step="1" value={numOfProducts < 1 ? 1 : numOfProducts} onChange={numOfProduct}/>
-                    </div>
-                    <div className="w-[40%]">
-                        <button className="bg-gradient-to-r from-cyan-500 via-cyan-500 to-cyan-500 w-full h-10 text-white rounded hover:from-pink-500 hover:to-pink-600 transition-all delay-50" onClick={() => addToCart(productId)}>Add to basket</button>
-                    </div>
-                </div>  
+                <div className="w-[40%]">
+                    <button className="bg-gradient-to-r from-cyan-500 via-cyan-500 to-cyan-500 w-full h-10 text-white rounded hover:from-pink-500 hover:to-pink-600 transition-all delay-50" onClick={() => addToCart(productId)}>Add to basket</button>
+                </div> 
             </div>
         </div>
         </>
