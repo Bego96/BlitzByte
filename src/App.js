@@ -1,11 +1,9 @@
 import { useState, useEffect} from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { motion as m } from 'framer-motion';
+import { BrowserRouter, } from 'react-router-dom';
 import './App.css';
 import Main from './components/main/main';
 import Sidebar from './components/sidebar/sidebar';
 import Header from './components/header/header';
-import productListService from './assets/services/productListService';
 import Footer from './components/footer/Footer';
 
 let productCount = 0;
@@ -16,13 +14,9 @@ function App() {
   const [cartProductList, setCartProductList] = useState([]);
   const [showCartCount, setShowCartCount] = useState(productCount);
 
-
-
   function toggleAside() {
     setShowAside(prevShowAside => !prevShowAside);
   }
-
-  
 
   const addToCart = (productId) => {
     
@@ -38,15 +32,13 @@ function App() {
   
     if (isProductInCart) {
       alert("Product already exists in cart");
-
       return;
     }
-  
+
     // If the product is not in the cart, add it
     setCartProductList((prevCart) => [...prevCart, productValues]);
     productCount++;
     setShowCartCount(productCount);
-
   };
 
   const removeFromCart = (productId) => {
@@ -61,35 +53,32 @@ function App() {
 
     productCount--;
     setShowCartCount(productCount);
-
   }
 
-
-
   useEffect(() => {
-        fetch('https://blitzbyte-server.vercel.app/products') // Adjust the URL to match your server
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          }
-            throw new Error('Network response was not ok');
-        })
-        .then((data) => {
-          setProducts(data); // Set the fetched data in the state
-        })
-        .catch((error) => console.log("Im sorry but, " + error));
+    fetch('https://blitzbyte-server.vercel.app/products') // Adjust the URL to match your server
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+          throw new Error('Network response was not ok');
+      })
+      .then((data) => {
+        setProducts(data); // Set the fetched data in the state
+      })
+      .catch((error) => console.log("Im sorry but, " + error));
       
-    const toggleSideBar = () => {
-      if (window.scrollY < 50) {
-        setShowAside(false);
-      } 
-    }
+      const toggleSideBar = () => {
+        if (window.scrollY < 50) {
+          setShowAside(false);
+        } 
+      }
 
-    if (window.innerWidth > 914) {
-      window.addEventListener('scroll', toggleSideBar)
-    } else {
-      window.removeEventListener('scroll', toggleSideBar)
-    }
+      if (window.innerWidth > 914) {
+        window.addEventListener('scroll', toggleSideBar)
+      } else {
+        window.removeEventListener('scroll', toggleSideBar)
+      }
   }, [])
 
   return (

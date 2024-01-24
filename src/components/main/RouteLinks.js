@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, } from "react-router-dom";
 import HomePage from "../homepage/HomePage";
 import Shop from "../shop/Shop";
 import Product from "./Product";
@@ -7,13 +7,8 @@ import Laptop from "../laptop/laptop";
 import Mobile from "../mobile/mobile";
 import Television from "../television/television";
 import Cart from "../cart/cart";
-import { useState } from "react";
- 
 
 function RouteLinks(props) {
-
-
-  
   return (
     <Routes>
       <Route path='/' element={<HomePage products={props.products} addToCart={props.addToCart}/>}/>
