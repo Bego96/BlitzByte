@@ -1,10 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, } from 'react';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import {IoSearchOutline} from 'react-icons/io5';
-import productListService from '../../assets/services/productListService';
 
 function DesktopNavigation(props) {
     const [sortProduct, setSortProduct] = useState('All prices');
@@ -14,8 +12,6 @@ function DesktopNavigation(props) {
         setSortProduct(selectedValue);
         props.sortingProducts(selectedValue);
     };
-
-    
 
     return(
         <div className="flex bg-slate-100 p-6 my-10 rounded-md justify-between items-center laptop:items-start phone:flex-col phone:justify-center phone:items-center tablet:mb-10">

@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import productListService from '../../assets/services/productListService';
 
 function LaptopSideBarCategories(props) {
   const [brands, setBrands] = useState([]);
   const [brandTypes, setBrandTypes] = useState(props.products)
 
   const calcItems = (brand) => {
-    console.log(props.products.filter(product => product.product.brand === brand).length)
     return brandTypes.filter(product => product.product.brand === brand).length;
   }
-
-  console.log(brands);
 
   const selectCategory = (value) => {
     const selectedCategory = value;
@@ -18,8 +14,7 @@ function LaptopSideBarCategories(props) {
   }
 
   useEffect(() => {
-    // Extract unique product types from productListService
-
+    // Extract unique product types from database
     const uniqueTypes = [...new Set(props.products.map(product => product.product.brand))];
     setBrands(uniqueTypes);
   }, []);

@@ -3,27 +3,15 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import {IoSearchOutline} from 'react-icons/io5';
-import productListService from '../../assets/services/productListService';
 
 function TelevisionNavigation(props) {
     const [sortProduct, setSortProduct] = useState('All prices');
-    const [productType, setProductType] = useState();
 
     const handleChange = (event) => {
         const selectedValue = event.target.value;
         setSortProduct(selectedValue);
         props.sortingProducts(selectedValue);
     };
-
-    useEffect(() => {
-        // Extract unique product types from productListService
-    
-        const uniqueTypes = [...new Set(props.products.map(product => product.product.brand))];
-        setProductType(uniqueTypes);
-      }, []);
-
-      console.log(productType)
 
     return(
         <div className="flex bg-slate-100 p-6 my-10 rounded-md justify-between items-center laptop:items-start phone:flex-col phone:justify-center phone:items-center tablet:mb-10">

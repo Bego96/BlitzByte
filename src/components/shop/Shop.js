@@ -5,7 +5,7 @@ import ShopContainer from "./ShopContainer";
 function Shop(props) {
     const [products, setProducts] = useState()
     const [itemsPerPage, setItemsPerPage] = useState(null);
-
+    const [itemOffset, setItemOffset] = useState(0);
     
     const sortingProducts = (value) => {
         
@@ -22,6 +22,7 @@ function Shop(props) {
                       const productList = data;
                       setProducts(productList);
                       setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+                      setItemOffset(0);
                     } else {
                       console.error('Invalid data format from the server:', data);
                     }
@@ -42,6 +43,7 @@ function Shop(props) {
                   const productList = data;
                   setProducts(productList);
                   setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+                  setItemOffset(0);
                 } else {
                   console.error('Invalid data format from the server:', data);
                 }
@@ -62,6 +64,7 @@ function Shop(props) {
                   const productList = data;
                   setProducts(productList);
                   setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+                  setItemOffset(0);
                 } else {
                   console.error('Invalid data format from the server:', data);
                 }
@@ -86,6 +89,8 @@ function Shop(props) {
                 const productList = data;
                 setProducts(productList);
                 setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+                setItemOffset(0);
+                console.log("Fetched products " + productList)
               } else {
                 console.error('Invalid data format from the server:', data);
               }
@@ -106,6 +111,7 @@ function Shop(props) {
               const productList = data;
               setProducts(productList);
               setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+                  setItemOffset(0);
             } else {
               console.error('Invalid data format from the server:', data);
             }
@@ -134,6 +140,7 @@ function Shop(props) {
             const productList = data;
             setProducts(productList);
             setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+            setItemOffset(0);
           } else {
             console.error('Invalid data format from the server:', data);
           }
@@ -157,12 +164,15 @@ function Shop(props) {
               const productList = data;
               setProducts(productList);
               setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+              setItemOffset(0);
             } else {
               console.error('Invalid data format from the server:', data);
             }
           })
           .catch((error) => console.log("I'm sorry but, " + error));
       }, []);
+
+      console.log("IM PRODUCTS " +products)
   return (
     <>
       <div className="pb-10 px-6 tablet:px-4">
@@ -178,11 +188,13 @@ function Shop(props) {
         }
         {
             products && <ShopContainer
+            itemOffset={itemOffset}
+            setItemsPerPage={setItemsPerPage}
+            setItemOffset={setItemOffset}
             itemsPerPage={itemsPerPage}
             products={products}
             selectedCategory={selectedCategory}
             filterByPrice={filterByPrice}
-            placeProductLink={props.placeProductLink}
             addToCart={props.addToCart}
           />
         }

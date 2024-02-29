@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, } from "react";
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import MobileSideBarCategories from "./mobileSideBarCategories";
@@ -10,7 +10,6 @@ function valuetext(value) {
 function MobileSidebar(props) {
 
     const price=  props.products.map((price) => price.product.price);
-    console.log(typeof Math.max(...price))
     const [priceValue, setPriceValue] = useState([0, Math.max(...price)]);
 
     const handlePriceChange = (event, newValue) => {
@@ -22,14 +21,12 @@ function MobileSidebar(props) {
     const minPrice = (event) => {
        const newMinPrice = parseFloat(event.target.value); // Parse the input value to a float
        setPriceValue([newMinPrice, priceValue[1]]); // Update the priceValue state with the new minimum price
-       console.log(event.target.value)
         props.filterByPrice([newMinPrice, priceValue[1]])
     }
 
     const maxPrice = (event) => {
        const newMaxPrice = parseFloat(event.target.value); // Parse the input value to a float
        setPriceValue([priceValue[0], newMaxPrice]); // Update the priceValue state with the new minimum price
-       console.log(event.target.value)
        props.filterByPrice([priceValue[0], newMaxPrice])
     }
 
@@ -37,8 +34,6 @@ function MobileSidebar(props) {
         const selectedCategory = value;
         props.selectedCategory(selectedCategory);
     }
-
-    
 
     return (
         <div className="w-[15%] laptop:w-[25%] tablet:w-full">

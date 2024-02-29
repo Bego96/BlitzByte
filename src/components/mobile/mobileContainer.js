@@ -1,20 +1,12 @@
-
-import { useEffect, useState } from "react";
-import { useMediaQuery } from "@uidotdev/usehooks";
+import { useState } from "react";
 import MobileSidebar from "./mobileSidebar";
 import MobileProductList from "./mobileProductList";
-
-
 
 function MobileContainer(props) {
     const [showMenu, setShowMenu] = useState(window.innerWidth > 768);
     
     const showMenuFunction = () => {
         setShowMenu(!showMenu);
-    }
-
-    const placeProductLink = (link) => {
-        props.placeProductLink(link)
     }
 
     return (
@@ -26,9 +18,20 @@ function MobileContainer(props) {
             </div>
             
             {showMenu && (
-                <MobileSidebar selectedCategory={props.selectedCategory} products={props.products} filterByPrice={props.filterByPrice}/>
+                <MobileSidebar 
+                selectedCategory={props.selectedCategory} 
+                products={props.products} 
+                filterByPrice={props.filterByPrice}
+                />
             )}
-            <MobileProductList itemsPerPage={props.itemsPerPage} addToCart={props.addToCart} products={props.products} placeProductLink={props.placeProductLink}/>
+            <MobileProductList 
+            itemOffset={props.itemOffset} 
+            setItemOffset={props.setItemOffset}  
+            setItemsPerPage={props.setItemsPerPage} 
+            itemsPerPage={props.itemsPerPage}  
+            addToCart={props.addToCart} 
+            products={props.products} 
+            />
         </div>
     )
 }

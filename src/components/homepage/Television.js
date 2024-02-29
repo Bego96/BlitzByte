@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, } from "react";
 import ProductItem from "../main/ProductItem";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -8,13 +8,10 @@ import 'swiper/css/scrollbar';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 function Television(props) {
-
-
     const [televisionProduct, setTelevisionProduct] = useState(
         props.products.filter((product) => product.product.type === "LED TV") 
     )
     
-
     return (
         <div className="p-10 phone:p-6 bg-slate-100 rounded-md my-10">
             <div>

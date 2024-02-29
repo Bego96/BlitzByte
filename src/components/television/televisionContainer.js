@@ -1,6 +1,4 @@
-
-import { useEffect, useState } from "react";
-import { useMediaQuery } from "@uidotdev/usehooks";
+import { useState } from "react";
 import TelevisionSidebar from "./televisionSidebar";
 import TelevisionProductList from "./televisionProductList";
 
@@ -12,10 +10,6 @@ function TelevisionContainer(props) {
         setShowMenu(!showMenu);
     }
 
-    const placeProductLink = (link) => {
-        props.placeProductLink(link)
-    }
-
     return (
         <div className="flex justify-between tablet:flex-col">
             <div className="hidden tablet:block tablet:mb-10 tablet:flex tablet:justify-center tablet:items-center tablet:block">
@@ -25,9 +19,19 @@ function TelevisionContainer(props) {
             </div>
             
             {showMenu && (
-                <TelevisionSidebar selectedCategory={props.selectedCategory} products={props.products} filterByPrice={props.filterByPrice}/>
+                <TelevisionSidebar 
+                selectedCategory={props.selectedCategory} 
+                products={props.products} 
+                filterByPrice={props.filterByPrice}/>
             )}
-            <TelevisionProductList itemsPerPage={props.itemsPerPage} addToCart={props.addToCart} products={props.products} placeProductLink={props.placeProductLink}/>
+            <TelevisionProductList 
+            itemOffset={props.itemOffset} 
+            setItemOffset={props.setItemOffset}  
+            setItemsPerPage={props.setItemsPerPage} 
+            itemsPerPage={props.itemsPerPage} 
+            addToCart={props.addToCart} 
+            products={props.products}
+            />
         </div>
     )
 }

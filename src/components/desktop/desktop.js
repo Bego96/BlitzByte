@@ -4,11 +4,9 @@ import DesktopContainer from "./desktopContainer";
 
 function Desktop(props) {
 
-    const [products, setProducts] = useState(
-        //props.products.filter((product) => product.category === 'PC')
-    )
+    const [products, setProducts] = useState()
     const [itemsPerPage, setItemsPerPage] = useState(null);
-
+    const [itemOffset, setItemOffset] = useState(0);
     
     const sortingProducts = (value) => {
         const category = "PC";
@@ -25,6 +23,7 @@ function Desktop(props) {
                       const productList = data;
                       setProducts(productList);
                       setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+                      setItemOffset(0);
                     } else {
                       console.error('Invalid data format from the server:', data);
                     }
@@ -45,6 +44,7 @@ function Desktop(props) {
                   const productList = data;
                   setProducts(productList);
                   setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+                  setItemOffset(0);
                 } else {
                   console.error('Invalid data format from the server:', data);
                 }
@@ -64,8 +64,8 @@ function Desktop(props) {
                 if (Array.isArray(data)) {
                   const productList = data;
                   setProducts(productList);
-                  console.log(productList)
                   setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+                  setItemOffset(0);
                 } else {
                   console.error('Invalid data format from the server:', data);
                 }
@@ -91,6 +91,7 @@ function Desktop(props) {
                 const productList = data;
                 setProducts(productList);
                 setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+                setItemOffset(0);
               } else {
                 console.error('Invalid data format from the server:', data);
               }
@@ -111,6 +112,7 @@ function Desktop(props) {
               const productList = data;
               setProducts(productList);
               setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+              setItemOffset(0);
             } else {
               console.error('Invalid data format from the server:', data);
             }
@@ -139,6 +141,7 @@ function Desktop(props) {
             const productList = data;
             setProducts(productList);
             setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+            setItemOffset(0);
           } else {
             console.error('Invalid data format from the server:', data);
           }
@@ -165,6 +168,7 @@ function Desktop(props) {
               setProducts(productList);
               console.log(productList)
               setItemsPerPage(productList.length > 9 ? 10 : productList.length);
+              setItemOffset(0);
             } else {
               console.error('Invalid data format from the server:', data);
             }
@@ -178,10 +182,24 @@ function Desktop(props) {
                 <p className="text-3xl text-blue-600">Desktop</p>
             </div>
             {
-                products && <DesktopNavigation products={products} sortingProducts={sortingProducts} itemsPerPage={itemsPerPage}/>
-                            
+              products && 
+              <DesktopNavigation 
+              products={products} 
+              sortingProducts={sortingProducts} 
+              itemsPerPage={itemsPerPage}/>         
             }
-            {products && <DesktopContainer itemsPerPage={itemsPerPage} addToCart={props.addToCart} products={products} selectedCategory={selectedCategory} filterByPrice={filterByPrice} placeProductLink={props.placeProductLink}/>}
+            {
+              products && 
+              <DesktopContainer 
+              itemOffset={itemOffset}
+              setItemsPerPage={setItemsPerPage}
+              setItemOffset={setItemOffset}
+              itemsPerPage={itemsPerPage} 
+              addToCart={props.addToCart} 
+              products={products} 
+              selectedCategory={selectedCategory} 
+              filterByPrice={filterByPrice}/>
+            }
             
         </div>
         </>

@@ -3,7 +3,6 @@ import { IoSearchOutline } from 'react-icons/io5';
 import { BsCart } from 'react-icons/bs';
 import { BsPerson } from 'react-icons/bs';
 import { Link } from "react-router-dom";
-import Search from "../search/search";
 import Logo from '../../assets/images/logo/logo.png'
 
 function Navigation(props) {

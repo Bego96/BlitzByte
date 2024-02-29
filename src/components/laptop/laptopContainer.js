@@ -1,6 +1,4 @@
-
-import { useEffect, useState } from "react";
-import { useMediaQuery } from "@uidotdev/usehooks";
+import { useState } from "react";
 import LaptopSidebar from "./laptopSidebar";
 import LaptopProductList from "./laptopProductList";
 
@@ -12,10 +10,6 @@ function LaptopContainer(props) {
         setShowMenu(!showMenu);
     }
 
-    const placeProductLink = (link) => {
-        props.placeProductLink(link)
-    }
-
     return (
         <div className="flex justify-between tablet:flex-col">
             <div className="hidden tablet:block tablet:mb-10 tablet:flex tablet:justify-center tablet:items-center tablet:block">
@@ -25,9 +19,20 @@ function LaptopContainer(props) {
             </div>
             
             {showMenu && (
-                <LaptopSidebar selectedCategory={props.selectedCategory} products={props.products} filterByPrice={props.filterByPrice}/>
+                <LaptopSidebar 
+                selectedCategory={props.selectedCategory} 
+                products={props.products} 
+                filterByPrice={props.filterByPrice}
+                />
             )}
-            <LaptopProductList itemsPerPage={props.itemsPerPage} addToCart={props.addToCart} products={props.products} placeProductLink={props.placeProductLink}/>
+            <LaptopProductList 
+            itemOffset={props.itemOffset} 
+            setItemOffset={props.setItemOffset}  
+            setItemsPerPage={props.setItemsPerPage} 
+            itemsPerPage={props.itemsPerPage} 
+            addToCart={props.addToCart} 
+            products={props.products} 
+            />
         </div>
     )
 }

@@ -10,12 +10,10 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 function Desktop(props) {
 
     
-
     const [desktopProduct, setDesktopProduct] = useState(
         props.products.filter((product) => product.product.type === "Desktop PC") 
     )
     
-
     return (
         <div className="p-10 phone:p-6 bg-slate-100  rounded-md my-10">
             <div>

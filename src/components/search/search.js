@@ -1,5 +1,4 @@
-import { AiOutlineHeart, AiOutlineClose } from 'react-icons/ai';
-import { IoSearchOutline } from 'react-icons/io5';
+import { AiOutlineClose } from 'react-icons/ai';
 import SearchEngine from './searchEngine';
 import SearchResults from './searchResults';
 import { useEffect } from 'react';

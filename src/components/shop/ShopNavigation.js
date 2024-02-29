@@ -3,7 +3,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import {IoSearchOutline} from 'react-icons/io5';
+
 
 function ShopNavigation(props) {
     const [sortProduct, setSortProduct] = useState('All prices');

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, } from "react";
 import ProductItem from "../main/ProductItem";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -9,7 +9,6 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 function Laptop(props) {
 
-   // const [slidesPerView, setSlidesPerView] = useState(5);
 
     const [laptopProduct, setDesktopProduct] = useState(
         props.products.filter((product) => product.product.type === "Laptop") 

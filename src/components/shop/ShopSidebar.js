@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ShopSidebarCategories from "./ShopSidebarCategories";
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
@@ -9,10 +9,10 @@ function valuetext(value) {
 
 function ShopSidebar(props) {
 
-    const price=  props.products.map((price) => price.product.price);
+    const price = props.products.map((price) => price.product.price);
     const [priceValue, setPriceValue] = useState([0, Math.max(...price)]);
 
-    const handlePriceChange = (event, newValue) => {
+    const handlePriceChange = ( newValue) => {
         const priceNewValue = priceValue;
         setPriceValue(newValue);
         props.filterByPrice(priceNewValue);
@@ -40,7 +40,7 @@ function ShopSidebar(props) {
     return (
         <div className="w-[15%] laptop:w-[25%] tablet:w-full">
             <div className="">
-                <ShopSidebarCategories selectCategory={selectCategory}/>
+                <ShopSidebarCategories selectCategory={selectCategory} products={props.products}/>
             </div>
 
             <div className="my-10 pl-10">

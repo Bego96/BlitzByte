@@ -8,7 +8,6 @@ function LatestProducts(props) {
         props.products.slice(0, maxProducts)
     )
     
-
     return (
         <><div className="p-10 phone:p-4 bg-slate-100 rounded-md">
                 <h2 className=" text-3xl font-semibold mb-10 text-slate-600">Latest</h2>

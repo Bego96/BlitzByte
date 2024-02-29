@@ -1,7 +1,6 @@
 import ShopProductList from "./ShopProductList";
 import ShopSidebar from "./ShopSidebar";
-import { useEffect, useState } from "react";
-import { useMediaQuery } from "@uidotdev/usehooks";
+import { useState } from "react";
 
 function ShopContainer(props) {
     const [showMenu, setShowMenu] = useState(window.innerWidth > 768);
@@ -22,7 +21,7 @@ function ShopContainer(props) {
                 <ShopSidebar selectedCategory={props.selectedCategory} products={props.products} filterByPrice={props.filterByPrice} />
             )}
 
-            <ShopProductList itemsPerPage={props.itemsPerPage} updateAmountOfShownProducts={props.updateAmountOfShownProducts} products={props.products} addToCart={props.addToCart}/>
+            <ShopProductList itemOffset={props.itemOffset} setItemOffset={props.setItemOffset}  setItemsPerPage={props.setItemsPerPage} itemsPerPage={props.itemsPerPage} updateAmountOfShownProducts={props.updateAmountOfShownProducts} products={props.products} addToCart={props.addToCart}/>
         </div>
     )
 }

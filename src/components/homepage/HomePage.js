@@ -14,11 +14,9 @@ function HomePage(props) {
 
     const [products, setProducts] = useState(
         props.products
-
     )
 
     const location = useLocation();
-    console.log(location)
 
     if (location.pathname === '/') {
         return <Navigate to='/Home' />

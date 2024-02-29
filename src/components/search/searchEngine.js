@@ -1,17 +1,10 @@
-import { AiOutlineHeart, AiOutlineClose } from 'react-icons/ai';
 import { IoSearchOutline } from 'react-icons/io5';
-import SearchResults from './searchResults';
-import { useState } from 'react';
-
 
 function SearchEngine(props) {
 
-
     const searchResults = (event) => {
         const resultValue = event.target.value;
-        
         props.searchResults(resultValue)
-
     }
 
     return (

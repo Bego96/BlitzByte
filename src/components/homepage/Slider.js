@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import sliderService from '../../assets/services/sliderService';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -11,14 +11,10 @@ import SliderProduct from "./SliderProduct";
 
 
 function Slider() {
-
     const [sliderGallery, setSliderGallery] = useState(
         sliderService
     );
 
-    // Define a state variable to store the number of slides per view
-
-    // Update the number of slides per view when the window width changes
 
     return (
         <div className="w-full my-20 rounded-md overflow-hidden">

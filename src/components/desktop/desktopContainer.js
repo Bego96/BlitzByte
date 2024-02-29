@@ -1,6 +1,4 @@
-
-import { useEffect, useState } from "react";
-import { useMediaQuery } from "@uidotdev/usehooks";
+import { useState } from "react";
 import DesktopSidebar from "./desktopSidebar";
 import DesktopProductList from "./desktopProductList";
 
@@ -21,9 +19,20 @@ function DesktopContainer(props) {
             </div>
             
             {showMenu && (
-                <DesktopSidebar selectedCategory={props.selectedCategory} products={props.products} filterByPrice={props.filterByPrice}/>
+                <DesktopSidebar 
+                selectedCategory={props.selectedCategory} 
+                products={props.products} 
+                filterByPrice={props.filterByPrice}
+                />
             )}
-            <DesktopProductList itemsPerPage={props.itemsPerPage} addToCart={props.addToCart} products={props.products}/>
+            <DesktopProductList 
+            itemOffset={props.itemOffset} 
+            setItemOffset={props.setItemOffset}  
+            setItemsPerPage={props.setItemsPerPage} 
+            itemsPerPage={props.itemsPerPage} 
+            addToCart={props.addToCart} 
+            products={props.products}
+            />
         </div>
     )
 }
